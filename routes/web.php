@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/games', [GamesController::class, 'index']);
+Route::get('/games', [GamesController::class, 'index'])->name('games.index');
