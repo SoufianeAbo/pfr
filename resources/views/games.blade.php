@@ -22,9 +22,10 @@
             <p class = "text-[28px]">Neoline</p>
         </div>
         <div class = "toptitle pl-8">
+            <img src="branddots.png" alt="">
             <p class = "text-[2.5rem]">Featured Games</p>
             <div class = "flex flex-row mt-4 gap-4">
-                <div class = "relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <div class = "hover:top-4 top-0 animate-slide-in-blurred-bottom relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" alt="">
                     <div class = "rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class = "absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -34,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class = "relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <div class = "hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
                     <div class = "rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class = "absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -44,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class = "relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <div class = "hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
                     <div class = "rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class = "absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -54,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class = "relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <div class = "hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
                     <div class = "rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class = "absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -64,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class = "relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <div class = "hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[600ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/54aa71911087f3b0ac9d3c45b94288ea.jpg" alt="">
                     <div class = "rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class = "absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -74,6 +75,17 @@
                     </div>
                 </div>
              </div>
+        </div>
+        <div class = "toptitle pl-8 mt-24">
+            <img src="branddots.png" alt="">
+            <div class = "flex flex-row justify-between">
+                <p class = "text-[2.5rem]">All Games</p>
+                <div class = "flex flex-row items-center">
+                    <div class = "flex flex-row px-4 h-min py-2 items-center border-2 border-black rounded-full">
+                        <p class = "text-sm">Action</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
