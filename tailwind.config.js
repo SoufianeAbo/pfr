@@ -28,6 +28,7 @@ export default {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("tailwindcss-textshadow"),
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {

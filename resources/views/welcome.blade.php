@@ -5,85 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <style>
-@font-face {
-    font-family: 'Gotham';
-    font-weight: 200;
-    src: url('/fonts/Gotham-Book.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Gotham';
-    font-weight: 300;
-    src: url('/fonts/Gotham-Medium.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Gotham';
-    font-weight: 400;
-    src: url('/fonts/Gotham-Bold.otf') format('opentype');
-}
-
-p {
-    font-family: Gotham;
-    font-weight: 200;
-}
-
-.toptitle p {
-    font-weight: 400;
-}
-
-.imgclip {
-    clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
-}
-
-#game1, #game2, #game3 {
-    height: 50rem;
-    width: 100%;
-    background-size: cover;
-}
-
-#game3 {
-    height: 30rem;
-}
-
-#game1 p, #game2 p, #game3 p {
-    font-weight: 400;
-}
-
-button {
-    font-family: 'Gotham';
-    font-weight: 400;
-}
-
-#game1 {
-    background-image: url("https://preview.redd.it/3daagjald2dy.jpg?auto=webp&s=0a75177e001eb9a3e3c78c16dca332e20e9737f8");
-}
-
-#game2 {
-    background-image: url("https://static.bandainamcoent.eu/high/elden-ring/elden-ring/02-screenshots/EldenRing_Screen.png");
-}
-
-#game3 {
-    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url("https://www.gematsu.com/wp-content/uploads/2022/04/Game-Page-Featured_Kingdom-Hearts-4-Inits.jpg");
-}
-
-#caroGame1 {
-    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url("https://expertgamereviews.com/wp-content/uploads/2021/07/Zelda-BotW-DLC-Feature-1280x720.jpg");
-}
-
-#caroGame2 {
-    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url("https://www.psu.com/wp/wp-content/uploads/2019/03/Sekiro-shadows-die-twice-cover.jpg");
-}
-
-.logo p {
-    font-weight: 200 !important;
-}
-
-.footer p {
-    font-weight: 300 !important;
-}
 
 </style>
 <body>
