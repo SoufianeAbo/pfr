@@ -122,49 +122,49 @@
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Artist</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "/careers/artist" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Story Designer</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Proofreader</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Voice Actor</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Game Designer</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Project Designer</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Producer</p>
-                <button class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</button>
+                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
     </div>

@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('/games', [GamesController::class, 'index'])->name('games.index');
 Route::get('/careers', [CareersController::class, 'index'])->name('careers.index');
+Route::get('/careers/{career}', [CareersController::class, 'jobOffer'])->name('careers.joboffer');
