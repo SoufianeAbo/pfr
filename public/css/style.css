@@ -87,3 +87,7 @@ button {
 .careersbg {
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.75) 100%), url("https://archive.challenge.ma/wp-content/uploads/2018/11/d097d44d50941aae89a65c570f65f6a9.jpg");
 }
+
+.careersbg2 {
+    background-image: url("https://media.graphassets.com/FSsJAl3dSdGD9uNA86IC");
+}
