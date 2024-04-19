@@ -103,10 +103,10 @@
                 </div>
 
                 <div class = "flex flex-col gap-4">
-                    <p>Games</p>
-                    <p>Careers</p>
-                    <p>News</p>
-                    <p>Login</p>
+                    <a href="#">Games</a>
+                    <a href="{{ route('careers.index') }}">Careers</a>
+                    <a href="#">News</a>
+                    <a href="#">Login</a>
                 </div>
 
                 <div class = "flex flex-col footer w-1/2">
