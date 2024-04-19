@@ -59,6 +59,7 @@ export default {
   plugins: [
     require("tailwindcss-animate"),
     require("tailwindcss-textshadow"),
+    require("taos/plugin"),
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
