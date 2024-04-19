@@ -9,6 +9,6 @@ class CareersController extends Controller
 {
     public function index(): View
     {
-        return view('games');
+        return view('careers');
     }
 }

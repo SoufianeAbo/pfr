@@ -16,4 +16,7 @@
         </div>
         <img class = "w-16 drop-shadow-md my-2 mr-4" src="neolinelogo.png" alt="">
     </div>
+    <div class = "careersbg w-full">
+        <p>Careers</p>
+    </div>
 </body>
