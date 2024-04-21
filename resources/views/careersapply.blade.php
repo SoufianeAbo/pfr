@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite('resources/css/app.css')
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+@include('includes.header')
 <body>
-    <div class = "bg-black flex justify-end items-center gap-8 fixed w-full z-50">
-        <div class = "text-white flex flex-row gap-4">
-            <a href="{{ route('games.index') }}" class = "relative w-fit block after:block after:content-[''] after:absolute after:h-[1px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">Games</a>
-            <a href="#" class = "relative w-fit block after:block after:content-[''] after:absolute after:h-[1px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">News</a>
-            <a href="#" class = "relative w-fit block after:block after:content-[''] after:absolute after:h-[1px] after:bg-white after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">Contact</a>
-        </div>
-        <img class = "w-16 drop-shadow-md my-2 mr-4" src="../neolinelogo.png" alt="">
-    </div>
+    @include('includes.navbar')
     <div class = "careersbg3 pt-48 pl-48 pb-24">
         <p class = "text-gray-400 tracking-tight boldmedium mb-4 text-sm opacity-50">JOIN OUR TEAM</p>
         <p class = "text-white text-6xl boldfour mb-4">{{ $title }}</p>
@@ -155,33 +140,5 @@
             </div>
         </div>
     </div>
-
-    <div class="bg-black p-8 mt-16">
-        <div class="flex flex-row text-white logo items-start justify-between">
-            <div class="flex flex-row items-center gap-4">
-                <img class="w-16" src="../neolinewhiteonly.png" alt="">
-                <p class="text-xl">Neoline</p>
-            </div>
-
-            <div class = "flex flex-col gap-4">
-                <a href="#">Games</a>
-                <a href="{{ route('careers.index') }}">Careers</a>
-                <a href="#">News</a>
-                <a href="#">Login</a>
-            </div>
-
-            <div class="flex flex-col footer w-1/2">
-                <p class="text-sm tracking-wider w-fit">Our partners</p>
-                <div class="flex flex-row w-full gap-4 items-center">
-                    <img class="w-1/6 h-full" src="../steamlogo.png" alt="">
-                    <img class="w-1/12" src="https://fineproxy.org/wp-content/uploads/2023/08/Epic-Games-logo.png" alt="">
-                    <img class="w-1/6" src="https://www.storylandstudios.com/wp-content/uploads/2022/01/Ubisoft-Horizontal-Logo-WHITE_1.png" alt="">
-                    <img class="w-1/12" src="https://vgboxart.com/resources/logo/12498_ea-white-prev.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-[#e20613] footer">
-        <p class="text-white p-4 text-sm tracking-wider">© 2010 - 2024 Neoline LLC</p>
-    </div>
+    @include('includes.footer')
 </body>
