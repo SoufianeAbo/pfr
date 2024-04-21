@@ -80,7 +80,7 @@ button {
     font-weight: 200;
 }
 
-.boldfour {
+.boldfour, .boldfour p {
     font-weight: 400;
 }
 
@@ -92,6 +92,14 @@ button {
     background-image: url("https://media.graphassets.com/FSsJAl3dSdGD9uNA86IC");
 }
 
-.boldmedium {
+.careersbg3 {
+    background-image: url("https://www.bandainamcoent.com/assets/images/careers/single-career-bg.webp");
+}
+
+.boldmedium, .boldmedium p {
     font-weight: 300;
+}
+
+.nobold {
+    font-weight: 200;
 }

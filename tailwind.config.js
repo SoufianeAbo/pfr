@@ -5,6 +5,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    "./resources/**/careers/*.blade.php",
   ],
   theme: {
     extend: {
