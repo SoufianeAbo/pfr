@@ -312,7 +312,7 @@ class CareersController extends Controller
 
                 $salaryRange = "Salary Range: $64,528 - $120,096";
                 break;
-            case 'Producer':
+            case 'producer':
                 $title = "Producer";
 
                 $positionSummary = "
