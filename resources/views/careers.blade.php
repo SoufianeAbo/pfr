@@ -129,42 +129,42 @@
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Story Designer</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/storydesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Proofreader</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/proofrader" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Voice Actor</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/voiceactor" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Game Designer</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/gamedesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Project Designer</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/projectdesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
 
         <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Producer</p>
-                <a href = "#" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                <a href = "/careers/producer" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
         </div>
     </div>
