@@ -16,6 +16,24 @@
     src: url('../fonts/Gotham-Bold.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Metropolis';
+    font-weight: 200;
+    src: url('../fonts/Metropolis-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    font-weight: 300;
+    src: url('../fonts/Metropolis-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    font-weight: 400;
+    src: url('../fonts/Metropolis-Bold.otf') format('opentype');
+}
+
 p {
     font-family: Gotham;
     font-weight: 200;
@@ -102,4 +120,20 @@ button {
 
 .nobold {
     font-weight: 200;
+}
+
+.gameBg {
+    background-image: url("https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/elden-ring-background-page-clouds.jpg?twic=v1/cover-min=1020x88");
+    background-attachment: fixed;
+    font-family: 'Metropolis';
+}
+
+.gameBg2 {
+    background-image: url("https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/elden-ring-keyfeatures-background-new-godfried2.jpg?twic=v1/cover-min=1360x845");
+    background-attachment: fixed;
+    font-family: 'Metropolis';
+}
+
+svg path {
+    fill: white;
 }

@@ -11,4 +11,9 @@ class GamesController extends Controller
     {
         return view('games');
     }
+
+    public function specificGame($game): View
+    {
+        return view('gamepage');
+    }
 }
