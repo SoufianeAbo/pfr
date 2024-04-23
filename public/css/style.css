@@ -34,6 +34,20 @@
     src: url('../fonts/Metropolis-Bold.otf') format('opentype');
 }
 
+.loginpage, .loginpage p {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.loginbg {
+    background-image: url("https://preview.redd.it/3daagjald2dy.jpg?auto=webp&s=0a75177e001eb9a3e3c78c16dca332e20e9737f8");
+}
+
+.loginbg .boldify {
+    font-weight: 800;
+}
 
 p {
     font-family: Gotham;
