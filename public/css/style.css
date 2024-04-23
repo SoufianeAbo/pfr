@@ -41,6 +41,15 @@
     font-style: normal;
 }
 
+.dashboard {
+    font-family: Gotham;
+    font-weight: 200;
+}
+
+.dashboard a {
+    font-weight: 300;
+}
+
 .loginbg {
     background-image: url("https://preview.redd.it/3daagjald2dy.jpg?auto=webp&s=0a75177e001eb9a3e3c78c16dca332e20e9737f8");
 }

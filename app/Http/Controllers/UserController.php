@@ -11,4 +11,9 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function userIndex(): View
+    {
+        return view('employee.dashboard');
+    }
 }
