@@ -13,9 +13,9 @@
                 <p>Africa</p>
             </div>
             <div class = "relative md:static">
-                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[250ms] md:animate-slide-top delay-75 absolute top-8 right-[0%] md:right-[22%] h-20% imgclip w-[50%] md:w-[20%] mr-24" src="https://cdn2.steamgriddb.com/thumb/812de5bb5b057f52381805d762962e80.jpg" alt="">
-                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[500ms] md:animate-slide-top absolute top-0 right-[15%] md:right-[12%] h-20% imgclip w-[50%] md:w-[20%] mr-24" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[700ms] md:animate-slide-top absolute top-16 right-[30%] md:right-0 h-20% imgclip w-[50%] md:w-[20%] mr-24" src="https://cdn2.steamgriddb.com/thumb/0ca86f4675b000cbd75d1a06012da467.jpg" alt="">
+                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[250ms] md:animate-slide-top delay-75 absolute top-8 right-[0%] md:right-[22%] h-20% imgclip w-[50%] md:w-[20%] mr-24" src="{{ $featured[2]->assets->gridVertical2 }}" alt="">
+                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[500ms] md:animate-slide-top absolute top-0 right-[15%] md:right-[12%] h-20% imgclip w-[50%] md:w-[20%] mr-24" src="{{ $featured[1]->assets->gridVertical2 }}" alt="">
+                <img class = "drop-shadow-md hover:paused hover:brightness-150 transition-all brightness-100 md:animation-delay-[700ms] md:animate-slide-top absolute top-16 right-[30%] md:right-0 h-20% imgclip w-[50%] md:w-[20%] mr-24" src="{{ $featured[0]->assets->gridVertical2 }}" alt="">
             </div>
         </div>
     </div>
@@ -23,12 +23,12 @@
         <div class = "flex justify-end">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
-                    <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="https://cdn2.steamgriddb.com/thumb/bc74aefc1eaebfb880955bc0c6a8cac5.jpg" alt="">
-                    <p>FINAL FANTASY 7 REMAKE</p>
+                    <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="{{ $featured[0]->assets->smallLogo }}" alt="">
+                    <p class = "uppercase">{{ $featured[0]->title }}</p>
                 </div>
 
                 <div class = "bg-white p-8 rounded-lg text-3xl text-black w-96">
-                    <p>Uncover a new chapter in the FINAL FANTASY saga</p>
+                    <p>{{ $featured[0]->subtitle }}</p>
                     <button class = "btn border border-[#e20613] hover:text-[#e20613] hover:bg-white transition-all text-xs tracking-widest bg-[#e20613] text-white p-8 w-full mt-4 rounded-lg">BUY NOW</button>
                 </div>
             </div>
@@ -38,12 +38,12 @@
         <div class = "flex justify-end">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
-                    <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="https://cdn2.steamgriddb.com/thumb/b677845905ccd63299c86ae6bfcff423.jpg" alt="">
-                    <p>ELDEN RING</p>
+                    <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="{{ $featured[1]->assets->smallLogo }}" alt="">
+                    <p class = "uppercase">{{ $featured[1]->title }}</p>
                 </div>
 
                 <div class = "bg-white p-8 rounded-lg text-3xl text-black w-96">
-                    <p>Explore the massive world of ELDEN RING</p>
+                    <p>{{ $featured[1]->subtitle }}</p>
                     <button class = "btn border border-[#e20613] hover:text-[#e20613] hover:bg-white transition-all text-xs tracking-widest bg-[#e20613] text-white p-8 w-full mt-4 rounded-lg">BUY NOW</button>
                 </div>
             </div>

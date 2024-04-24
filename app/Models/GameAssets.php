@@ -9,6 +9,8 @@ class GameAssets extends Model
 {
     use HasFactory;
 
+    protected $table = 'gameassets';
+
     protected $fillable = [
         'gameID',
         'gridVertical',
