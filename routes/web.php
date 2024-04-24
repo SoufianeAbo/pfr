@@ -3,10 +3,13 @@
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\UserController;
+use App\Models\Game;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $featured = Game::where('featured', '!=', '0')->limit(3)->get();
+
+    return view('welcome', compact('featured'));
 })->name('home.index');
 
 Route::get('/games', [GamesController::class, 'index'])->name('games.index');

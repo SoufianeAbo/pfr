@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
