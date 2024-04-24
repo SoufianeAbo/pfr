@@ -22,7 +22,7 @@ class GamePlatforms extends Model
         return $this->belongsTo(Game::class, 'gameID');
     }
 
-    public function platformID(): BelongsTo
+    public function platform(): BelongsTo
     {
         return $this->belongsTo(Platforms::class, 'platformID');
     }

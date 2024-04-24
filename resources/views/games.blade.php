@@ -58,7 +58,11 @@
                     <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
                         <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">{{ $game->title }}</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
+                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">
+                            @foreach($game->platforms as $platform)
+                                {{ $platform->platform->name }}
+                            @endforeach
+                        </p>
                         <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
                     </div>
                 </div>
