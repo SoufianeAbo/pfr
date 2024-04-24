@@ -19,7 +19,8 @@
             </div>
         </div>
     </div>
-    <div id = "game1">
+    
+    <div id = "game1" style = "background-image: url({{ $featured[0]->assets->widescreenPic }})" >
         <div class = "flex justify-end">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
@@ -34,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div id = "game2">
+    <div id = "game2" style = "background-image: url({{ $featured[1]->assets->widescreenPic }})">
         <div class = "flex justify-end">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
@@ -49,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div id = "game3">
+    <div id = "game3" style = "background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url({{ $featured[2]->assets->widescreenPic }})">
         <div class = "w-full flex flex-col gap-40">
             <div class = "bg-white p-8 rounded-lg text-black text-5xl w-1/3 mt-12 ml-4">
                 <p>Explore more games</p>

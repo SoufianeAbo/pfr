@@ -90,17 +90,17 @@ button {
     font-weight: 400;
 }
 
-#game1 {
+/* #game1 {
     background-image: url("https://preview.redd.it/3daagjald2dy.jpg?auto=webp&s=0a75177e001eb9a3e3c78c16dca332e20e9737f8");
-}
+} */
 
-#game2 {
+/* #game2 {
     background-image: url("https://static.bandainamcoent.eu/high/elden-ring/elden-ring/02-screenshots/EldenRing_Screen.png");
-}
+} */
 
-#game3 {
+/* #game3 {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url("https://www.gematsu.com/wp-content/uploads/2022/04/Game-Page-Featured_Kingdom-Hearts-4-Inits.jpg");
-}
+} */
 
 #caroGame1 {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url("https://expertgamereviews.com/wp-content/uploads/2021/07/Zelda-BotW-DLC-Feature-1280x720.jpg");
