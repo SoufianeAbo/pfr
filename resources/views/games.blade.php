@@ -60,7 +60,11 @@
                         <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">{{ $game->title }}</p>
                         <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">
                             @foreach($game->platforms as $platform)
-                                {{ $platform->platform->name }}
+                                @if ($loop->iteration != $loop->last)
+                                    {{ $platform->platform->name }},
+                                @else
+                                    {{ $platform->platform->name }}
+                                @endif
                             @endforeach
                         </p>
                         <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
