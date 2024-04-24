@@ -10,7 +10,10 @@ class GamesController extends Controller
 {
     public function index(): View
     {
-        return view('games');
+        $featured = Game::where('featured', '!=', '0')->limit(5)->get();
+        $games = Game::all();
+    
+        return view('games', compact('featured', 'games'));
     }
 
     public function specificGame($game): View
