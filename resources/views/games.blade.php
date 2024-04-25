@@ -10,50 +10,11 @@
             <img src="branddots.png" alt="">
             <p class="text-[2.5rem]">Featured Games</p>
             <div class="flex flex-row mt-4 gap-4">
-                <!-- <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">ELDEN RING</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">SEKIRO: SHADOWS DIE TWICE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">YAKUZA 0</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[600ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/54aa71911087f3b0ac9d3c45b94288ea.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">GHOST TRICK: PHANTOM DETECTIVE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div> -->
                 @foreach($featured as $key=>$game)
                 @php
                     $delay = ($key + 0) * 150;
                 @endphp
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <a href = "#" class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">
                     <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -69,7 +30,7 @@
                         </p>
                         <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
@@ -99,160 +60,29 @@
                 </div>
             </div>
 
-            <div class="flex flex-row mt-4 gap-4">
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" alt="">
+            <div class="flex flex-row flex-wrap mb-8 mt-4 gap-4">
+            @foreach($games as $key=>$game)
+                @php
+                    $delay = ($key + 0) * 150;
+                @endphp
+                <a href = "/games/{{ $game->id }}" class="hover:top-4 top-0 mb-8 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                    <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">
                     <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">FINAL FANTASY VII REMAKE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
+                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">{{ $game->title }}</p>
+                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">
+                            @foreach($game->platforms as $platform)
+                                @if ($loop->iteration != $loop->last)
+                                    {{ $platform->platform->name }},
+                                @else
+                                    {{ $platform->platform->name }}
+                                @endif
+                            @endforeach
+                        </p>
+                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
                     </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">ELDEN RING</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">SEKIRO: SHADOWS DIE TWICE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">YAKUZA 0</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[600ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/54aa71911087f3b0ac9d3c45b94288ea.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">GHOST TRICK: PHANTOM DETECTIVE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-row mt-4 gap-4">
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">FINAL FANTASY VII REMAKE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">ELDEN RING</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">SEKIRO: SHADOWS DIE TWICE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">YAKUZA 0</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[600ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/54aa71911087f3b0ac9d3c45b94288ea.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">GHOST TRICK: PHANTOM DETECTIVE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-row mt-4 gap-4">
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">FINAL FANTASY VII REMAKE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">ELDEN RING</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">SEKIRO: SHADOWS DIE TWICE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">YAKUZA 0</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
-
-                <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[600ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/54aa71911087f3b0ac9d3c45b94288ea.jpg" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">GHOST TRICK: PHANTOM DETECTIVE</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                    </div>
-                </div>
+                </a>
+                @endforeach
             </div>
         </div>
     </div>

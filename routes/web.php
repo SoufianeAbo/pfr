@@ -7,7 +7,7 @@ use App\Models\Game;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $featured = Game::where('featured', '!=', '0')->limit(3)->get();
+    $featured = Game::where('featured', '!=', '0')->orderBy('featured', 'DESC')->limit(3)->get();
     
     return view('welcome', compact('featured'));
 })->name('home.index');
