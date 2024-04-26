@@ -7,7 +7,7 @@
     </div>
     <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
     <div class = "sticky">
-        <div class = "gameBg relative flex flex-col items-center">
+        <div class = "gameBg relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
             <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
             <div class = "flex flex-row text-sm tracking-tight text-[{{ $project->assets->bgColor }}] gap-4">
@@ -39,7 +39,7 @@
             <img class = "w-1/2 mt-8" src="https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/ER-Notes-920x160.jpg?twic=v1/resize=1150/step=10/quality=80" alt="">
         </div>
     </div>
-    <div class = "gameBg2 text-white w-full flex justify-center">
+    <div class = "gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg2 }})" >
         <div class = "w-2/3">
             <h2 class = "text-4xl my-16">Key features</h2>
             @foreach ($project->features as $feature)
@@ -65,7 +65,7 @@
             @endforeach
         </div>
     </div>
-    <div class = "gameBg w-full flex flex-col items-center pb-8">
+    <div class = "gameBg w-full flex flex-col items-center pb-8" style = "background-image: url({{ $project->pictures->gameBg }})" >
         <div class = "flex flex-col items-center pt-8 w-[55%] text-center text-white">
             <img class = "pb-16" src="{{ $project->pictures->divider }}" alt="">
             <p class = "text-[{{ $project->assets->bgColor }}] text-4xl boldfour pb-8">{{ $project->text->postfBig }}</p>

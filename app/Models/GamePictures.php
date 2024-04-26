@@ -24,5 +24,7 @@ class GamePictures extends Model
         'divider2',
         'pageVid',
         'headerVid',
+        'gameBg',
+        'gameBg2',
     ];
 }
