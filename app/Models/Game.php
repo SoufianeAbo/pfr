@@ -45,4 +45,9 @@ class Game extends Model
     {
         return $this->hasOne(GamePictures::class, 'gameID');
     }
+
+    public function text(): HasOne
+    {
+        return $this->hasOne(GameText::class, 'gameID');
+    }
 }

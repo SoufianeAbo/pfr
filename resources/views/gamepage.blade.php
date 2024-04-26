@@ -17,15 +17,11 @@
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
-                    <h1 class = "text-3xl mb-8"></h1>
+                    <h1 class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
                     <div class = "text-sm flex flex-col gap-4">
-                        <p>Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.</p>
-                        <p>In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erdtree, has been shattered.</p>
-                        <p>Marika's offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will.</p>
-                        <p>And now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring.</p>
-                        <p class = "boldfour mt-16">And become the Elden Lord.</p>
+                        <p>{!!  $project->text->headerDesc !!}</p>
 
-                        <img class = "w-2/3 mt-16 self-center" src="https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/ER-award-banner_2023.png?twic=v1/step=10/quality=95" alt="">
+                        <img class = "w-2/3 mt-16 self-center" src="{{ $project->pictures->awards }}" alt="">
                         <p class = "text-xs">25/02/2022</p>
                         <div class = "flex flex-row gap-4">
                             <div class = "p-3 rounded border">
