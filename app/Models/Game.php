@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -49,5 +50,10 @@ class Game extends Model
     public function text(): HasOne
     {
         return $this->hasOne(GameText::class, 'gameID');
+    }
+
+    public function genre(): BelongsTo
+    {
+        return $this->belongsTo(Genres::class, 'genreID');
     }
 }
