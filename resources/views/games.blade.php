@@ -14,7 +14,7 @@
                 @php
                     $delay = ($key + 0) * 150;
                 @endphp
-                <a href = "#" class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <a href = "/games/{{ $game->id }}" class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">
                     <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
@@ -39,52 +39,73 @@
             <div class="flex flex-row justify-between">
                 <p class="text-[2.5rem]">All Games</p>
                 <div class="flex flex-row gap-4 items-center mr-24">
-                    <div class="focus-within:border-[#e20613] transition-all flex flex-row bg-white border-2 rounded-full border-black h-min p-2">
-                        <input type="text" placeholder="Search..." class="placeholder-[#e20613] focus:outline-none appearance-none px-2">
-                        <p class="text-[#e20613] px-2"><i class="fa-solid fa-magnifying-glass"></i></p>
-                    </div>
-
-                    <div class="flex flex-row items-center">
-                        <div class="group hover:text-white bg-white hover:bg-black transition-all flex flex-row px-4 h-min py-2 items-center border-2 border-black rounded-full">
-                            <p class="text-sm">Genre</p>
-                            <p class="text-[#e20613] group-hover:animate-angle-rotate px-2"><i class="fa-solid fa-angle-down"></i></p>
+                    <form id="search-and-filter-form">
+                        <div class="focus-within:border-[#e20613] transition-all flex flex-row bg-white border-2 rounded-full border-black h-min p-2">
+                            <input type="text" id="search-input" placeholder="Search..." class="placeholder-[#e20613] focus:outline-none appearance-none px-2">
+                            <p class="text-[#e20613] px-2"><i class="fa-solid fa-magnifying-glass"></i></p>
                         </div>
-                    </div>
 
-                    <div class="flex flex-row items-center">
-                        <div class="group hover:text-white bg-white hover:bg-black transition-all flex flex-row px-4 h-min py-2 items-center border-2 border-black rounded-full">
-                            <p class="text-sm">Release Date</p>
-                            <p class="text-[#e20613] group-hover:animate-angle-rotate px-2"><i class="fa-solid fa-angle-down"></i></p>
+                        <div class="flex flex-row items-center">
+                            <select id="genre" class="group hover:text-white bg-white hover:bg-black transition-all flex flex-row px-4 h-min py-2 items-center border-2 border-black rounded-full">
+                                <option selected disabled class="text-sm">Genre</option>
+                                @foreach ($genres as $genre)
+                                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
-            <div class="flex flex-row flex-wrap mb-8 mt-4 gap-4">
-            @foreach($games as $key=>$game)
-                @php
-                    $delay = ($key + 0) * 150;
-                @endphp
-                <a href = "/games/{{ $game->id }}" class="hover:top-4 top-0 mb-8 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                    <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">
-                    <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                        <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">{{ $game->title }}</p>
-                        <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">
-                            @foreach($game->platforms as $platform)
-                                @if ($loop->iteration != $loop->last)
-                                    {{ $platform->platform->name }},
-                                @else
-                                    {{ $platform->platform->name }}
-                                @endif
-                            @endforeach
-                        </p>
-                        <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
-                    </div>
-                </a>
-                @endforeach
-            </div>
+            <div id="games-container" class="flex flex-row flex-wrap mb-8 mt-4 gap-4"></div>
         </div>
     </div>
     @include('includes.footer')
 </body>
+<script>
+    $(document).ready(function() {
+        $('#search-and-filter-form').submit(function(event) {
+            event.preventDefault();
+            var keyword = $('#search-input').val();
+            var genre = $('#genre').val();
+
+            $.ajax({
+                url: '/games/search',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    keyword: keyword,
+                    genre: genre,
+                },
+                success: function(response) {
+                    $('#games-container').empty();
+                    response.forEach(function(game) {
+                        var platformNames = '';
+                        game.platforms.forEach(function(platform, index) {
+                            platformNames += platform.platform.name;
+                            if (index !== game.platforms.length - 1) {
+                                platformNames += ', ';
+                            }
+                        });
+                        console.log(game);
+                        var gameElement = `
+                            <a href="/games/${game.id}" class="hover:top-4 top-0 mb-8 animate-slide-in-blurred-bottom animation-delay-[${game.delay}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                                <img class="rounded-lg" src="${game.assets.gridVertical}" alt="">
+                                <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
+                                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
+                                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">${game.title}</p>
+                                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">${platformNames}</p>
+                                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="esrb/${game.esrb}.png" alt="">
+                                </div>
+                            </a>
+                        `;
+                        $('#games-container').append(gameElement);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>

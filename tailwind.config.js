@@ -14,7 +14,7 @@ export default {
       animation: {
         "slide-top": "slide-top 8s cubic-bezier(0.455, 0.030, 0.515, 0.955)   infinite",
         "slide-in-blurred-bottom": "slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000)   both",
-        "angle-rotate": "angle-rotate 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both"
+        "angle-rotate": "angle-rotate 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both"
       },
       keyframes: {
         "slide-top": {
@@ -46,14 +46,8 @@ export default {
           "0%": {
             transform: "rotate(0)",
           },
-          "30%": {
-            transform: "rotate(360deg)",
-          },
-          "60%": {
-            transform: "rotate(360deg)",
-          },
           to: {
-            transform: "rotate(0)",
+            transform: "rotate(180deg)",
           }
         }
       }
