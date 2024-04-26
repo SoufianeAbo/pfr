@@ -35,8 +35,10 @@ class GamesController extends Controller
             $query->where('title', 'like', "%$keyword%");
         }
     
-        if ($genre !== null) {
-            $query->where('genre', $genre);
+        if ($genre !== null && $genre !== 'all') {
+            $query->whereHas('genre', function($q) use ($genre) {
+                $q->where('id', $genre);
+            });
         }
     
         $games = $query->with('assets')->with('platforms')->with('platforms.platform')->get();

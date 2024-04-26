@@ -39,7 +39,7 @@
             <div class="flex flex-row justify-between">
                 <p class="text-[2.5rem]">All Games</p>
                 <div class="flex flex-row gap-4 items-center mr-24">
-                    <form id="search-and-filter-form">
+                    <form id="search-and-filter-form" class = "flex flex-row gap-4 items-center mr-24">
                         <div class="focus-within:border-[#e20613] transition-all flex flex-row bg-white border-2 rounded-full border-black h-min p-2">
                             <input type="text" id="search-input" placeholder="Search..." class="placeholder-[#e20613] focus:outline-none appearance-none px-2">
                             <p class="text-[#e20613] px-2"><i class="fa-solid fa-magnifying-glass"></i></p>
@@ -48,6 +48,7 @@
                         <div class="flex flex-row items-center">
                             <select id="genre" class="group hover:text-white bg-white hover:bg-black transition-all flex flex-row px-4 h-min py-2 items-center border-2 border-black rounded-full">
                                 <option selected disabled class="text-sm">Genre</option>
+                                <option value="all">All</option>
                                 @foreach ($genres as $genre)
                                     <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                                 @endforeach
@@ -64,8 +65,7 @@
 </body>
 <script>
     $(document).ready(function() {
-        $('#search-and-filter-form').submit(function(event) {
-            event.preventDefault();
+        function submitForm() {
             var keyword = $('#search-input').val();
             var genre = $('#genre').val();
 
@@ -106,6 +106,16 @@
                     console.error(error);
                 }
             });
-        });
+        }
+    
+    $('#search-input').on('input', function() {
+        submitForm();
     });
+
+    $('#genre').change(function() {
+        submitForm();
+    });
+
+    submitForm();
+});
 </script>
