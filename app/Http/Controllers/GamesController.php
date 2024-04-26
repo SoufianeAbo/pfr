@@ -11,7 +11,7 @@ class GamesController extends Controller
 {
     public function index(): View
     {
-        $featured = Game::where('featured', '!=', '0')->limit(5)->get();
+        $featured = Game::where('featured', '!=', '0')->orderBy('featured', 'DESC')->limit(5)->get();
         $games = Game::all();
         $genres = Genres::all();
     
@@ -41,9 +41,11 @@ class GamesController extends Controller
             });
         }
     
-        $games = $query->with('assets')->with('platforms')->with('platforms.platform')->get();
+        $games = $query->with('assets')->with('platforms')->with('platforms.platform')->paginate(5);
+        
+        $gamesHtml = view('includes.pagination', compact('games'))->render();
     
-        return response()->json($games);
+        return response()->json(['html' => $gamesHtml, 'data' => $games]);
     }
     
 }

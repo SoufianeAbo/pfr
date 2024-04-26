@@ -1,7 +1,7 @@
 @include('includes.header')
 <body>
     @include('includes.navbar')
-    <div class="pt-24 pl-8">
+    <div class="pt-24 pl-8 mb-8">
         <div class="flex flex-row items-center gap-4 mb-8">
             <img class="w-12 h-12 drop-shadow-md" src="neolinelogoonly.png" alt="">
             <p class="text-[28px]">Neoline</p>
@@ -59,13 +59,16 @@
             </div>
 
             <div id="games-container" class="flex flex-row flex-wrap mb-8 mt-4 gap-4"></div>
+            <div id="pagination-links" class = "mr-12">
+                
+                </div>
         </div>
     </div>
     @include('includes.footer')
 </body>
 <script>
     $(document).ready(function() {
-        function submitForm() {
+        function submitForm(page = 1) {
             var keyword = $('#search-input').val();
             var genre = $('#genre').val();
 
@@ -76,10 +79,12 @@
                     _token: '{{ csrf_token() }}',
                     keyword: keyword,
                     genre: genre,
+                    page: page,
                 },
                 success: function(response) {
+                    $('#pagination-links').html(response.html);
                     $('#games-container').empty();
-                    response.forEach(function(game) {
+                    response.data.data.forEach(function(game) {
                         var platformNames = '';
                         game.platforms.forEach(function(platform, index) {
                             platformNames += platform.platform.name;
@@ -107,6 +112,11 @@
                 }
             });
         }
+
+    $('#search-and-filter-form').submit(function(e) {
+        e.preventDefault(); 
+        submitForm();
+    });
     
     $('#search-input').on('input', function() {
         submitForm();
@@ -114,6 +124,12 @@
 
     $('#genre').change(function() {
         submitForm();
+    });
+
+    $(document).on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var page = $(this).attr('href').split('page=')[1];
+        submitForm(page);
     });
 
     submitForm();

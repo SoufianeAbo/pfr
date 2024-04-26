@@ -161,3 +161,7 @@ button {
 svg path {
     fill: white;
 }
+
+#pagination-links svg path {
+    fill: black;
+}
