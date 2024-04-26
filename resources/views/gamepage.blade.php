@@ -11,9 +11,9 @@
             <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
             <div class = "flex flex-row text-sm tracking-tight text-[{{ $project->assets->bgColor }}] gap-4">
-                <p>Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
-                <p>Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
-                <p>Developer: <span class = "text-white">{{ $project->developer }}</span></p>
+                <p class = "text-[{{ $project->assets->bgColor }}]">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
+                <p class = "text-[{{ $project->assets->bgColor }}]">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
+                <p class = "text-[{{ $project->assets->bgColor }}]">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
