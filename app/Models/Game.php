@@ -35,4 +35,14 @@ class Game extends Model
     {
         return $this->hasMany(GamePlatforms::class, 'gameID');
     }
+    
+    public function features(): HasMany
+    {
+        return $this->hasMany(GameFeatures::class, 'gameID');
+    }
+
+    public function pictures(): HasOne
+    {
+        return $this->hasOne(GamePictures::class, 'gameID');
+    }
 }

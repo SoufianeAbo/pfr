@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GameAssets extends Model
+class GameFeatures extends Model
 {
     use HasFactory;
 
-    protected $table = 'gameassets';
+    protected $table = 'gamefeatures';
 
     protected $fillable = [
         'gameID',
-        'gridVertical',
-        'widescreenPic',
-        'smallLogo',
-        'gridVertical2',
-        'bgColor',
+        'header',
+        'description',
+        'video',
     ];
 }

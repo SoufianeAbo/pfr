@@ -1,23 +1,23 @@
 @include('includes.header')
 <body>
     @include('includes.navbarsticky')
-    <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4 border-[#c19d53]">
-        <img class = "w-1/6" src="https://cdn2.steamgriddb.com/logo_thumb/6076036fdb272f49688c571013f3ede1.png" alt="">
-        <button class = "bg-[#c19d53] rounded-lg px-8">SHOP NOW</button>
+    <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4 border-[{{ $project->assets->bgColor }}]">
+        <img class = "w-1/6" src="{{ $project->pictures->smallLogo }}" alt="">
+        <button class = "bg-[{{ $project->assets->bgColor }}] rounded-lg px-8">SHOP NOW</button>
     </div>
-    <video class = "w-full" loop muted autoplay src="https://static.bandainamcoent.eu/video/elden-ring-header-animated.webm"></video>
+    <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
     <div class = "sticky">
         <div class = "gameBg relative flex flex-col items-center">
-            <img class = "w-1/2 absolute top-[-128px]" src="https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/eldenring_new.png?twic=v1/resize=1000/step=10/quality=80" alt="">
-            <p class = "text-white text-[2.5rem] mt-32 boldfour">ELDEN RING</p>
+            <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
+            <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
             <div class = "flex flex-row text-sm tracking-tight text-[#c19d53] gap-4">
-                <p>Release Date: <span class = "text-white">25/02/2022</span></p>
+                <p>Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
                 <p>Genres: <span class = "text-white">RPG</span></p>
-                <p>Developer: <span class = "text-white">FromSoftware, Inc</span></p>
+                <p>Developer: <span class = "text-white">{{ $project->developer }}</span></p>
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
-                    <h1 class = "text-3xl mb-8">The Golden Order has been broken.</h1>
+                    <h1 class = "text-3xl mb-8"></h1>
                     <div class = "text-sm flex flex-col gap-4">
                         <p>Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.</p>
                         <p>In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erdtree, has been shattered.</p>

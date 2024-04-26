@@ -18,6 +18,7 @@ class GamesController extends Controller
 
     public function specificGame($game): View
     {
-        return view('gamepage');
+        $project = Game::find($game);
+        return view('gamepage', compact('project'));
     }
 }
