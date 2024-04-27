@@ -21,7 +21,9 @@ class GamesController extends Controller
     public function specificGame($game): View
     {
         $project = Game::find($game);
-        return view('gamepage', compact('project'));
+        $ext = substr($project->pictures->pageVid, -4);
+        $extHead = substr($project->pictures->headerVid, -4);
+        return view('gamepage', compact('project', 'ext', 'extHead'));
     }
 
     public function searchAndFilter(Request $request)

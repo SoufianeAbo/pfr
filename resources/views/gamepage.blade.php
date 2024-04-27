@@ -1,27 +1,33 @@
 @include('includes.header')
 <body>
     @include('includes.navbarsticky')
-    <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4 border-[{{ $project->assets->bgColor }}]">
+    <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4" style = "border-color: {{ $project->assets->bgColor }}">
         <img class = "w-1/6" src="{{ $project->pictures->smallLogo }}" alt="">
-        <button class = "bg-[{{ $project->assets->bgColor }}] rounded-lg px-8">SHOP NOW</button>
+        <button class = "rounded-lg px-8" style = "background-color: {{ $project->assets->bgColor }}">SHOP NOW</button>
     </div>
-    <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
+    @if ($ext == "webm")
+        <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
+    @else
+        <img class = "w-full" src="{{ $project->pictures->pageVid }}" alt="">
+    @endif
     <div class = "sticky">
         <div class = "gameBg relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
             <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
-            <div class = "flex flex-row text-sm tracking-tight text-[{{ $project->assets->bgColor }}] gap-4">
-                <p class = "text-[{{ $project->assets->bgColor }}]">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
-                <p class = "text-[{{ $project->assets->bgColor }}]">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
-                <p class = "text-[{{ $project->assets->bgColor }}]">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
+            <div class = "flex flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
+                <p style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
+                <p style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
+                <p style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
                     <h1 class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
                     <div class = "text-sm flex flex-col gap-4">
                         <p>{!!  $project->text->headerDesc !!}</p>
-
-                        <img class = "w-2/3 mt-16 self-center" src="{{ $project->pictures->awards }}" alt="">
+                        
+                        @if ($project->pictures->awards !== null)
+                            <img class = "w-2/3 mt-16 self-center" src="{{ $project->pictures->awards }}" alt="">
+                        @endif
                         <p class = "text-xs">25/02/2022</p>
                         <div class = "flex flex-row gap-4">
                             @foreach ($project->platforms as $console)
@@ -31,15 +37,27 @@
                             @endforeach
                         </div>
                         
-                        <a href="#" class = "tracking-widest boldmedium px-6 py-4 bg-[{{ $project->assets->bgColor }}] rounded-lg w-fit"><i class="fa-solid fa-bag-shopping mr-2"></i>Shop now</a>
+                        <a href="#" class = "tracking-widest boldmedium px-6 py-4 rounded-lg w-fit" style = "background-color: {{ $project->assets->bgColor }}"><i class="fa-solid fa-bag-shopping mr-2"></i>Shop now</a>
                     </div>
                 </div>
-                <video class = "w-[55%] rounded-lg self-start" loop muted autoplay src="{{ $project->pictures->headerVid }}"></video>
+                @if ($extHead == 'webm')
+                    <video class = "w-[55%] rounded-lg self-start" loop muted autoplay src="{{ $project->pictures->headerVid }}"></video>
+                @else
+                <img class = "w-[55%] rounded-lg self-start" src="{{ $project->pictures->headerVid }}"></img>
+                @endif
             </div>
-            <img class = "w-1/2 mt-8" src="https://p325k7wa.twic.pics/high/elden-ring/elden-ring/00-page-setup/ER-Notes-920x160.jpg?twic=v1/resize=1150/step=10/quality=80" alt="">
+            @if ($project->pictures->awards2 !== null)
+                <img class = "w-1/2 mt-8" src="{{ $project->pictures->awards2 }}" alt="">
+            @endif
         </div>
     </div>
+    
+    @if ($project->pictures->gameBg2 !== null)
     <div class = "gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg2 }})" >
+    @else
+    <div class = "gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
+    @endif
+        @if (count($project->features) !== 0)
         <div class = "w-2/3">
             <h2 class = "text-4xl my-16">Key features</h2>
             @foreach ($project->features as $feature)
@@ -64,8 +82,10 @@
                 </div>
             @endforeach
         </div>
+        @endif
     </div>
     <div class = "gameBg w-full flex flex-col items-center pb-8" style = "background-image: url({{ $project->pictures->gameBg }})" >
+        @if ($project->text->postfBig !== null)
         <div class = "flex flex-col items-center pt-8 w-[55%] text-center text-white">
             <img class = "pb-16" src="{{ $project->pictures->divider }}" alt="">
             <p class = "text-[{{ $project->assets->bgColor }}] text-4xl boldfour pb-8">{{ $project->text->postfBig }}</p>
@@ -74,16 +94,30 @@
             </div>
             <img class = "pt-16 pb-8" src="{{ $project->pictures->divider }}" alt="">
         </div>
+        @endif
         <div class = "flex flex-row justify-around">
-            <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic1 }}" alt="">
-            <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic2 }}" alt="">
-            <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic3 }}" alt="">
+            @if ($project->pictures->pic1 !== null)
+                <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic1 }}" alt="">
+            @endif
+
+            @if ($project->pictures->pic2 !== null)
+                <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic2 }}" alt="">
+            @endif
+
+            @if ($project->pictures->pic3 !== null)
+                <img class = "w-[30%] hover:scale-105 transition-all" src="{{ $project->pictures->pic3 }}" alt="">
+            @endif
         </div>
-        <img class = "pt-16 pb-8 w-[55%]" src="{{ $project->pictures->divider }}" alt="">
-        <div class = "w-[55%] text-center text-white text-[0.975rem] tracking-tight flex flex-col gap-4">
-            <p>{!! $project->text->secondfDesc !!}</p>
-        </div>
-        <img class = "my-12" src="{{ $project->pictures->divider2 }}" alt="">
+        
+        @if ($project->text->secondfDesc !== null)
+            <img class = "pt-16 pb-8 w-[55%]" src="{{ $project->pictures->divider }}" alt="">
+            <div class = "w-[55%] text-center text-white text-[0.975rem] tracking-tight flex flex-col gap-4">
+                <p>{!! $project->text->secondfDesc !!}</p>
+            </div>
+            <img class = "my-12" src="{{ $project->pictures->divider2 }}" alt="">
+        @endif
+        
+        @if ($project->text->minimumReq !== null || $project->text->recomReq !== null)
         <p class = "my-12 self-start text-white text-4xl boldfour pl-24">System requirements :</p>
         <div class = "flex flex-row w-full pl-24 gap-8">
             <div class = "flex flex-col">
@@ -105,6 +139,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
     <div class = "bg-[#e8ebee] px-24 pt-8 pb-8">
         <p class = "text-4xl boldfour text-[#1e244d]">You may also like</p>
@@ -150,7 +185,7 @@
             </div>
         </div>
         <div class = "w-full flex justify-center mt-8">
-            <a href = "{{ route('games.index') }}" class = "px-6 py-2 rounded-lg bg-[#c19d53] text-white">SEE ALL GAMES</a>
+            <a href = "{{ route('games.index') }}" class = "px-6 py-2 rounded-lg text-white" style = "background-color: {{ $project->assets->bgColor }}">SEE ALL GAMES</a>
         </div>
     </div>
     @include('includes.footer')
