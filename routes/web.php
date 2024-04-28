@@ -24,5 +24,6 @@ Route::get('/thankyou', [CareersController::class, 'thankyou'])->name('thank.you
 
 
 Route::get('/login', [UserController::class, 'index'])->name('login.index');
+Route::post('/login', [UserController::class, 'login'])->name('employee.login');
 
 Route::get('/dashboard', [UserController::class, 'userIndex'])->name('user.index');

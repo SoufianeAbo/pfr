@@ -18,10 +18,11 @@
                 <img class = "w-[40%]" src="{{ asset('neolinelogoblack.png') }}" alt="">
                 <h1 class = "text-2xl font-bold">Login</h1>
                 <p>Log in with your Neoline Employee ID account.</p>
-                <form class = "w-full flex flex-col gap-2">
-                    <input placeholder = "Employee ID.." class = "placeholder-gray-600 w-full border-2 rounded-lg px-2 py-2 border-gray-700" type="text">
-                    <input placeholder = "Password.." class = "placeholder-gray-600 w-full border-2 rounded-lg px-2 py-2 border-gray-700" type="password">
-                    <button class = "font-light w-full bg-[#e20613] px-4 py-4 rounded-full text-white">Submit</button>
+                <form action = "{{ route('employee.login') }}" method = "POST" class = "w-full flex flex-col gap-2">
+                    @csrf
+                    <input name = "email" placeholder = "E-mail address..." class = "placeholder-gray-600 w-full border-2 rounded-lg px-2 py-2 border-gray-700" type="text">
+                    <input name = "password" placeholder = "Password..." class = "placeholder-gray-600 w-full border-2 rounded-lg px-2 py-2 border-gray-700" type="password">
+                    <button type = "submit" class = "font-light w-full bg-[#e20613] px-4 py-4 rounded-full text-white">Submit</button>
                 </form>
             </div>
 
