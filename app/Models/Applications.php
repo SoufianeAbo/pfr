@@ -9,7 +9,7 @@ class Applications extends Model
 {
     use HasFactory;
 
-    protected $table = 'applications';
+    protected $table = 'application';
 
     protected $fillable = [
         'firstName',
@@ -25,5 +25,7 @@ class Applications extends Model
         'portfolio',
         'source',
         'salaryExpectation',
+        'roleID',
+        'status',
     ];
 }

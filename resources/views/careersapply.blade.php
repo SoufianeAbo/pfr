@@ -42,43 +42,56 @@
 
             <p class = "text-4xl boldfour mt-8 pb-12 border-b border-gray-400">Apply for this Job</p>
             <div class = "mt-4">
-                <form method = "POST" action = "{{ route('careers.apply') }}" class = "w-full flex flex-col gap-4">
-                    <input type="text" class = "hidden" value = "{{ $role->id }}">
+                <div class = "flex flex-col" id = "error">
+                @foreach($errors->all() as $error)
+                    <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50" role="alert">
+                        <i class = "fas fa-triangle-exclamation mr-2"></i>
+                        <span class="sr-only">Info</span>
+                        <div>
+                            <span class="font-medium">Error!</span> {{ $error }}
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                <form enctype="multipart/form-data" method = "POST" action = "{{ route('careers.apply') }}" class = "w-full flex flex-col gap-4">
+                    @csrf
+                    <input name = "roleID" type="text" class = "hidden" value = "{{ $role->id }}">
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">FIRST NAME</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "firstName" class = "border p-2 px-4 w-full" type="text">
+                    
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LAST NAME</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "lastName" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">EMAIL</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "email" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">PHONE</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "phone" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LOCATION (CITY)</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "city" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">RESUME/CV</p>
                         <p class = "text-red-500">*</p>
                         <div class = "ml-2 flex flex-col">
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+                            <input name = "resume" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: pdf, doc, docx, txt, rtf)</p>
                         </div>
                     </div>
@@ -87,7 +100,7 @@
                         <p class = "text-gray-500">PICTURE</p>
                         <p class = "text-red-500">*</p>
                         <div class = "ml-2 flex flex-col">
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+                            <input name = "picture" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: png, jpg)</p>
                         </div>
                     </div>
@@ -95,7 +108,7 @@
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">COVER LETTER</p>
                         <div class = "ml-2 flex flex-col">
-                            <input class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+                            <input name = "coverLetter" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: pdf, doc, docx, txt, rtf)</p>
                         </div>
                     </div>
@@ -104,30 +117,30 @@
                         <p class = "text-gray-500">COUNTRY</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "country" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LINKEDIN PROFILE</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "linkedinProfile" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LINK TO PORTFOLIO</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "portfolio" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">HOW DID YOU HEAR ABOUT THIS JOB?</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "source" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">WHAT IS YOUR SALARY EXPECTATION?</p>
                     </div>
-                    <input class = "border p-2 px-4 w-full" type="text">
+                    <input name = "salaryExpectation" class = "border p-2 px-4 w-full" type="text">
 
-                    <button class = "self-end bg-orange-500 text-white px-6 py-4 rounded-full hover:bg-orange-300 transition-all">SUBMIT APPLICATION</button>
+                    <button type = "submit" class = "self-end bg-orange-500 text-white px-6 py-4 rounded-full hover:bg-orange-300 transition-all">SUBMIT APPLICATION</button>
                 </form>
             </div>
         </div>

@@ -29,29 +29,49 @@ class CareersController extends Controller
         $validated = Validator::make($request->all(), [
             'firstName' => 'required|max:50',
             'lastName' => 'required|max:50',
-            'email' => 'required|unique:employees,email|max:255',
+            'email' => 'required|unique:employee,email|max:255',
             'phone' => 'required',
             'city' => 'required',
             'resume' => 'required|extensions:pdf,doc,docx,txt,rtf',
             'picture' => 'required|mimes:png,jpg',
-            'coverLetter' => 'required|extensions:pdf,doc,docx,txt,rtf',
+            'coverLetter' => 'nullable|extensions:pdf,doc,docx,txt,rtf',
             'country' => 'required',
             'linkedinProfile' => 'nullable',
             'portfolio' => 'nullable',
             'source' => 'required',
             'salaryExpectation' => 'nullable',
+            'roleID' => 'required',
+            'status' => 'nullable',
         ]);
 
         if ($validated->fails()) {
             return redirect()
-                    ->route('careers.jobOffer', ['career' => $request->id])
+                    ->route('careers.joboffer', ['career' => $request->roleID, '#error'])
                     ->withErrors($validated)
                     ->withInput();
         }
 
+        $resumePath = $request->file('resume')->store('applications');
+        $picturePath = $request->file('picture')->store('applications');
+        
+        if ($request->file('coverLetter') !== null) {
+            $coverLetterPath = $request->file('coverLetter')->store('applications');
+        }
+
         $application = new Applications;
 
-        $application->fill($validated->validated());
+        $application->fill($request->except(['resume', 'picture', 'coverLetter']));
+
+        $application->roleID = $request->roleID;
+        $application->status = 'Pending';
+
+        $application->resume = $resumePath;
+        $application->picture = $picturePath;
+
+        if ($request->file('coverLetter') !== null) {
+            $application->coverLetter = $coverLetterPath;
+        }
+
         $application->save();
 
         return redirect()->route('thank.you');
