@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applications;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class UserController extends Controller
 
     public function userIndex(): View
     {
-        return view('employee.dashboard');
+        $applications = Applications::all();
+        return view('employee.dashboard', compact('applications'));
     }
 }
