@@ -356,6 +356,6 @@ class CareersController extends Controller
                 break;
         }
 
-        return view('careersapply', compact('title', 'positionSummary', 'essentialDutiesArray', 'qualificationsArray', 'educationalArray', 'salaryRange'));
+        return view('careersapply', compact('title', 'positionSummary', 'essentialDutiesArray', 'qualificationsArray', 'educationalArray', 'salaryRange', 'career'));
     }
 }

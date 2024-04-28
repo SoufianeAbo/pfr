@@ -49,6 +49,7 @@
             <p class = "text-4xl boldfour mt-8 pb-12 border-b border-gray-400">Apply for this Job</p>
             <div class = "mt-4">
                 <form class = "w-full flex flex-col gap-4">
+                    <input type="text" class = "hidden" value = "{{ $career }}">
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">FIRST NAME</p>
                         <p class = "text-red-500">*</p>
