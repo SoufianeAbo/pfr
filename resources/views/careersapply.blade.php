@@ -7,7 +7,7 @@
         <button class = "bg-white px-4 py-2 rounded-full boldmedium">Apply now</button>
     </div>
     <div class = "pl-16 pt-8 flex flex-row">
-        <div class = "text-[0.975rem]">
+        <div class = "text-[0.975rem] pb-8">
             <div class = "border-r border-gray-500 pr-12">
                 <p class = "boldfour tracking-tight mb-2">POSITION SUMMARY</p>
                 <p>{{ $positionSummary }}</p>
@@ -85,6 +85,15 @@
                         <div class = "ml-2 flex flex-col">
                             <input class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: pdf, doc, docx, txt, rtf)</p>
+                        </div>
+                    </div>
+
+                    <div class = "flex flex-row boldmedium gap-1">
+                        <p class = "text-gray-500">PICTURE</p>
+                        <p class = "text-red-500">*</p>
+                        <div class = "ml-2 flex flex-col">
+                            <input class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+                            <p class = "nobold text-xs mt-1 text-gray-500">(File types: png, jpg)</p>
                         </div>
                     </div>
 
