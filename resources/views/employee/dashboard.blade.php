@@ -27,4 +27,9 @@
     <!-- <div class = "bg-[#000000] flex flex-row justify-end py-2 w-full px-2 fixed">
         <img class = "w-[2%] rounded-full ring-2 ring-[#7c030b]" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="">
     </div> -->
+    <div class = "pt-8 w-11/12">
+        <div class = "ml-72 bg-neutral-100 rounded-lg h-screen">
+            
+        </div>
+    </div>
 </body>
