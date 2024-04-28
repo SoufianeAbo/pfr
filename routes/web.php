@@ -15,9 +15,12 @@ Route::get('/', function () {
 Route::get('/games', [GamesController::class, 'index'])->name('games.index');
 Route::get('/careers', [CareersController::class, 'index'])->name('careers.index');
 Route::get('/careers/{career}', [CareersController::class, 'jobOffer'])->name('careers.joboffer');
+Route::post('/careers/apply', [CareersController::class, 'apply'])->name('careers.apply');
 
 Route::get('/games/{game}', [GamesController::class, 'specificGame'])->name('game.index');
 Route::post('/games/search', [GamesController::class, 'searchAndFilter']);
+
+Route::get('/thankyou', [CareersController::class, 'thankyou'])->name('thank.you');
 
 
 Route::get('/login', [UserController::class, 'index'])->name('login.index');

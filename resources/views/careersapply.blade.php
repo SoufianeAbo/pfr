@@ -42,7 +42,7 @@
 
             <p class = "text-4xl boldfour mt-8 pb-12 border-b border-gray-400">Apply for this Job</p>
             <div class = "mt-4">
-                <form class = "w-full flex flex-col gap-4">
+                <form method = "POST" action = "{{ route('careers.apply') }}" class = "w-full flex flex-col gap-4">
                     <input type="text" class = "hidden" value = "{{ $role->id }}">
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">FIRST NAME</p>

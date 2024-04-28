@@ -25,6 +25,5 @@ class Applications extends Model
         'portfolio',
         'source',
         'salaryExpectation',
-        'status',
     ];
 }

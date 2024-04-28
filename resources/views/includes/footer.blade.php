@@ -1,4 +1,5 @@
-<div class = "bg-black p-8">
+<div>
+    <div class = "bg-black p-8">
     <div class = "flex flex-row text-white logo items-start justify-between">
         <div class = "flex flex-row items-center gap-4">
             <img class = "w-16" src="{{ asset('neolinewhiteonly.png') }}" alt="">
@@ -25,4 +26,5 @@
 </div>
 <div class = "bg-[#e20613] footer">
     <p class = "text-white p-4 text-sm tracking-wider">© 2010 - 2024 Neoline LLC</p>
+</div>
 </div>
