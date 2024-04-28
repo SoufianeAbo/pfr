@@ -23,7 +23,10 @@ class GamesController extends Controller
         $project = Game::find($game);
         $ext = substr($project->pictures->pageVid, -4);
         $extHead = substr($project->pictures->headerVid, -4);
-        return view('gamepage', compact('project', 'ext', 'extHead'));
+
+        $gamesLike = Game::all()->where('genreID', $project->genreID)->take(4);
+
+        return view('gamepage', compact('project', 'ext', 'extHead', 'gamesLike'));
     }
 
     public function searchAndFilter(Request $request)

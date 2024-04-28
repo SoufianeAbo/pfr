@@ -143,46 +143,28 @@
     </div>
     <div class = "bg-[#e8ebee] px-24 pt-8 pb-8">
         <p class = "text-4xl boldfour text-[#1e244d]">You may also like</p>
-        <div class="flex flex-row mt-4 justify-between">
-            <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" alt="">
+        <div class="flex flex-row mt-4 justify-center gap-20">
+            @if ($gamesLike !== null)
+            @foreach ($gamesLike as $game)
+            <a href = "/games/{{ $game->id }}" class="hover:top-4 top-0 relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
+                <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">
                 <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                 <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">FINAL FANTASY VII REMAKE</p>
-                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
+                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">{{ $game->title }}</p>
+                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">
+                        @foreach($game->platforms as $platform)
+                            @if ($loop->iteration != $loop->last)
+                                {{ $platform->platform->name }},
+                            @else
+                                {{ $platform->platform->name }}
+                            @endif
+                        @endforeach
+                    </p>
+                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="{{ asset('esrb/' . $game->esrb . '.png') }}" alt="">
                 </div>
-            </div>
-
-            <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[150ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/b7dc60f5a597d2a0687c2c43a3cd3417.jpg" alt="">
-                <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">ELDEN RING</p>
-                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                </div>
-            </div>
-
-            <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[300ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/324fd03958724e32847aa8b8e35b511f.jpg" alt="">
-                <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">SEKIRO: SHADOWS DIE TWICE</p>
-                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                </div>
-            </div>
-
-            <div class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[450ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                <img class="rounded-lg" src="https://cdn2.steamgriddb.com/thumb/03435e70b2d275b16191f12f3b41df2f.jpg" alt="">
-                <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
-                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
-                    <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl">YAKUZA 0</p>
-                    <p class="group-hover:opacity-100 opacity-0 text-white desc text-shadow-xl">PC (Steam), PlayStation©4</p>
-                    <img class="group-hover:opacity-100 opacity-0 w-1/6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1200px-ESRB_Everyone.svg.png" alt="">
-                </div>
-            </div>
+            </a>
+            @endforeach
+            @endif
         </div>
         <div class = "w-full flex justify-center mt-8">
             <a href = "{{ route('games.index') }}" class = "px-6 py-2 rounded-lg text-white" style = "background-color: {{ $project->assets->bgColor }}">SEE ALL GAMES</a>
