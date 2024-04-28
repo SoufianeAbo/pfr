@@ -3,35 +3,29 @@
     @include('includes.navbar')
     <div class = "careersbg3 pt-48 pl-48 pb-24">
         <p class = "text-gray-400 tracking-tight boldmedium mb-4 text-sm opacity-50">JOIN OUR TEAM</p>
-        <p class = "text-white text-6xl boldfour mb-4">{{ $title }}</p>
+        <p class = "text-white text-6xl boldfour mb-4 capitalize">{{ $role->roleName }}</p>
         <button class = "bg-white px-4 py-2 rounded-full boldmedium">Apply now</button>
     </div>
     <div class = "pl-16 pt-8 flex flex-row">
         <div class = "text-[0.975rem] pb-8">
             <div class = "border-r border-gray-500 pr-12">
                 <p class = "boldfour tracking-tight mb-2">POSITION SUMMARY</p>
-                <p>{{ $positionSummary }}</p>
+                <p>{{ $role->positionSummary }}</p>
                 <p class = "boldfour my-16">Join us at our new campus in Irvine, California where a hybrid work schedule will be observed.  </p>
                 <p class = "boldfour tracking-tight mb-2">ESSENTIAL DUTIES AND RESPONSIBILITIES</p>
             </div>
             <ul class = "list-disc">
-                @foreach ($essentialDutiesArray as $duty)
-                <li class = "mt-2">{{ $duty }}</li>
-                @endforeach
+                {!! $role->essentialDuties !!}
             </ul>
             <p class = "boldfour tracking-tight mt-8 mb-2">ESSENTIAL DUTIES AND RESPONSIBILITIES</p>
             <ul class = "list-disc">
-                @foreach ($qualificationsArray as $qualification)
-                <li class = "mt-2">{{ $qualification }}</li>
-                @endforeach
+                {!! $role->qualifications !!}
             </ul>
             <p class = "boldfour tracking-tight mt-8 mb-2">EDUCATIONAL REQUIREMENTS</p>
             <ul class = "list-disc">
-                @foreach ($educationalArray as $edu)
-                <li class = "mt-2">{{ $edu }}</li>
-                @endforeach
+                {!! $role->educational !!}
             </ul>
-            <p class = "mt-8">{{ $salaryRange }}</p>
+            <p class = "mt-8">{{ $role->salaryRange }}</p>
             <p class = "mt-8">Actual base salary will be determined based on numerous relevant business and candidate factors
                 including, but not limited to, education, qualifications, certifications, experience, skills, geographic location,
                 and business or organizational needs. The salary range listed is just one component of the total compensation package
@@ -49,7 +43,7 @@
             <p class = "text-4xl boldfour mt-8 pb-12 border-b border-gray-400">Apply for this Job</p>
             <div class = "mt-4">
                 <form class = "w-full flex flex-col gap-4">
-                    <input type="text" class = "hidden" value = "{{ $career }}">
+                    <input type="text" class = "hidden" value = "{{ $role->id }}">
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">FIRST NAME</p>
                         <p class = "text-red-500">*</p>
@@ -142,10 +136,9 @@
             <div class = "text-black tracking-tight boldmedium mt-8">
                 <p>OPEN POSITIONS</p>
                 <div class = "pl-4 flex flex-col gap-4 mt-4">
-                    <p>Artist</p>
-                    <p>Voice Actor</p>
-                    <p>Proofreader</p>
-                    <p>Story Designer</p>
+                    @foreach ($openPositions as $career)
+                        <a class = "font-bold" href="/careers/{{ $career->id }}">{{ $career->roleName }}</a>
+                    @endforeach
                 </div>
             </div>
         </div>

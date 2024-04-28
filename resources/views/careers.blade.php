@@ -104,7 +104,7 @@
         <img src="branddots.png" alt="">
         <p class = "boldfour text-[2.5rem] mt">Job Openings</p>
         <p class = "text-md">Find your next role with Neoline Studios</p>
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
+        {{-- <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
             <div class = "flex flex-row justify-between items-center">
                 <p class = "text-xl boldfour">Artist</p>
                 <a href = "/careers/artist" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
@@ -151,7 +151,20 @@
                 <p class = "text-xl boldfour">Producer</p>
                 <a href = "/careers/producer" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
             </div>
-        </div>
+        </div> --}}
+
+        @foreach ($careers as $career)
+            <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
+                <div class = "flex flex-row justify-between items-center">
+                    <p class = "text-xl boldfour">{{ $career->roleName }}</p>
+                    @if ($career->availability == 'available')
+                        <a href = "/careers/{{ $career->id }}" style = "font-weight: 500" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
+                    @else
+                        <a href = "#" style = "font-weight: 500" class = "cursor-not-allowed text-white bg-red-500 rounded-full px-6 py-2 boldmedium transition-all border-red-500 hover:bg-red-500 border-2">Full</a>
+                    @endif
+                </div>
+            </div>
+        @endforeach
     </div>
 
     <div class = "flex flex-col mt-14 items-center px-32">
