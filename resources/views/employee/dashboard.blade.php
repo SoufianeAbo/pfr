@@ -29,7 +29,15 @@
     </div> -->
     <div class = "pt-8 w-11/12">
         <div class = "ml-72 bg-neutral-100 rounded-lg h-screen">
-            
+            <div class="daisy-card w-96 bg-base-100 shadow-xl">
+                <div class="daisy-card-body">
+                  <h2 class="daisy-card-title">Card title!</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="daisy-card-actions justify-end">
+                    <button class="btn btn-primary">Buy Now</button>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 </body>
