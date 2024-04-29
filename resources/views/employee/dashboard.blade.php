@@ -100,6 +100,7 @@
                                     </div>
 
                                     <div class = "flex flex-row daisy-modal-action">
+                                        <input class = "hidden" name = "applicationID" type="text" value = "{{ $application->id }}" >
                                         <button class = "bg-green-600 cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-check mr-2"></i>Accept</button>
                                         <button class = "bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-xmark mr-2"></i>Reject</button>
                                     </div>

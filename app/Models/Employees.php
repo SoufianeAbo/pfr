@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Employees extends Model implements Authenticatable
 {
@@ -17,5 +19,11 @@ class Employees extends Model implements Authenticatable
         'email',
         'password',
         'roleID',
+        'applicationID',
     ];
+
+    public function application(): BelongsTo
+    {
+        return $this->belongsTo(Applications::class, 'applicationID');
+    }
 }

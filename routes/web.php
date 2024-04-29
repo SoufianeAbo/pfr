@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\HRController;
 use App\Http\Controllers\UserController;
 use App\Models\Game;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,7 @@ Route::get('/thankyou', [CareersController::class, 'thankyou'])->name('thank.you
 
 Route::get('/login', [UserController::class, 'index'])->name('login.index');
 Route::post('/login', [UserController::class, 'login'])->name('employee.login');
+
+Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.accept');
 
 Route::get('/dashboard', [UserController::class, 'userIndex'])->name('user.index');
