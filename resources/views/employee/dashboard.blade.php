@@ -75,17 +75,27 @@
                                 @if ($applicant->coverLetter == null)
                                     <p class="py"><b>Cover Letter:</b><em class = "text-xs text-gray-500"> none attached</em></p>
                                 @else
-                                    <p class="py"><b>Cover Letter:</b><em class = "text-xs text-blue-500 underline"> Download here</em></p>
+                                    <p class="py"><b>Cover Letter:</b><a href="{{ asset('storage/' . $applicant->coverLetter) }}" download><em class = "text-xs text-blue-500 underline"> Download here</em></a></p>
                                 @endif
 
-                                <p class="py"><b>Resume/CV:</b><em class = "text-xs text-blue-500 underline"> Download here</em></p>
+                                <p class="py"><b>Resume/CV:</b><a href="{{ asset('storage/' . $applicant->resume) }}" download><em class = "text-xs text-blue-500 underline"> Download here</em></a></p>
                                 <p class="py"><b>Country:</b> {{ $applicant->country }}</p>
-                                <p class="py"><b>LinkedIn Profile:</b><em class = "text-xs text-gray-500"> none attached</em></p>
-                                <p class="py"><b>Portfolio:</b><em class = "text-xs text-gray-500"> none attached</em></p>
-                                <p class="py"><b>Salary Expectation:</b>{{ $applicant->salaryExpectation }}</p>
+
+                                @if ($applicant->linkedinProfile == null)
+                                    <p class="py"><b>LinkedIn Profile:</b><em class = "text-xs text-gray-500"> none attached</em></p>
+                                @else
+                                    <p class="py"><b>LinkedIn Profile:</b><a href="{{ $applicant->linkedinProfile }}"><em class = "text-xs text-blue-500"><i class = "fab fa-linkedin ml-2"></i> Visit link!</em></a></p>
+                                @endif
+
+                                @if ($applicant->portfolio == null)
+                                    <p class="py"><b>Portfolio:</b><em class = "text-xs text-gray-500"> none attached</em></p>
+                                @else
+                                    <p class="py"><b>Portfolio:</b><a href="{{ $applicant->linkedinProfile }}"><em class = "text-xs text-blue-500"><i class = "fas fa-paperclip ml-2"></i> Visit link!</em></a></p>
+                                @endif
+                                <p class="py"><b>Salary Expectation:</b> <p class = "text-green-500">{{ number_format($applicant->salaryExpectation) }}$</p></p>
                                 <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
                                 <div class="daisy-modal-action">
-                                    <label class="btn " for = "modal_{{ $applicant->id }}">Close</label>
+                                    <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white" for = "modal_{{ $applicant->id }}">Close</label>
                                 </div>
                             </div>
                             </dialog>
