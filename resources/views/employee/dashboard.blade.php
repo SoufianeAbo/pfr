@@ -94,8 +94,15 @@
                                 @endif
                                 <p class="py"><b>Salary Expectation:</b> <p class = "text-green-500">{{ number_format($applicant->salaryExpectation) }}$</p></p>
                                 <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
-                                <div class="daisy-modal-action">
-                                    <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white" for = "modal_{{ $applicant->id }}">Close</label>
+                                <div class = "flex flex-row-reverse justify-between">
+                                    <div class="daisy-modal-action">
+                                        <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white" for = "modal_{{ $applicant->id }}">Close</label>
+                                    </div>
+
+                                    <div class = "flex flex-row daisy-modal-action">
+                                        <button class = "bg-green-600 cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-check mr-2"></i>Accept</button>
+                                        <button class = "bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-xmark mr-2"></i>Reject</button>
+                                    </div>
                                 </div>
                             </div>
                             </dialog>
