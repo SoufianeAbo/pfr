@@ -18,6 +18,9 @@
                 <img class = "w-[40%]" src="{{ asset('neolinelogoblack.png') }}" alt="">
                 <h1 class = "text-2xl font-bold">Login</h1>
                 <p>Log in with your Neoline Employee ID account.</p>
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
                 <form action = "{{ route('employee.login') }}" method = "POST" class = "w-full flex flex-col gap-2">
                     @csrf
                     <input name = "email" placeholder = "E-mail address..." class = "placeholder-gray-600 w-full border-2 rounded-lg px-2 py-2 border-gray-700" type="text">

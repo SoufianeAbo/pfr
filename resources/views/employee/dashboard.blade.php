@@ -13,7 +13,7 @@
                     <img class="w-1/4 rounded-full ring ring-white"
                         src="https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png"
                         alt="">
-                    <p class="text-white">Administrator</p>
+                    <p class="text-white">{{ $employee->email }}</p>
                 </div>
             </div>
 
