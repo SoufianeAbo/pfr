@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function userIndex(): View
     {
-        $applications = Applications::all();
+        $applications = Applications::all()->where('status', 'Pending');
         return view('employee.dashboard', compact('applications'));
     }
 }

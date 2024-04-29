@@ -39,53 +39,60 @@
         <div class="ml-72 bg-neutral-100 rounded-lg h-screen">
             <h1 class="text-3xl font-bold pt-8 pl-4">Applications</h1>
             <div class="flex flex-row gap-4 mx-4 pt-8">
+                @foreach ($applications as $applicant)
                 <div class="daisy-card w-96 bg-base-100 shadow-xl">
                     <div class="daisy-card-body">
                         <div class="flex flex-row justify-between">
-                            <h2 class="daisy-card-title">Souf Abo</h2>
+                            <h2 class="daisy-card-title">{{ $applicant->firstName }} {{ $applicant->lastName }}</h2>
                             <div class="daisy-avatar">
                                 <div class="w-12 rounded-full">
                                     <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                 </div>
                             </div>
                         </div>
-                        <p class = "text-sm"><b>Applied Role:</b> Artist</p>
-                        <p class = "text-sm"><b>Source:</b> Artist</p>
-                        <p class = "text-sm"><b>Date Applied:</b> Artist</p>
+                        <p class = "text-sm"><b>Applied Role:</b> {{ $applicant->role->roleName }}</p>
+                        <p class = "text-sm"><b>Source:</b> {{ $applicant->source }}</p>
+                        <p class = "text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                         <div class="daisy-card-actions justify-end">
-                            <button onclick="my_modal_1.showModal()" class="bg-[#f90617] px-4 py-2 rounded-lg text-white">Details</button>
-                            <dialog id="my_modal_1" class="daisy-modal">
+                            <label for = "modal_{{ $applicant->id }}" class="bg-[#f90617] px-4 py-2 rounded-lg text-white">Details</label>
+                            <input type="checkbox" id="modal_{{ $applicant->id }}" class="daisy-modal-toggle" />
+                            <dialog class="daisy-modal bg-black bg-opacity-20">
                             <div class="daisy-modal-box">
                                 <div class = "flex flex-row items-center justify-between">
-                                    <h3 class="font-bold text-5xl">Soufiane Abounasr</h3>
+                                    <h3 class="font-bold text-5xl">{{ $applicant->firstName }} {{ $applicant->lastName }}</h3>
                                     <div class="daisy-avatar">
                                         <div class="w-24 rounded-full">
                                             <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                         </div>
                                     </div>
                                 </div>
-                                <p class="pt-4 pb"><b>First Name:</b> Soufiane</p>
-                                <p class="py"><b>Last Name:</b> Abounasr</p>
-                                <p class="py"><b>Email:</b> testinglol@mail.com</p>
-                                <p class="py"><b>Phone:</b> +1 (908) 106-4095</p>
-                                <p class="py"><b>City:</b> Aut rescunande</p>
-                                <p class="py"><b>Cover Letter:</b><em class = "text-xs text-gray-500"> none attached</em></p>
+                                <p class="pt-4 pb"><b>First Name:</b> {{ $applicant->firstName }}</p>
+                                <p class="py"><b>Last Name:</b> {{ $applicant->lastName }}</p>
+                                <p class="py"><b>Email:</b> {{ $applicant->email }}</p>
+                                <p class="py"><b>Phone:</b> {{ $applicant->phone }}</p>
+                                <p class="py"><b>City:</b> {{ $applicant->city }}</p>
+                                
+                                @if ($applicant->coverLetter == null)
+                                    <p class="py"><b>Cover Letter:</b><em class = "text-xs text-gray-500"> none attached</em></p>
+                                @else
+                                    <p class="py"><b>Cover Letter:</b><em class = "text-xs text-blue-500 underline"> Download here</em></p>
+                                @endif
+
                                 <p class="py"><b>Resume/CV:</b><em class = "text-xs text-blue-500 underline"> Download here</em></p>
-                                <p class="py"><b>Country:</b> Morocco</p>
+                                <p class="py"><b>Country:</b> {{ $applicant->country }}</p>
                                 <p class="py"><b>LinkedIn Profile:</b><em class = "text-xs text-gray-500"> none attached</em></p>
                                 <p class="py"><b>Portfolio:</b><em class = "text-xs text-gray-500"> none attached</em></p>
-                                <p class="py"><b>Salary Expectation:</b>too high$</p>
-                                <p class="py-4"><b>Position:</b> Artist</p>
+                                <p class="py"><b>Salary Expectation:</b>{{ $applicant->salaryExpectation }}</p>
+                                <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
                                 <div class="daisy-modal-action">
-                                <form method="dialog">
-                                    <button class="btn">Close</button>
-                                </form>
+                                    <label class="btn " for = "modal_{{ $applicant->id }}">Close</label>
                                 </div>
                             </div>
                             </dialog>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

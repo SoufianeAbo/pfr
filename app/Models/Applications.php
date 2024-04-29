@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Applications extends Model
 {
@@ -28,4 +29,9 @@ class Applications extends Model
         'roleID',
         'status',
     ];
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Roles::class, 'roleID');
+    }
 }
