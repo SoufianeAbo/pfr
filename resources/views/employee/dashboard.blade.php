@@ -38,15 +38,15 @@
     <div class="pt-8 w-11/12">
         <div class="ml-72 bg-neutral-100 rounded-lg h-screen">
             <h1 class="text-3xl font-bold pt-8 pl-4">Applications</h1>
-            <div class="flex flex-row gap-4 mx-4 pt-8">
+            <div class="grid grid-cols-3 gap-4 mx-4 pt-8">
                 @foreach ($applications as $applicant)
-                <div class="daisy-card w-96 bg-base-100 shadow-xl">
+                <div class="daisy-card w-full bg-base-100 shadow-xl">
                     <div class="daisy-card-body">
                         <div class="flex flex-row justify-between">
                             <h2 class="daisy-card-title">{{ $applicant->firstName }} {{ $applicant->lastName }}</h2>
                             <div class="daisy-avatar">
                                 <div class="w-12 rounded-full">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img src="{{ asset('storage/' . $applicant->picture) }}" />
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <p class = "text-sm"><b>Source:</b> {{ $applicant->source }}</p>
                         <p class = "text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                         <div class="daisy-card-actions justify-end">
-                            <label for = "modal_{{ $applicant->id }}" class="bg-[#f90617] px-4 py-2 rounded-lg text-white">Details</label>
+                            <label for = "modal_{{ $applicant->id }}" class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white">Details</label>
                             <input type="checkbox" id="modal_{{ $applicant->id }}" class="daisy-modal-toggle" />
                             <dialog class="daisy-modal bg-black bg-opacity-20">
                             <div class="daisy-modal-box">
@@ -62,7 +62,7 @@
                                     <h3 class="font-bold text-5xl">{{ $applicant->firstName }} {{ $applicant->lastName }}</h3>
                                     <div class="daisy-avatar">
                                         <div class="w-24 rounded-full">
-                                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                            <img src="{{ asset('storage/' . $applicant->picture) }}" />
                                         </div>
                                     </div>
                                 </div>

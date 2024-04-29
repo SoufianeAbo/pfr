@@ -51,11 +51,14 @@ class CareersController extends Controller
                     ->withInput();
         }
 
-        $resumePath = $request->file('resume')->store('applications');
-        $picturePath = $request->file('picture')->store('applications');
+        $resumePath = $request->file('resume')->store('public/applications');
+        $resumePath = str_replace('public/', '', $resumePath);
+        $picturePath = $request->file('picture')->store('public/applications');
+        $picturePath = str_replace('public/', '', $picturePath);
         
         if ($request->file('coverLetter') !== null) {
-            $coverLetterPath = $request->file('coverLetter')->store('applications');
+            $coverLetterPath = $request->file('coverLetter')->store('public/applications');
+            $coverLetterPath = str_replace('public/', '', $coverLetterPath);
         }
 
         $application = new Applications;
