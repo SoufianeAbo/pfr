@@ -19,7 +19,10 @@ class HRController extends Controller
         $applications = Applications::all()->where('status', 'Pending');
         $employee = Auth::user();
 
-        return view('employee.hr.dashboard', compact('applications', 'employee'));
+        $acceptedApplications = Applications::all()->where('status', 'Accepted');
+        $rejectedApplications = Applications::all()->where('status', 'Rejected');
+
+        return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications'));
     }
 
     public function accept(Request $request)

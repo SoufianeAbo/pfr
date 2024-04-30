@@ -1,47 +1,46 @@
 @include('includes.header')
 
 <body class="dashboard">
-    <div class="fixed bg-[#0d0d0d] h-screen w-64 flex flex-col items-center justify-between z-50">
-        <div class="w-full">
-            <div class="w-full bg-[#000000] flex flex-row justify-center mb-4 mt-[3.8rem]">
-                <img class="w-2/3 py-4" src="{{ asset('neolinelogo.png') }}" alt="">
-            </div>
-
-            <div class="w-full bg-[#000000] py-4 my-8">
-                <div
-                    class="flex flex-row-reverse gap-4 items-center justify-center bg-gradient-to-r from-[#f90617] to-[#f91f2e] mx-4 py-2 rounded-lg">
-                    <img class="w-1/4 rounded-full ring ring-white"
-                        src="{{ asset('storage/' . $employee->application->picture) }}" alt="">
-                    <p class="text-white">{{ $employee->application->firstName }} {{ $employee->application->lastName }}
-                    </p>
-                </div>
-            </div>
-
-            <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-                <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f91f2e]"><i
-                        class="fa-solid fa-chart-line mr-2"></i>Dashboard</a>
-                <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
-                        class="fa-solid fa-bars-progress mr-2"></i>Projects</a>
-                <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
-                        class="fa-solid fa-address-book mr-2"></i>Tasks</a>
-            </div>
-        </div>
-
-        <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-            <a href="{{ route('logout') }}" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
-                    class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Log out</a>
-        </div>
-    </div>
+    @include('employee.hr.sidebar')
     <div class="pt-8 w-11/12">
         @if (session('success'))
-            <div class="ml-72 flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50"
-                role="alert">
-                <i class = "fas fa-check mr-2"></i>
-                <div>
-                    <span class="font-medium">Success!</span> {{ session('success') }}
-                </div>
+        <div class="ml-72 flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+            <i class="fas fa-check mr-2"></i>
+            <div>
+                <span class="font-medium">Success!</span> {{ session('success') }}
             </div>
+        </div>
         @endif
+        <div class="ml-72">
+            <p class = "flex justify-end font-bold text-2xl mb-4">Welcome to your dashboard, {{ $employee->application->firstName }}!</p>
+            <div class="daisy-stats flex flex-row justify-between my-4 shadow-md">
+
+                <div class="daisy-stat">
+                    <div class="daisy-stat-figure text-secondary">
+                        <i class = "text-[#e20613] text-[1.75rem] fas fa-wand-magic"></i>
+                    </div>
+                    <div class="daisy-stat-title">Pending Applications</div>
+                    <div class="daisy-stat-value">{{ count($applications) }}</div>
+                </div>
+
+                <div class="daisy-stat">
+                    <div class="daisy-stat-figure text-secondary">
+                        <i class = "text-[#e20613] text-[1.75rem] fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="daisy-stat-title">Accepted Applications</div>
+                    <div class="daisy-stat-value">{{ count($acceptedApplications) }}</div>
+                </div>
+
+                <div class="daisy-stat">
+                    <div class="daisy-stat-figure text-secondary">
+                        <i class = "text-[#e20613] text-[1.75rem] fas fa-x"></i>
+                    </div>
+                    <div class="daisy-stat-title">Rejected Applications</div>
+                    <div class="daisy-stat-value">{{ count($rejectedApplications) }}</div>
+                </div>
+
+            </div>
+        </div>
         <div class="ml-72 bg-neutral-100 rounded-lg h-screen">
             <h1 class="text-3xl font-bold pt-8 pl-4">Applications</h1>
             <div class="grid grid-cols-3 gap-4 mx-4 pt-8">
