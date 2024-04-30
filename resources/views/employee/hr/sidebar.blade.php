@@ -18,9 +18,9 @@
         </div>
 
         <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-            <a href="#" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all bg-[#f91f2e]"><i
+            <a href="{{ route('hr.index') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
                     class="fa-solid fa-scroll mr-2"></i>Applications</a>
-            <a href="#" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all bg-[#f90617]"><i
+            <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/roles') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
                     class="fa-solid fa-tags mr-2"></i>Manage Roles</a>
         </div>
     </div>

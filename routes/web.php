@@ -31,6 +31,7 @@ Route::post('/login', [UserController::class, 'login'])->name('employee.login');
 Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.accept');
 Route::post('/dashboard/reject', [HRController::class, 'reject'])->name('hr.reject');
 Route::get('/dashboard', [HRController::class, 'index'])->name('hr.index');
+Route::get('/dashboard/roles', [HRController::class, 'rolesPage'])->name('hr.roles');
 // });
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

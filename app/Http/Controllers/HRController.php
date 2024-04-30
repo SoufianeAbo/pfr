@@ -21,6 +21,7 @@ class HRController extends Controller
 
         $acceptedApplications = Applications::all()->where('status', 'Accepted');
         $rejectedApplications = Applications::all()->where('status', 'Rejected');
+        
 
         return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications'));
     }
@@ -68,5 +69,11 @@ class HRController extends Controller
         Mail::to('abounasrsoufiane@gmail.com')->send(new RejectionMail($firstName, $lastName, $position, $picture));
 
         return redirect()->route('user.index')->with('success', 'Applicant ' . $application->firstName . ' has been rejected and an e-mail has been sent!');
+    }
+
+    public function rolesPage() {
+        $employee = Auth::user();
+
+        return view('employee.hr.roles', compact('employee'));
     }
 }
