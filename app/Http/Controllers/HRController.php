@@ -6,6 +6,7 @@ use App\Mail\AcceptationMail;
 use App\Mail\RejectionMail;
 use App\Models\Applications;
 use App\Models\Employees;
+use App\Models\Roles;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,7 +76,9 @@ class HRController extends Controller
 
     public function rolesPage() {
         $employee = Auth::user();
+        $roles = Roles::all();
+        $employees = count(Employees::all());
 
-        return view('employee.hr.roles', compact('employee'));
+        return view('employee.hr.roles', compact('employee', 'roles', 'employees'));
     }
 }
