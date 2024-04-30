@@ -62,7 +62,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modal_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
                                 <input type="checkbox" id="modal_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
@@ -129,7 +129,7 @@
                                                     <input class="hidden" name="applicationID" type="text"
                                                         value="{{ $applicant->id }}">
                                                     <button type="submit"
-                                                        class="bg-green-600 cursor-pointer px-4 py-2 rounded-lg text-white"><i
+                                                        class="bg-green-600 cursor-pointer px-4 py-2 hover:scale-105 transition-all rounded-lg text-white"><i
                                                             class="fas fa-check mr-2"></i>Accept</button>
                                                 </form>
                                                 <form method="POST" action="{{ route('hr.reject') }}">
@@ -137,7 +137,7 @@
                                                     <input class="hidden" name="applicationID" type="text"
                                                         value="{{ $applicant->id }}">
                                                     <button type="submit"
-                                                        class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"><i
+                                                        class="bg-[#f90617] cursor-pointer px-4 py-2 hover:scale-105 transition-all rounded-lg text-white"><i
                                                             class="fas fa-xmark mr-2"></i>Reject</button>
                                                 </form>
                                             </div>
@@ -177,7 +177,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modalAccept_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
                                 <input type="checkbox" id="modalAccept_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
@@ -273,7 +273,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modalReject_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
                                 <input type="checkbox" id="modalReject_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
