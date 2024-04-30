@@ -167,7 +167,7 @@
         @endforeach
     </div>
 
-    <div class = "flex flex-col mt-14 items-center px-32">
+    <div class = "flex flex-col mt-14 items-center px-32 py-32">
         <img src="branddots.png" alt="">
         <p class = "boldfour text-[2.5rem]">Equal Opportunity Employer</p>
         <p class = "text-md text-center">We are an equal opportunity employer and make employment decisions on the basis of merit. 

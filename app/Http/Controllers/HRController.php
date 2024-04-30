@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AcceptationMail;
+use App\Mail\RejectionMail;
 use App\Models\Applications;
 use App\Models\Employees;
 use Illuminate\Http\Request;
@@ -37,5 +38,22 @@ class HRController extends Controller
         Mail::to('abounasrsoufiane@gmail.com')->send(new AcceptationMail($email, $password, $firstName, $lastName, $picture, $position));
 
         return redirect()->route('user.index')->with('success', 'Applicant ' . $application->firstName . ' has been accepted and an e-mail has been sent!');
+    }
+
+    public function reject(Request $request)
+    {
+        $application = Applications::find($request->applicationID);
+        $picture = $application->picture;
+
+        $application->status = 'Rejected';
+        $application->save();
+
+        $firstName = $application->firstName;
+        $lastName = $application->lastName;
+        $position = $application->role->roleName;
+
+        Mail::to('abounasrsoufiane@gmail.com')->send(new RejectionMail($firstName, $lastName, $position, $picture));
+
+        return redirect()->route('user.index')->with('success', 'Applicant ' . $application->firstName . ' has been rejected and an e-mail has been sent!');
     }
 }

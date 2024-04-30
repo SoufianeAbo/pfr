@@ -102,7 +102,11 @@
                                             <input class = "hidden" name = "applicationID" type="text" value = "{{ $applicant->id }}" >
                                             <button type = "submit" class = "bg-green-600 cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-check mr-2"></i>Accept</button>
                                         </form>
-                                        <button class = "bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-xmark mr-2"></i>Reject</button>
+                                        <form method = "POST" action="{{ route('hr.reject') }}">
+                                            @csrf
+                                            <input class = "hidden" name = "applicationID" type="text" value = "{{ $applicant->id }}">
+                                            <button type = "submit" class = "bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"><i class = "fas fa-xmark mr-2"></i>Reject</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
