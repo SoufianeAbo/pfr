@@ -12,7 +12,7 @@
             <div class="flex flex-row mt-4 gap-4">
                 @foreach($featured as $key=>$game)
                 @php
-                    $delay = ($key + 0) * 150;
+                    $delay = ($key + 1) * 150;
                 @endphp
                 <a href = "/games/{{ $game->id }}" class="hover:top-4 top-0 animate-slide-in-blurred-bottom animation-delay-[{{ $delay }}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
                     <img class="rounded-lg" src="{{ $game->assets->gridVertical }}" alt="">

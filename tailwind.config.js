@@ -8,6 +8,7 @@ export default {
     "./resources/**/careers/*.blade.php",
     "./resources/**/games/*.blade.php",
     "./resources/**/employee/*.blade.php",
+    "./resources/**/mails/*.blade.php",
   ],
   theme: {
     extend: {

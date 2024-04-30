@@ -37,7 +37,7 @@ class AcceptationMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.congrats',
+            markdown: 'emails.congrats',
             with: [
                 'email' => $this->email,
                 'password' => $this->password,

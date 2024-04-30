@@ -16,20 +16,23 @@ class HRController extends Controller
         $application = Applications::find($request->applicationID);
         $randomPass = Str::password(8, true, true, true, false);
 
-        $employee = new Employees;
-        $employee->email = $application->email;
-        $employee->password = bcrypt($randomPass);
-        $employee->roleID = $application->roleID;
-        $employee->applicationID = $application->id;
+        $picture = $application->picture;
 
-        $application->status = 'Accepted';
-        $application->save();
+        // $employee = new Employees;
+        // $employee->email = $application->email;
+        // $employee->password = bcrypt($randomPass);
+        // $employee->roleID = $application->roleID;
+        // $employee->applicationID = $application->id;
+        // $employee->save();
 
-        $email = $employee->email;
+        // $application->status = 'Accepted';
+        // $application->save();
+
+        // $email = $employee->email;
+        $email = $application->email;
         $password = $randomPass;
         $firstName = $application->firstName;
         $lastName = $application->lastName;
-        $picture = $application->picture;
 
         Mail::to('abounasrsoufiane@gmail.com')->send(new AcceptationMail($email, $password, $firstName, $lastName, $picture));
 
