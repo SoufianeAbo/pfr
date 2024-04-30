@@ -18,18 +18,17 @@ class HRController extends Controller
 
         $picture = $application->picture;
 
-        // $employee = new Employees;
-        // $employee->email = $application->email;
-        // $employee->password = bcrypt($randomPass);
-        // $employee->roleID = $application->roleID;
-        // $employee->applicationID = $application->id;
-        // $employee->save();
+        $employee = new Employees;
+        $employee->email = $application->email;
+        $employee->password = bcrypt($randomPass);
+        $employee->roleID = $application->roleID;
+        $employee->applicationID = $application->id;
+        $employee->save();
 
-        // $application->status = 'Accepted';
-        // $application->save();
+        $application->status = 'Accepted';
+        $application->save();
 
-        // $email = $employee->email;
-        $email = $application->email;
+        $email = $employee->email;
         $password = $randomPass;
         $firstName = $application->firstName;
         $lastName = $application->lastName;
