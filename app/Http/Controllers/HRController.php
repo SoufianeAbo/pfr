@@ -33,8 +33,9 @@ class HRController extends Controller
         $password = $randomPass;
         $firstName = $application->firstName;
         $lastName = $application->lastName;
+        $position = $application->role->roleName;
 
-        Mail::to('abounasrsoufiane@gmail.com')->send(new AcceptationMail($email, $password, $firstName, $lastName, $picture));
+        Mail::to('abounasrsoufiane@gmail.com')->send(new AcceptationMail($email, $password, $firstName, $lastName, $picture, $position));
 
         return redirect()->route('user.index')->with('success', 'Applicant ' . $application->firstName . ' has been accepted and an e-mail has been sent!');
     }

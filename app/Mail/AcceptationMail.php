@@ -16,7 +16,7 @@ class AcceptationMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $email, private string $password, private string $firstName, private string $lastName, private string $picture)
+    public function __construct(private string $email, private string $password, private string $firstName, private string $lastName, private string $picture, private string $position)
     {
         //
     }
@@ -44,6 +44,7 @@ class AcceptationMail extends Mailable
                 'firstName' => $this->firstName,
                 'lastName' => $this->lastName,
                 'picture' => $this->picture,
+                'position' => $this->position,
             ],
         );
     }
