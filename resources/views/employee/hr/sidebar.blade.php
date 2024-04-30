@@ -18,17 +18,15 @@
         </div>
 
         <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-            <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f91f2e]"><i
-                    class="fa-solid fa-chart-line mr-2"></i>Dashboard</a>
-            <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
-                    class="fa-solid fa-bars-progress mr-2"></i>Projects</a>
-            <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
-                    class="fa-solid fa-address-book mr-2"></i>Tasks</a>
+            <a href="#" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all bg-[#f91f2e]"><i
+                    class="fa-solid fa-scroll mr-2"></i>Applications</a>
+            <a href="#" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all bg-[#f90617]"><i
+                    class="fa-solid fa-tags mr-2"></i>Manage Roles</a>
         </div>
     </div>
 
     <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-        <a href="{{ route('logout') }}" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
+        <a href="{{ route('logout') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all bg-[#f90617]"><i
                 class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Log out</a>
     </div>
 </div>
