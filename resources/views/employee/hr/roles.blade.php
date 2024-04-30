@@ -40,12 +40,12 @@
             <div class="grid grid-cols-3 gap-4 mx-4 pt-8">
                 @foreach($roles as $role)
                 <div class="daisy-card w-full bg-base-100 shadow-xl">
+                    <div class = "bg-[#049509] p-2 rounded-t-lg">
+                        <p class = "pl-4 text-white"><i class = "fas fa-check mr-2"></i>Available!</p>
+                    </div>
                     <div class="daisy-card-body">
                         <div class = "flex flex-row justify-between">
                             <h2 class="daisy-card-title">{{ $role->roleName }}</h2>
-                            <div class = "flex justify-end">
-                                <p class = "bg-[#049509] w-fit p-2 rounded-full text-white">Available!</p>
-                            </div>
                         </div>
                         
                         <p class="text-sm uppercase"><b class = "normal-case">Speciality:</b> {{ $role->special }}</p>
@@ -65,7 +65,8 @@
                         </p>
 
                         <div class="daisy-card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
+                            <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-ban mr-2"></i>Full</label>
+                            <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-pen-to-square mr-2"></i>Edit</label>
                         </div>
                     </div>
                 </div>
