@@ -81,4 +81,22 @@ class HRController extends Controller
 
         return view('employee.hr.roles', compact('employee', 'roles', 'employees'));
     }
+
+    public function full(Request $request) {
+        $role = Roles::find($request->roleID);
+        
+        $role->availability = 'full';
+        $role->save();
+
+        return redirect()->route('hr.roles')->with('success', 'Role ' . $role->roleName . ' became full and is no longer available for applications!');
+    }
+
+    public function available(Request $request) {
+        $role = Roles::find($request->roleID);
+
+        $role->availability = 'available';
+        $role->save();
+
+        return redirect()->route('hr.roles')->with('success', 'Role ' . $role->roleName . ' became open for applications and is now available!');
+    }
 }

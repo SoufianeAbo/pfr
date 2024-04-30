@@ -32,6 +32,8 @@ Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.acce
 Route::post('/dashboard/reject', [HRController::class, 'reject'])->name('hr.reject');
 Route::get('/dashboard', [HRController::class, 'index'])->name('hr.index');
 Route::get('/dashboard/roles', [HRController::class, 'rolesPage'])->name('hr.roles');
+Route::post('/dashboard/full', [HRController::class, 'full'])->name('hr.full');
+Route::post('/dashboard/available', [HRController::class, 'available'])->name('hr.available');
 // });
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

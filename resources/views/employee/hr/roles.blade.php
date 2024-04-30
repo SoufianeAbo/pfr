@@ -72,9 +72,17 @@
 
                         <div class="daisy-card-actions justify-end">
                             @if ($role->availability == 'available')
-                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-ban mr-2"></i>Full</label>
+                                <form action="{{ route('hr.full') }}" method = "POST">
+                                    @csrf
+                                    <input type="text" name = "roleID" class = "hidden" value = "{{ $role->id }}">
+                                    <button type = "submit" class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-ban mr-2"></i>Full</button>
+                                </form>
                             @else
-                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-check mr-2"></i>Available</label>
+                                <form action="{{ route('hr.available') }}" method = "POST">
+                                    @csrf
+                                    <input type="text" name = "roleID" class = "hidden" value = "{{ $role->id }}">
+                                    <button type = "submit" class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-check mr-2"></i>Available</button>
+                                </form>
                             @endif
                             <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-pen-to-square mr-2"></i>Edit</label>
                         </div>
