@@ -62,7 +62,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modal_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-circle-info mr-2"></i>Details</label>
                                 <input type="checkbox" id="modal_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
@@ -119,8 +119,8 @@
                                         <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
                                         <div class="flex flex-row-reverse justify-between">
                                             <div class="daisy-modal-action">
-                                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"
-                                                    for="modal_{{ $applicant->id }}">Close</label>
+                                                <label class="bg-[#f90617] hover:scale-105 transition-all cursor-pointer px-4 py-2 rounded-lg text-white"
+                                                    for="modal_{{ $applicant->id }}"><i class = "fas fa-x mr-2"></i>Close</label>
                                             </div>
 
                                             <div class="flex flex-row daisy-modal-action">
@@ -177,7 +177,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modalAccept_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-circle-info mr-2"></i>Details</label>
                                 <input type="checkbox" id="modalAccept_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
@@ -234,8 +234,8 @@
                                         <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
                                         <div class="flex flex-row-reverse justify-between">
                                             <div class="daisy-modal-action">
-                                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"
-                                                    for="modalAccept_{{ $applicant->id }}">Close</label>
+                                                <label class="bg-[#f90617] hover:scale-105 transition-all cursor-pointer px-4 py-2 rounded-lg text-white"
+                                                    for="modalAccept_{{ $applicant->id }}"><i class = "fas fa-x mr-2"></i>Close</label>
                                             </div>
                                         </div>
                                     </div>
@@ -273,7 +273,7 @@
                             <p class="text-sm"><b>Date Applied:</b> {{ $applicant->created_at }}</p>
                             <div class="daisy-card-actions justify-end">
                                 <label for="modalReject_{{ $applicant->id }}"
-                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all">Details</label>
+                                    class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-circle-info mr-2"></i>Details</label>
                                 <input type="checkbox" id="modalReject_{{ $applicant->id }}" class="daisy-modal-toggle" />
                                 <dialog class="daisy-modal bg-black bg-opacity-20">
                                     <div class="daisy-modal-box">
@@ -330,8 +330,8 @@
                                         <p class="py-4"><b>Position:</b> {{ $applicant->role->roleName }}</p>
                                         <div class="flex flex-row-reverse justify-between">
                                             <div class="daisy-modal-action">
-                                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white"
-                                                    for="modalReject_{{ $applicant->id }}">Close</label>
+                                                <label class="bg-[#f90617] hover:scale-105 transition-all cursor-pointer px-4 py-2 rounded-lg text-white"
+                                                    for="modalReject_{{ $applicant->id }}"><i class = "fas fa-x mr-2"></i>Close</label>
                                             </div>
                                         </div>
                                     </div>
