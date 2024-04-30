@@ -6,12 +6,22 @@ use App\Mail\AcceptationMail;
 use App\Mail\RejectionMail;
 use App\Models\Applications;
 use App\Models\Employees;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class HRController extends Controller
 {
+    public function index(): View
+    {
+        $applications = Applications::all()->where('status', 'Pending');
+        $employee = Auth::user();
+
+        return view('employee.hr.dashboard', compact('applications', 'employee'));
+    }
+
     public function accept(Request $request)
     {
         $application = Applications::find($request->applicationID);

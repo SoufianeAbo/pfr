@@ -26,4 +26,9 @@ class Employees extends Model implements Authenticatable
     {
         return $this->belongsTo(Applications::class, 'applicationID');
     }
+
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Roles::class, 'roleID');
+    }
 }

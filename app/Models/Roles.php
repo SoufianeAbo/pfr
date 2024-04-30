@@ -19,5 +19,8 @@ class Roles extends Model
         'qualifications',
         'educational',
         'salaryRange',
+        'special',
+        'work',
+        'relation',
     ];
 }

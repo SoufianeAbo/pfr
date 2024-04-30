@@ -30,7 +30,17 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect()->intended('/dashboard');
+            if (auth()->check()) {
+                $role = auth()->user()->role->special;
+    
+                switch ($role) {
+                    case 'hr':
+                        return redirect()->route('hr.index');
+    
+                    default:
+                        return redirect()->route('logout');
+                }
+            }
         } else {
             return redirect()->back()->withInput($request->only('email', 'remember'));
         }
