@@ -28,7 +28,7 @@
         </div>
 
         <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
-            <a href="#" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
+            <a href="{{ route('logout') }}" class="text-white p-2 px-12 rounded-full bg-[#f90617]"><i
                     class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Log out</a>
         </div>
     </div>

@@ -35,4 +35,10 @@ class UserController extends Controller
             return redirect()->back()->withInput($request->only('email', 'remember'));
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 }

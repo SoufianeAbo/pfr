@@ -28,5 +28,6 @@ Route::get('/login', [UserController::class, 'index'])->name('login.index');
 Route::post('/login', [UserController::class, 'login'])->name('employee.login');
 
 Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.accept');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [UserController::class, 'userIndex'])->name('user.index');
