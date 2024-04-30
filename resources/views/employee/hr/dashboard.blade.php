@@ -28,7 +28,7 @@
                         <i class = "text-[#e20613] text-[1.75rem] fas fa-wand-magic-sparkles"></i>
                     </div>
                     <div class="daisy-stat-title">Accepted Applications</div>
-                    <div class="daisy-stat-value">{{ count($acceptedApplications) }}</div>
+                    <div class="daisy-stat-value">{{ $acceptAppCount }}</div>
                 </div>
 
                 <div class="daisy-stat">
@@ -36,7 +36,7 @@
                         <i class = "text-[#e20613] text-[1.75rem] fas fa-x"></i>
                     </div>
                     <div class="daisy-stat-title">Rejected Applications</div>
-                    <div class="daisy-stat-value">{{ count($rejectedApplications) }}</div>
+                    <div class="daisy-stat-value">{{ $rejectAppCount }}</div>
                 </div>
 
             </div>
