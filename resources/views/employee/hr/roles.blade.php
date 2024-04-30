@@ -40,9 +40,15 @@
             <div class="grid grid-cols-3 gap-4 mx-4 pt-8">
                 @foreach($roles as $role)
                 <div class="daisy-card w-full bg-base-100 shadow-xl">
-                    <div class = "bg-[#049509] p-2 rounded-t-lg">
-                        <p class = "pl-4 text-white"><i class = "fas fa-check mr-2"></i>Available!</p>
-                    </div>
+                    @if ($role->availability == 'available')
+                        <div class = "bg-[#049509] p-2 rounded-t-lg">
+                            <p class = "pl-4 text-white"><i class = "fas fa-check mr-2"></i>Available!</p>
+                        </div>
+                    @else
+                        <div class = "bg-[#95040e] p-2 rounded-t-lg">
+                            <p class = "pl-4 text-white"><i class = "fas fa-ban mr-2"></i>Full</p>
+                        </div>
+                    @endif
                     <div class="daisy-card-body">
                         <div class = "flex flex-row justify-between">
                             <h2 class="daisy-card-title">{{ $role->roleName }}</h2>
@@ -65,7 +71,11 @@
                         </p>
 
                         <div class="daisy-card-actions justify-end">
-                            <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-ban mr-2"></i>Full</label>
+                            @if ($role->availability == 'available')
+                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-ban mr-2"></i>Full</label>
+                            @else
+                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-check mr-2"></i>Available</label>
+                            @endif
                             <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-pen-to-square mr-2"></i>Edit</label>
                         </div>
                     </div>
