@@ -11,9 +11,9 @@
                 <div
                     class="flex flex-row-reverse gap-4 items-center justify-center bg-gradient-to-r from-[#f90617] to-[#f91f2e] mx-4 py-2 rounded-lg">
                     <img class="w-1/4 rounded-full ring ring-white"
-                        src="https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png"
+                        src="{{ asset('storage/' . $employee->application->picture) }}"
                         alt="">
-                    <p class="text-white">{{ $employee->email }}</p>
+                    <p class="text-white">{{ $employee->application->firstName }} {{ $employee->application->lastName }}</p>
                 </div>
             </div>
 
@@ -32,9 +32,6 @@
                     class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Log out</a>
         </div>
     </div>
-    <!-- <div class = "bg-[#000000] flex flex-row justify-end py-2 w-full px-2 fixed">
-        <img class = "w-[2%] rounded-full ring-2 ring-[#7c030b]" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="">
-    </div> -->
     <div class="pt-8 w-11/12">
         <div class="ml-72 bg-neutral-100 rounded-lg h-screen">
             <h1 class="text-3xl font-bold pt-8 pl-4">Applications</h1>
