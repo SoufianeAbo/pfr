@@ -84,10 +84,6 @@
                                     <button type = "submit" class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-check mr-2"></i>Available</button>
                                 </form>
                             @endif
-
-                            @if ($role->special !== 'hr')
-                                <label class="bg-[#f90617] cursor-pointer px-4 py-2 rounded-lg text-white hover:scale-105 transition-all"><i class = "fas fa-pen-to-square mr-2"></i>Edit</label>
-                            @endif
                         </div>
                     </div>
                 </div>
