@@ -30,9 +30,37 @@
                     Creating a game project is permanent. Remember to have several meetings and discussions with your co-workers about an ambitious project to create before deciding it'd be a good idea to make a game.
                 </div>
             </div>
+            <div class = "flex flex-row justify-between gap-20">
+                <div class = "ml-4 flex-col w-full">
+                    <h2 class="text-xl font-bold pt-8">Game Details</h2>
+                    <p class = "mt-2 font-bold">Game Title</p>
+                    <input placeholder = "Title..." type="text" class = "p-2 rounded-lg border-2 w-full">
+    
+                    <p class = "mt-2 font-bold">Game Subtitle</p>
+                    <textarea placeholder = "Subtitle..." type="text" class = "p-2 rounded-lg border-2 w-full resize-none"></textarea>
 
+                    <p class = "mt-2 font-bold">Release Date</p>
+                    <input type="date" class = "p-2 rounded-lg border-2 w-full">
+                    
+                    <p class = "mt-2 font-bold">Genre</p>
+                    <select name="genre" class = "p-2 rounded-lg border-2 w-full">
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                        @endforeach
+                    </select>
 
+                    <p class = "mt-2 font-bold">Developer</p>
+                    <input placeholder = "Developer..." type="text" class = "p-2 rounded-lg border-2 w-full">
+                </div>
+                <div class = "mr-8 flex-col text-right">
+                    <h2 class="text-xl font-bold pt-8">Game Pictures</h2>
+                    <div class="daisy-avatar mt-4">
+                        <div class="w-[267px] h-[400px] rounded-lg border-2 border-black">
+                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>

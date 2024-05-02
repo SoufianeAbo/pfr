@@ -23,8 +23,8 @@ class HRController extends Controller
         $acceptAppCount = count(Applications::all()->where('status', 'Accepted'));
         $rejectAppCount = count(Applications::all()->where('status', 'Rejected'));
         
-        $acceptedApplications = Applications::all()->where('status', 'Accepted')->take(3);
-        $rejectedApplications = Applications::all()->where('status', 'Rejected')->take(3);
+        $acceptedApplications = Applications::all()->where('status', 'Accepted')->sortBy('id')->take(3);
+        $rejectedApplications = Applications::all()->where('status', 'Rejected')->sortBy('id')->take(3);
 
         return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications', 'acceptAppCount', 'rejectAppCount'));
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Applications;
+use App\Models\Genres;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,15 +55,17 @@ class UserController extends Controller
         $acceptAppCount = count(Applications::all()->where('status', 'Accepted'));
         $rejectAppCount = count(Applications::all()->where('status', 'Rejected'));
         
-        $acceptedApplications = Applications::all()->where('status', 'Accepted')->take(3);
-        $rejectedApplications = Applications::all()->where('status', 'Rejected')->take(3);
+        $acceptedApplications = Applications::all()->where('status', 'Accepted')->sortByDesc('created_at')->take(3);
+        $rejectedApplications = Applications::all()->where('status', 'Rejected')->sortByDesc('created_at')->take(3);
+
+        $genres = Genres::all();
 
         switch ($currentUser->role->special) {
             case 'hr':
                 return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications', 'acceptAppCount', 'rejectAppCount'));
 
             case 'gamedesigner':
-                return view('employee.gd.dashboard', compact('employee'));
+                return view('employee.gd.dashboard', compact('employee', 'genres'));
 
             default:
                 return redirect()->route('logout');

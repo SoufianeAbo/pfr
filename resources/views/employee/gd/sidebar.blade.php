@@ -7,7 +7,7 @@
         <div class="w-full bg-[#000000] py-4 my-8">
             <div
                 class="flex flex-row-reverse gap-4 items-center justify-center bg-gradient-to-r from-[#f90617] to-[#f91f2e] mx-4 py-2 rounded-lg">
-                <img class="w-1/4 rounded-full ring ring-white"
+                <img class="w-1/4 mr-2 rounded-full ring ring-white"
                     src="{{ asset('storage/' . $employee->application->picture) }}" alt="">
                 <div>
                     <p class="text-white">{{ $employee->application->firstName }} {{ $employee->application->lastName }}
@@ -30,6 +30,7 @@
                     class="fas fa-folder-plus mr-2"></i>Create Game</a>
             {{-- <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/roles') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
                     class="fa-solid fa-tags mr-2"></i>Workers</a> --}}
+            
         </div>
     </div>
 
