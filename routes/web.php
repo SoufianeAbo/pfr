@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CareersController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\GDController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\UserController;
 use App\Models\Game;
@@ -27,13 +28,11 @@ Route::get('/thankyou', [CareersController::class, 'thankyou'])->name('thank.you
 Route::get('/login', [UserController::class, 'index'])->name('login.index');
 Route::post('/login', [UserController::class, 'login'])->name('employee.login');
 
-// Route::middleware(['role.dashboard'])->group(function () {
 Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.accept');
 Route::post('/dashboard/reject', [HRController::class, 'reject'])->name('hr.reject');
-Route::get('/dashboard', [HRController::class, 'index'])->name('hr.index');
+Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard/roles', [HRController::class, 'rolesPage'])->name('hr.roles');
 Route::post('/dashboard/full', [HRController::class, 'full'])->name('hr.full');
 Route::post('/dashboard/available', [HRController::class, 'available'])->name('hr.available');
-// });
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

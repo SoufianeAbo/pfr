@@ -54,7 +54,7 @@ class HRController extends Controller
 
         Mail::to('abounasrsoufiane@gmail.com')->send(new AcceptationMail($email, $password, $firstName, $lastName, $picture, $position));
 
-        return redirect()->route('hr.index')->with('success', 'Applicant ' . $application->firstName . ' has been accepted and an e-mail has been sent!');
+        return redirect()->route('dashboard')->with('success', 'Applicant ' . $application->firstName . ' has been accepted and an e-mail has been sent!');
     }
 
     public function reject(Request $request)
@@ -71,7 +71,7 @@ class HRController extends Controller
 
         Mail::to('abounasrsoufiane@gmail.com')->send(new RejectionMail($firstName, $lastName, $position, $picture));
 
-        return redirect()->route('hr.index')->with('success', 'Applicant ' . $application->firstName . ' has been rejected and an e-mail has been sent!');
+        return redirect()->route('dashboard')->with('success', 'Applicant ' . $application->firstName . ' has been rejected and an e-mail has been sent!');
     }
 
     public function rolesPage() {

@@ -22,8 +22,7 @@ class Game extends Model
         'genre',
         'featured',
         'developer',
-        'videoTrailer',
-        'description',
+        'creatorID',
         'esrb',
     ];
 

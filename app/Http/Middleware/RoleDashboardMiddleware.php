@@ -22,6 +22,9 @@ class RoleDashboardMiddleware
                 case 'hr':
                     return redirect()->route('hr.index');
 
+                case 'gamedesigner':
+                    return redirect()->route('gd.index');
+
                 default:
                     return redirect()->route('login.index');
             }
