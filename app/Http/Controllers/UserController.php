@@ -34,7 +34,7 @@ class UserController extends Controller
                 return redirect()->route('dashboard');
             }
         } else {
-            return redirect()->back()->withInput($request->only('email', 'remember'));
+            return redirect()->back()->with('success', 'Your credentials are wrong, try again.');
         }
     }
 
