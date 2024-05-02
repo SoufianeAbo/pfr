@@ -57,7 +57,7 @@
             </div>
             <button class = "mr-4 w-fit self-end mb-4 bg-white py-6 px-4 rounded-lg text-[#e20613] text-sm transition-all hover:bg-[#e20613] hover:text-white tracking-wider">FIND MORE</button>
         </div>
-        <div class = "flex flex-row justify-around">
+        {{-- <div class = "flex flex-row justify-around">
             <div id = "caroGame1" class = "bg-cover hover:bg-auto hover:bg-top rounded-lg transition-all flex justify-between">
                 <img class = "w-1/2 mt-24 ml-4 mb-4" src="https://cdn2.steamgriddb.com/logo_thumb/d06f854e3f106600235dc4ac0e08b537.png" alt="">
             </div>
@@ -65,10 +65,10 @@
             <div id = "caroGame2" class = "bg-cover hover:bg-auto hover:bg-center rounded-lg transition-all flex justify-between">
                 <img class = "w-1/2 mt-24 ml-4 mb-4 object-contain" src="https://cdn2.steamgriddb.com/logo_thumb/fe45e3227f3805b1314414203c4e5206.png" alt="">
             </div>
-        </div>
-        <div class = "mb-16">
+        </div> --}}
+        {{-- <div class = "mb-16">
             <button class = "w-fit flex m-auto px-8 py-6 mt-8 rounded-lg text-white bg-[#e20613] hover:text-[#e20613] hover:bg-white transition-all border border-[#e20613]">ALL UPCOMING RELEASES</button>
-        </div>
+        </div> --}}
 
         <div class = "flex flex-row">
             <img src="abovefooter.png" alt="" class = "w-[63%]">

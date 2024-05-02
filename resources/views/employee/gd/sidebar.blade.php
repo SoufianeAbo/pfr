@@ -17,11 +17,19 @@
             </div>
         </div>
 
+        {{-- <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
+            <a href="{{ route('dashboard') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
+                    class="fa-solid fa-scroll mr-2"></i>Dashboard</a>
+            <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/roles') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
+                    class="fa-solid fa-tags mr-2"></i>Workers</a>
+        </div> --}}
+
+        
         <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
             <a href="{{ route('dashboard') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
-                    class="fa-solid fa-scroll mr-2"></i>Applications</a>
-            <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/roles') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
-                    class="fa-solid fa-tags mr-2"></i>Manage Roles</a>
+                    class="fas fa-folder-plus mr-2"></i>Create Game</a>
+            {{-- <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/roles') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
+                    class="fa-solid fa-tags mr-2"></i>Workers</a> --}}
         </div>
     </div>
 
