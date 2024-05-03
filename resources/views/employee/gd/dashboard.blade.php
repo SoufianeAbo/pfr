@@ -55,13 +55,14 @@
                 <div class = "mr-8 flex-col text-right">
                     <h2 class="text-xl font-bold pt-8">Game Pictures</h2>
                     <div class="daisy-avatar mt-4">
-                        <a href = "#" class="w-[267px] group h-[400px] rounded-lg border-2 border-black">
+                        <label for = "dropzone-file" class="cursor-pointer w-[267px] group h-[400px] rounded-lg border-2 border-black">
+                            <input id = "dropzone-file" type="file" class = "hidden w-full h-full absolute top-0 bottom-0 left-0 right-0">
                             <div class = "flex items-center justify-center group-hover:opacity-50 transition-all opacity-0 w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-black rounded-lg"></div>
                             <p class = "rounded-lg opacity-0 group-hover:opacity-90 font-bold flex-col transition-all w-full h-full absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center text-white text-xl text-center">
                                 Upload picture...<br><span class = "font-light text-sm">Picture must at least be 267x400.</span>
                             </p>
                             <img class = "rounded-lg" src="https://cdn2.steamgriddb.com/thumb/2d2a62f0f4b1f5b7c40d4324e309f39c.jpg" />
-                        </a>
+                        </label>
                     </div>
                     <p class = "text-center text-xs opacity-50 my-2">-- or --</p>
                     <a class = "text-center flex justify-center px-4 py-2 bg-[#f90617] rounded-lg text-white hover:scale-105 transition-all" href="">Select from API</a>
@@ -70,3 +71,16 @@
         </div>
     </div>
 </body>
+<script>
+    document.getElementById('dropzone-file').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imgElement = document.querySelector('.daisy-avatar img');
+                imgElement.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
