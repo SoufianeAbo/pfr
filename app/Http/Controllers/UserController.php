@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Applications;
+use App\Models\Employees;
 use App\Models\Game;
 use App\Models\Genres;
 use Illuminate\Contracts\View\View;
@@ -64,6 +65,8 @@ class UserController extends Controller
             $firstExt = substr($createdGame->assets->gridVertical, 0, 4);
         }
 
+        $workers = Employees::where('gameID', $createdGame->id)->get();
+
         $genres = Genres::all();
 
         switch ($currentUser->role->special) {
@@ -74,7 +77,7 @@ class UserController extends Controller
                 if ($createdGame == null) {
                     return view('employee.gd.dashboard', compact('employee', 'genres'));   
                 } else {
-                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame', 'firstExt'));
+                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame', 'firstExt', 'workers'));
                 }
 
             default:

@@ -13,4 +13,11 @@ class GDController extends Controller
 
         return view('employee.gd.dashboard', compact('employee'));
     }
+
+    public function workers()
+    {
+        $employee = Auth::user();
+
+        return view('employee.gd.workers', compact('employee'));
+    }
 }

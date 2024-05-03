@@ -47,7 +47,7 @@
                                 <i class = "text-[#e20613] fas fa-users text-2xl"></i>
                             </div>
                             <p class = "font-bold">Workers</p>
-                            <p class = "font-bold">239</p>
+                            <p class = "font-bold">{{ count($workers) }}</p>
                         </div>
                         <div class = "daisy-stat">
                             <div class = "daisy-stat-figure">

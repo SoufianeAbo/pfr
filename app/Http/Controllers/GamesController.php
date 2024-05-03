@@ -133,10 +133,6 @@ class GamesController extends Controller
 
     public function editGame(Request $request)
     {
-        // if ($request->file == null && $request->fileAPI == null) {
-        //     return redirect()->back()->with('tryagain', 'You must at least upload a picture or select a pre-existing image from the API.');
-        // }
-
         $validated = Validator::make($request->all(), [
             'gameID' => 'required',
             'creatorID' => 'required',
