@@ -65,7 +65,22 @@
                         </label>
                     </div>
                     <p class = "text-center text-xs opacity-50 my-2">-- or --</p>
-                    <a class = "text-center flex justify-center px-4 py-2 bg-[#f90617] rounded-lg text-white hover:scale-105 transition-all" href="">Select from API</a>
+                    <label for = "my_modal" class = "text-center flex justify-center px-4 py-2 bg-[#f90617] rounded-lg text-white hover:scale-105 transition-all">Select from API</label>
+                    <input type="checkbox" id = "my_modal" class = "daisy-modal-toggle" />
+                    <div class = "text-left daisy-modal" role = "dialog">
+                        <div class = "daisy-modal-box">
+                            <h3 class="text-lg font-bold">Get image with API</h3>
+                            <p class="py-4">Search for the name of any game.</p>
+                            <input id = "searchInput" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
+                            <div id = "searchResults" class = "grid grid-cols-3 gap-4">
+                                
+                            </div>
+                            <div class = "daisy-modal-action">
+                                <label for="my_modal" class="btn">Close!</label>
+                            </div>
+                        </div>
+                        <label class="daisy-modal-backdrop" for="my_modal">Close</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,5 +97,25 @@
             };
             reader.readAsDataURL(file);
         }
+    });
+
+    $(document).ready(function(){
+        $('#searchInput').on('input', function(){
+            var query = $(this).val();
+            
+            if (query.length >= 3) {
+                $.ajax({
+                    url: "{{ route('searchSGD') }}",
+                    method: 'GET',
+                    data: { query: query },
+                    success: function(response){
+                        $('#searchResults').empty();
+                        $.each(response, function(index, result){
+                            $('#searchResults').append(`<img src = ${result.url} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
+                        });
+                    }
+                });
+            }
+        });
     });
 </script>

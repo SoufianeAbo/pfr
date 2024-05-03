@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\Genres;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class GamesController extends Controller
 {
@@ -51,6 +52,36 @@ class GamesController extends Controller
         $gamesHtml = view('includes.pagination', compact('games'))->render();
     
         return response()->json(['html' => $gamesHtml, 'data' => $games]);
+    }
+
+    public function searchSGD(Request $request)
+    {
+        $query = $request->input('query');
+
+        $apiKey = 'ec6bebaed409fe293eace9c4490d3af2';
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $apiKey,
+        ])->withOptions(["verify"=>false])->get("https://www.steamgriddb.com/api/v2/search/autocomplete/{$query}");
+    
+        $results = $response->json()['data'];
+
+        if (!empty($results)) {
+            $firstResult = array_shift($results);
+
+            $gameId = $firstResult['id'];
+
+            $gridResponse = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $apiKey,
+            ])->withOptions(["verify" => false])->get("https://www.steamgriddb.com/api/v2/grids/game/{$gameId}?dimensions=600x900");
+
+            $gridResults = array_slice($gridResponse->json()['data'], 0, 3);
+
+            return response()->json($gridResults);
+        } else {
+            return response()->json([]);
+        }
+
     }
     
 }
