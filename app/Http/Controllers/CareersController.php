@@ -39,7 +39,7 @@ class CareersController extends Controller
             'linkedinProfile' => 'nullable',
             'portfolio' => 'nullable',
             'source' => 'required',
-            'salaryExpectation' => 'nullable',
+            'salaryExpectation' => 'nullable|numeric',
             'roleID' => 'required',
             'status' => 'nullable',
         ]);

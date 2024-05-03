@@ -36,5 +36,6 @@ Route::post('/dashboard/full', [HRController::class, 'full'])->name('hr.full');
 Route::post('/dashboard/available', [HRController::class, 'available'])->name('hr.available');
 
 Route::get('/search', [GamesController::class, 'searchSGD'])->name('searchSGD');
+Route::post('/dashboard/createGame', [GamesController::class, 'createGame'])->name('create.game');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

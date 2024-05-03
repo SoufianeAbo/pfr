@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\GameAssets;
 use App\Models\Genres;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -81,6 +83,49 @@ class GamesController extends Controller
         } else {
             return response()->json([]);
         }
+
+    }
+
+    public function createGame(Request $request)
+    {
+        if ($request->file == null && $request->fileAPI == null) {
+            return redirect()->back()->with('tryagain', 'You must at least upload a picture or select a pre-existing image from the API.');
+        }
+    
+        $validated = Validator::make($request->all(), [
+            'creatorID' => 'required',
+            'gameTitle' => 'required|max:20',
+            'gameSubtitle' => 'required|max:100',
+            'releaseDate' => 'required',
+            'genreID' => 'required',
+            'gameDeveloper' => 'required',
+            'file' => 'nullable',
+            'fileAPI' => 'nullable',
+        ]);
+
+        $game = new Game;
+        $game->title = $request->gameTitle;
+        $game->subtitle = $request->gameSubtitle;
+        $game->releaseDate = $request->releaseDate;
+        $game->status = 'In Development';
+        $game->genreID = $request->genreID;
+        $game->featured = '0';
+        $game->developer = $request->gameDeveloper;
+        $game->creatorID = $request->creatorID;
+        $game->esrb = 'RP';
+        $game->save();
+
+        $gameAssets = new GameAssets;
+        $gameAssets->gameID = $game->id;
+
+        if ($request->file == null) {
+            $gameAssets->gridVertical = $request->fileAPI;
+        } else {
+            $gameAssets->gridVertical = $request->file;
+        }
+
+        $gameAssets->save();
+        return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . 'has successfully been created!');
 
     }
     

@@ -60,38 +60,38 @@
                         <p class = "text-gray-500">FIRST NAME</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "firstName" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "firstName" class = "border p-2 px-4 w-full" type="text">
                     
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LAST NAME</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "lastName" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "lastName" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">EMAIL</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "email" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "email" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">PHONE</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "phone" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "phone" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LOCATION (CITY)</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "city" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "city" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">RESUME/CV</p>
                         <p class = "text-red-500">*</p>
                         <div class = "ml-2 flex flex-col">
-                            <input name = "resume" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
+                            <input required name = "resume" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: pdf, doc, docx, txt, rtf)</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                         <p class = "text-gray-500">PICTURE</p>
                         <p class = "text-red-500">*</p>
                         <div class = "ml-2 flex flex-col">
-                            <input name = "picture" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
+                            <input required name = "picture" class="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" type="file">
                             <p class = "nobold text-xs mt-1 text-gray-500">(File types: png, jpg)</p>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                         <p class = "text-gray-500">COUNTRY</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "country" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "country" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">LINKEDIN PROFILE</p>
@@ -133,7 +133,7 @@
                         <p class = "text-gray-500">HOW DID YOU HEAR ABOUT THIS JOB?</p>
                         <p class = "text-red-500">*</p>
                     </div>
-                    <input name = "source" class = "border p-2 px-4 w-full" type="text">
+                    <input required name = "source" class = "border p-2 px-4 w-full" type="text">
 
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">WHAT IS YOUR SALARY EXPECTATION?</p>

@@ -16,7 +16,6 @@ class GameAssets extends Model
         'gridVertical',
         'widescreenPic',
         'smallLogo',
-        'gridVertical2',
         'bgColor',
     ];
 }

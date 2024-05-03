@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Applications;
+use App\Models\Game;
 use App\Models\Genres;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -58,6 +59,8 @@ class UserController extends Controller
         $acceptedApplications = Applications::all()->where('status', 'Accepted')->sortByDesc('created_at')->take(3);
         $rejectedApplications = Applications::all()->where('status', 'Rejected')->sortByDesc('created_at')->take(3);
 
+        $createdGame = Game::all()->where('creatorID', $employee->id);
+
         $genres = Genres::all();
 
         switch ($currentUser->role->special) {
@@ -65,7 +68,11 @@ class UserController extends Controller
                 return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications', 'acceptAppCount', 'rejectAppCount'));
 
             case 'gamedesigner':
-                return view('employee.gd.dashboard', compact('employee', 'genres'));
+                if (count($createdGame) == 0) {
+                    return view('employee.gd.dashboard', compact('employee', 'genres'));   
+                } else {
+                    return view('employee.gd.dashboardcreator', compact('employee', 'genres'));
+                }
 
             default:
                 return redirect()->route('logout');
