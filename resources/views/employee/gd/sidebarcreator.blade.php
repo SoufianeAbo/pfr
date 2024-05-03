@@ -20,7 +20,7 @@
         
         <div class="w-full bg-[#000000] flex flex-col gap-4 items-center py-4">
             <a href="{{ route('dashboard') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
-                    class="fas fa-folder-plus mr-2"></i>Dashboard</a>
+                    class="fas fa-folder-plus mr-2"></i>Your Game</a>
             <a href="{{ route('hr.roles') }}" class="text-white p-2 px-12 rounded-full hover:scale-105 transition-all {{ Request::is('dashboard/workers') ? 'bg-[#f91f2e]' : 'bg-[#f90617]'}}"><i
                     class="fa-solid fa-tags mr-2"></i>Workers</a>
             

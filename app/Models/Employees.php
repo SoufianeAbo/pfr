@@ -20,6 +20,7 @@ class Employees extends Model implements Authenticatable
         'password',
         'roleID',
         'applicationID',
+        'gameID',
     ];
 
     public function application(): BelongsTo
@@ -30,5 +31,10 @@ class Employees extends Model implements Authenticatable
     public function role(): BelongsTo
     {
         return $this->belongsTo(Roles::class, 'roleID');
+    }
+
+    public function game(): BelongsTo
+    {
+        return $this->belongsTo(Game::class, 'gameID');
     }
 }

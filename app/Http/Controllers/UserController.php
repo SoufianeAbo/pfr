@@ -59,7 +59,7 @@ class UserController extends Controller
         $acceptedApplications = Applications::all()->where('status', 'Accepted')->sortByDesc('created_at')->take(3);
         $rejectedApplications = Applications::all()->where('status', 'Rejected')->sortByDesc('created_at')->take(3);
 
-        $createdGame = Game::all()->where('creatorID', $employee->id);
+        $createdGame = Game::where('creatorID', $employee->id)->first();
 
         $genres = Genres::all();
 
@@ -68,10 +68,10 @@ class UserController extends Controller
                 return view('employee.hr.dashboard', compact('applications', 'employee', 'acceptedApplications', 'rejectedApplications', 'acceptAppCount', 'rejectAppCount'));
 
             case 'gamedesigner':
-                if (count($createdGame) == 0) {
+                if ($createdGame == null) {
                     return view('employee.gd.dashboard', compact('employee', 'genres'));   
                 } else {
-                    return view('employee.gd.dashboardcreator', compact('employee', 'genres'));
+                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame'));
                 }
 
             default:
