@@ -15,7 +15,7 @@ class GamesController extends Controller
     public function index(): View
     {
         $featured = Game::where('featured', '!=', '0')->orderBy('featured', 'DESC')->limit(5)->get();
-        $games = Game::all();
+        $games = Game::where('status', '!=', 'Released')->get();
         $genres = Genres::all();
     
         return view('games', compact('featured', 'games', 'genres'));
@@ -49,7 +49,7 @@ class GamesController extends Controller
             });
         }
     
-        $games = $query->with('assets')->with('platforms')->with('platforms.platform')->paginate(5);
+        $games = $query->with('assets')->where('status', '!=', 'In Development')->with('platforms')->with('platforms.platform')->paginate(5);
         
         $gamesHtml = view('includes.pagination', compact('games'))->render();
     
@@ -121,12 +121,58 @@ class GamesController extends Controller
         if ($request->file == null) {
             $gameAssets->gridVertical = $request->fileAPI;
         } else {
-            $gameAssets->gridVertical = $request->file;
+            $picturePath = $request->file('file')->store('public/games');
+            $picturePath = str_replace('public/', '', $picturePath);
+            $gameAssets->gridVertical = $picturePath;
         }
 
         $gameAssets->save();
         return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . 'has successfully been created!');
 
+    }
+
+    public function editGame(Request $request)
+    {
+        // if ($request->file == null && $request->fileAPI == null) {
+        //     return redirect()->back()->with('tryagain', 'You must at least upload a picture or select a pre-existing image from the API.');
+        // }
+
+        $validated = Validator::make($request->all(), [
+            'gameID' => 'required',
+            'creatorID' => 'required',
+            'gameTitle' => 'required|max:20',
+            'gameSubtitle' => 'required|max:100',
+            'releaseDate' => 'required',
+            'genreID' => 'required',
+            'gameDeveloper' => 'required',
+            'status' => 'nullable',
+            'file' => 'nullable',
+            'fileAPI' => 'nullable',
+        ]);
+
+        $game = Game::find($request->gameID);
+        $game->title = $request->gameTitle;
+        $game->subtitle = $request->gameSubtitle;
+        $game->releaseDate = $request->releaseDate;
+        $game->status = $request->gameStatus;
+        $game->genreID = $request->genreID;
+        $game->developer = $request->gameDeveloper;
+        $game->save();
+
+        $gameAssets = GameAssets::where('gameID', $request->gameID)->first();
+
+        if ($request->file !== null) {
+            $picturePath = $request->file('file')->store('public/games');
+            $picturePath = str_replace('public/', '', $picturePath);
+            $gameAssets->gridVertical = $picturePath;
+        } 
+        
+        if ($request->fileAPI !== null) {
+            $gameAssets->gridVertical = $request->fileAPI;
+        }
+        
+        $gameAssets->save();
+        return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . 'has been edited successfully!');
     }
     
 }

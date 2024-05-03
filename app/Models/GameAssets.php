@@ -10,6 +10,7 @@ class GameAssets extends Model
     use HasFactory;
 
     protected $table = 'gameassets';
+    protected $primaryKey = 'gameID';
 
     protected $fillable = [
         'gameID',

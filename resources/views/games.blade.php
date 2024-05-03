@@ -95,7 +95,7 @@
                         console.log(game);
                         var gameElement = `
                             <a href="/games/${game.id}" class="hover:top-4 top-0 mb-8 animate-slide-in-blurred-bottom animation-delay-[${game.delay}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                                <img class="rounded-lg" src="${game.assets.gridVertical}" alt="">
+                                <img class="rounded-lg w-[267px] h-[400px]" src="${game.assets.gridVertical}" alt="">
                                 <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                                 <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
                                     <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">${game.title}</p>

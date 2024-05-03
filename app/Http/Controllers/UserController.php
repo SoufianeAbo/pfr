@@ -60,6 +60,9 @@ class UserController extends Controller
         $rejectedApplications = Applications::all()->where('status', 'Rejected')->sortByDesc('created_at')->take(3);
 
         $createdGame = Game::where('creatorID', $employee->id)->first();
+        if ($createdGame !== null) {
+            $firstExt = substr($createdGame->assets->gridVertical, 0, 4);
+        }
 
         $genres = Genres::all();
 
@@ -71,7 +74,7 @@ class UserController extends Controller
                 if ($createdGame == null) {
                     return view('employee.gd.dashboard', compact('employee', 'genres'));   
                 } else {
-                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame'));
+                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame', 'firstExt'));
                 }
 
             default:
