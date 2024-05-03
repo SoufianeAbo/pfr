@@ -56,7 +56,8 @@
                     <h2 class="text-xl font-bold pt-8">Game Pictures</h2>
                     <div class="daisy-avatar mt-4">
                         <label for = "dropzone-file" class="cursor-pointer w-[267px] group h-[400px] rounded-lg border-2 border-black">
-                            <input id = "dropzone-file" type="file" class = "hidden w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                            <input name = "file" id = "dropzone-file" type="file" class = "hidden w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                            <input name = "fileAPI" id = "api-file" class = "hidden" type="text">
                             <div class = "flex items-center justify-center group-hover:opacity-50 transition-all opacity-0 w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-black rounded-lg"></div>
                             <p class = "rounded-lg opacity-0 group-hover:opacity-90 font-bold flex-col transition-all w-full h-full absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center text-white text-xl text-center">
                                 Upload picture...<br><span class = "font-light text-sm">Picture must at least be 267x400.</span>
@@ -65,7 +66,8 @@
                         </label>
                     </div>
                     <p class = "text-center text-xs opacity-50 my-2">-- or --</p>
-                    <label for = "my_modal" class = "text-center flex justify-center px-4 py-2 bg-[#f90617] rounded-lg text-white hover:scale-105 transition-all">Select from API</label>
+                    <label for = "my_modal" class = "text-center flex justify-center px-4 py-2 bg-[#f90617] rounded-lg text-white hover:scale-105 transition-all cursor-pointer">Select from API</label>
+                    <button class = "bg-[#f90617] px-4 py-2 rounded-lg text-white hover:scale-105 transition-all mt-2">Create Game</button>
                     <input type="checkbox" id = "my_modal" class = "daisy-modal-toggle" />
                     <div class = "text-left daisy-modal" role = "dialog">
                         <div class = "daisy-modal-box">
@@ -76,7 +78,7 @@
                                 
                             </div>
                             <div class = "daisy-modal-action">
-                                <label for="my_modal" class="btn">Close!</label>
+                                <label for="my_modal" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
                             </div>
                         </div>
                         <label class="daisy-modal-backdrop" for="my_modal">Close</label>
@@ -97,7 +99,21 @@
             };
             reader.readAsDataURL(file);
         }
+
+        const fileAPI = document.getElementById('api-file');
+        fileAPI.value = null;
     });
+
+    function uploadFile(url) {
+        const imgElement = document.querySelector('.daisy-avatar img');
+        imgElement.src = url;   
+
+        const uploadedFile = document.getElementById('dropzone-file');
+        uploadedFile.value = null;
+        
+        const fileAPI = document.getElementById('api-file');
+        fileAPI.value = url;
+    }
 
     $(document).ready(function(){
         $('#searchInput').on('input', function(){
@@ -111,7 +127,7 @@
                     success: function(response){
                         $('#searchResults').empty();
                         $.each(response, function(index, result){
-                            $('#searchResults').append(`<img src = ${result.url} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
+                            $('#searchResults').append(`<img onClick = "uploadFile('${result.url}')" src = ${result.url} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
                         });
                     }
                 });
