@@ -63,9 +63,8 @@ class UserController extends Controller
         $createdGame = Game::where('creatorID', $employee->id)->first();
         if ($createdGame !== null) {
             $firstExt = substr($createdGame->assets->gridVertical, 0, 4);
+            $workers = Employees::where('gameID', $createdGame->id)->get();
         }
-
-        $workers = Employees::where('gameID', $createdGame->id)->get();
 
         $genres = Genres::all();
 

@@ -41,6 +41,7 @@ class HRController extends Controller
         $employee->password = bcrypt($randomPass);
         $employee->roleID = $application->roleID;
         $employee->applicationID = $application->id;
+        $employee->gameID = '0';
         $employee->save();
 
         $application->status = 'Accepted';

@@ -95,25 +95,76 @@
                         <p class = "mt-2 font-bold">Developer</p>
                         <input value = "{{ $createdGame->developer }}" required name = "gameDeveloper" placeholder = "Developer..." type="text" class = "p-2 rounded-lg border-2 w-full">
 
-                        <div class = "bg-white rounded-lg mt-4 p-4">
-                            <p class = "font-bold text-xl">Game Status</p>
-                            <div class="daisy-form-control w-fit">
-                                <label class="daisy-label cursor-pointer">
-                                  <span>In Development</span> 
-                                  <input value = "In Development" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-red-500" checked />
-                                </label>
+                        <div class = "bg-white rounded-lg mt-4 p-4 flex flex-row justify-between">
+                            <div>
+                                <p class = "font-bold text-xl">Game Status</p>
+                                <div class="daisy-form-control w-fit">
+                                    <label class="daisy-label cursor-pointer">
+                                      <span>In Development</span> 
+                                      <input value = "In Development" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-red-500" {{ $createdGame->status == 'In Development' ? 'checked' : ''}} />
+                                    </label>
+                                </div>
+                                <div class="daisy-form-control w-fit">
+                                    <label class="daisy-label cursor-pointer">
+                                        <span>Teaser</span> 
+                                        <input value = "Teaser" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-gray-500" {{ $createdGame->status == 'Teaser' ? 'checked' : ''}} />
+                                    </label>
+                                </div>
+                                <div class="daisy-form-control w-fit">
+                                    <label class="daisy-label cursor-pointer">
+                                        <span>Released</span> 
+                                        <input value = "Released" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-green-500" {{ $createdGame->status == 'Released' ? 'checked' : ''}} />
+                                    </label>
+                                </div>
                             </div>
-                            <div class="daisy-form-control w-fit">
-                                <label class="daisy-label cursor-pointer">
-                                    <span>Teaser</span> 
-                                    <input value = "Teaser" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-gray-500" checked />
+                            <div class = "flex flex-col items-end">
+                                <p class = "font-bold text-xl mt-2">ESRB Rating</p>
+                                <label for = "esrbModal" class = "relative cursor-pointer group">
+                                    <img id = "esrbLogo" class = "w-[80px]" src="{{ asset('esrb/' . $createdGame->esrb . '.png') }}" alt="">
+                                    <div class = "absolute opacity-50 group-hover:bg-black transition-all w-full h-full top-0"></div>
+                                    <p class = "flex justify-center items-center text-center opacity-0 group-hover:opacity-100 absolute w-full h-full top-0 text-white font-bold text-sm">Change</p>
                                 </label>
-                            </div>
-                            <div class="daisy-form-control w-fit">
-                                <label class="daisy-label cursor-pointer">
-                                    <span>Released</span> 
-                                    <input value = "Released" type="radio" name="gameStatus" class="ml-2 daisy-radio checked:bg-green-500" checked />
-                                </label>
+                                <input type="checkbox" id = "esrbModal" class = "daisy-modal-toggle">
+
+                                <div class = "daisy-modal" role = "dialog">
+                                    <div class = "daisy-modal-box">
+                                        <h3 class = "font-bold text-lg">Change ESRB Rating</h3>
+                                        <p class = "py-4">Select an ESRB rating.</p>
+                                        <div class = "grid grid-cols-7 gap-2">
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('RP')" value = "RP" class = "absolute w-full h-full peer/RP top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'RP' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/RP:border-[#e20613] peer-checked/RP:border-2 transition-all duration-75" src="{{ asset('esrb/RP.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('EC')" value = "EC" class = "absolute w-full h-full peer/EC top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'EC' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/EC:border-[#e20613] peer-checked/EC:border-2 transition-all duration-75" src="{{ asset('esrb/EC.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('E')" value = "E" class = "absolute w-full h-full peer/E top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'E' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/E:border-[#e20613] peer-checked/E:border-2 transition-all duration-75" src="{{ asset('esrb/E.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('E10')" value = "E10" class = "absolute w-full h-full peer/E10 top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'E10' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/E10:border-[#e20613] peer-checked/E10:border-2 transition-all duration-75" src="{{ asset('esrb/E10.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('T')" value = "T" class = "absolute w-full h-full peer/T top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'T' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/T:border-[#e20613] peer-checked/T:border-2 transition-all duration-75" src="{{ asset('esrb/T.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('M')" value = "M" class = "absolute w-full h-full peer/M top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'M' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/M:border-[#e20613] peer-checked/M:border-2 transition-all duration-75" src="{{ asset('esrb/M.png') }}" alt="">
+                                            </div>
+                                            <div class = "relative">
+                                                <input onclick = "changeESRB('A')" value = "A" class = "absolute w-full h-full peer/A top-0 opacity-0 cursor-pointer" type="radio" name = "esrb" {{ $createdGame->esrb == 'A' ? 'checked' : ''}}>
+                                                <img class = "w-full h-full peer-checked/A:border-[#e20613] peer-checked/A:border-2 transition-all duration-75" src="{{ asset('esrb/A.png') }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class = "daisy-modal-action">
+                                            <label class = "bg-[#e20613] hover:scale-105 transition-all py-2 px-4 cursor-pointer rounded-lg text-white" for="esrbModal">Close</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -208,4 +259,10 @@
             executeAjax(query);
         });
     });
+    
+    function changeESRB(rating) {
+        const esrbLogo = document.getElementById('esrbLogo');
+
+        esrbLogo.src = 'esrb/' + rating + '.png';
+    }
 </script>

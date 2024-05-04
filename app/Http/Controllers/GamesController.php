@@ -153,6 +153,7 @@ class GamesController extends Controller
         $game->status = $request->gameStatus;
         $game->genreID = $request->genreID;
         $game->developer = $request->gameDeveloper;
+        $game->esrb = $request->esrb;
         $game->save();
 
         $gameAssets = GameAssets::where('gameID', $request->gameID)->first();
@@ -168,7 +169,7 @@ class GamesController extends Controller
         }
         
         $gameAssets->save();
-        return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . 'has been edited successfully!');
+        return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . ' has been edited successfully!');
     }
     
 }
