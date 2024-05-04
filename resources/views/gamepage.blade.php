@@ -1,10 +1,10 @@
 @include('includes.header')
 <body>
     @include('includes.navbarsticky')
-    <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4" style = "border-color: {{ $project->assets->bgColor }}">
+    <div class = "borderBgColor flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4" style = "border-color: {{ $project->assets->bgColor }}">
         <img id = "img" class = "w-1/6" 
         @if ($project->pictures->smallLogo !== null) src="{{ $project->pictures->smallLogo }}" @endif alt="">
-        <button class = "rounded-lg px-8" style = "background-color: {{ $project->assets->bgColor }}">SHOP NOW</button>
+        <button class = "buttonBgColor rounded-lg px-8" style = "background-color: {{ $project->assets->bgColor }}">SHOP NOW</button>
     </div>
     @if ($ext == "webm")
         <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
@@ -15,10 +15,10 @@
         <div class = "gameBg relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
             <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
-            <div class = "flex flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
-                <p style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
-                <p style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
-                <p style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
+            <div class = "textBgColor flex flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
+                <p style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white textBgColor">{{ $project->releaseDate }}</span></p>
+                <p style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white textBgColor">{{ $project->genre->name }}</span></p>
+                <p style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white textBgColor">{{ $project->developer }}</span></p>
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
@@ -40,7 +40,7 @@
                             @endforeach
                         </div>
                         
-                        <a href="#" class = "tracking-widest boldmedium px-6 py-4 rounded-lg w-fit" style = "background-color: {{ $project->assets->bgColor }}"><i class="fa-solid fa-bag-shopping mr-2"></i>Shop now</a>
+                        <a href="#" class = "buttonBgColor tracking-widest boldmedium px-6 py-4 rounded-lg w-fit" style = "background-color: {{ $project->assets->bgColor }}"><i class="fa-solid fa-bag-shopping mr-2"></i>Shop now</a>
                     </div>
                 </div>
                 @if ($extHead == 'webm')

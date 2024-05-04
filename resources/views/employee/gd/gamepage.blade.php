@@ -41,11 +41,17 @@
                     <div class = "w-fit">
                         <p class = "font-bold">Background Color</p>
                         <p class = "text-sm">Select a color...</p>
-                        <input class = "w-full p" value = "#f90617" type="color">
+                        <input id = "bgColor" class = "w-full p" value = "#f90617" type="color">
                     </div>
                 </div>
-                <iframe class = "w-2/3 rounded-lg" src="/games/{{ $createdGame->id }}" frameborder="0"></iframe>
+                <iframe id = "gamePageFrame" class = "w-2/3 rounded-lg" src="/games/{{ $createdGame->id }}" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 </body>
+<script>
+    $('#bgColor').change(function() {
+        let bgColorValue = document.getElementById('bgColor').value;
+        $('#gamePageFrame').contents().find('.buttonBgColor').css('background-color', bgColorValue);
+    });
+</script>
