@@ -35,36 +35,7 @@
         </div>
 
         <div class = "ml-72 mt-12 bg-neutral-100 mb-4 rounded-lg h-fit pb-8">
-            <h1 class="text-3xl font-bold pt-8 pl-4">Workers</h1>
-            <div class="overflow-x-auto">
-            <table class="daisy-table">
-                <thead>
-                <tr>
-                    <th>Avatar</th>
-                    <th>Name</th>
-                    <th>Job</th>
-                    <th>Favorite Color</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Cy Ganderton</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Blue</td>
-                </tr>
-                <tr>
-                    <td>Hart Hagerty</td>
-                    <td>Desktop Support Technician</td>
-                    <td>Purple</td>
-                </tr>
-                <tr>
-                    <td>Brice Swyre</td>
-                    <td>Tax Accountant</td>
-                    <td>Red</td>
-                </tr>
-                </tbody>
-            </table>
-            </div>
+            <h1 class="text-3xl font-bold pt-8 pl-4">Your Game Page</h1>
         </div>
     </div>
 </body>

@@ -14,10 +14,10 @@ class GDController extends Controller
         return view('employee.gd.dashboard', compact('employee'));
     }
 
-    public function workers()
+    public function gamePage()
     {
         $employee = Auth::user();
 
-        return view('employee.gd.workers', compact('employee'));
+        return view('employee.gd.gamePage', compact('employee'));
     }
 }
