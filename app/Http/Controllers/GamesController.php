@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\GameAssets;
+use App\Models\GamePictures;
+use App\Models\GameText;
 use App\Models\Genres;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\View\View;
@@ -24,8 +26,17 @@ class GamesController extends Controller
     public function specificGame($game): View
     {
         $project = Game::find($game);
-        $ext = substr($project->pictures->pageVid, -4);
-        $extHead = substr($project->pictures->headerVid, -4);
+        if ($project->pictures->pageVid !== null) {
+            $ext = substr($project->pictures->pageVid, -4);
+        } else {
+            $ext = 'http';
+        }
+
+        if ($project->pictures->headerVid !== null) {
+            $extHead = substr($project->pictures->headerVid, -4);
+        } else {
+            $extHead = 'http';
+        }
 
         $gamesLike = Game::all()->where('genreID', $project->genreID)->take(4);
 
@@ -126,7 +137,17 @@ class GamesController extends Controller
             $gameAssets->gridVertical = $picturePath;
         }
 
+        $gameAssets->bgColor = '#ed64a2';
         $gameAssets->save();
+
+        $gamePictures = new GamePictures;
+        $gamePictures->gameID = $game->id;
+        $gamePictures->save();
+
+        $gameText = new GameText;
+        $gameText->gameID = $game->id;
+        $gameText->save();
+
         return redirect()->route('dashboard')->with('success', 'Your game ' . $game->title . 'has successfully been created!');
 
     }

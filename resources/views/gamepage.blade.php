@@ -2,7 +2,8 @@
 <body>
     @include('includes.navbarsticky')
     <div class = "flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4" style = "border-color: {{ $project->assets->bgColor }}">
-        <img class = "w-1/6" src="{{ $project->pictures->smallLogo }}" alt="">
+        <img id = "img" class = "w-1/6" 
+        @if ($project->pictures->smallLogo !== null) src="{{ $project->pictures->smallLogo }}" @endif alt="">
         <button class = "rounded-lg px-8" style = "background-color: {{ $project->assets->bgColor }}">SHOP NOW</button>
     </div>
     @if ($ext == "webm")
@@ -21,7 +22,9 @@
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
-                    <h1 class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
+                    @if ($project->text->headerBig !== null)
+                        <h1 class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
+                    @endif
                     <div class = "text-sm flex flex-col gap-4">
                         <p>{!!  $project->text->headerDesc !!}</p>
                         

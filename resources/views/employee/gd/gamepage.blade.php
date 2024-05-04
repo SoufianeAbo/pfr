@@ -36,6 +36,16 @@
 
         <div class = "ml-72 mt-12 bg-neutral-100 mb-4 rounded-lg h-fit pb-8">
             <h1 class="text-3xl font-bold pt-8 pl-4">Your Game Page</h1>
+            <div class = "flex flex-row justify-between">
+                <div class = "pl-4 mt-4">
+                    <div class = "w-fit">
+                        <p class = "font-bold">Background Color</p>
+                        <p class = "text-sm">Select a color...</p>
+                        <input class = "w-full p" value = "#f90617" type="color">
+                    </div>
+                </div>
+                <iframe class = "w-2/3 rounded-lg" src="/games/{{ $createdGame->id }}" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 </body>
