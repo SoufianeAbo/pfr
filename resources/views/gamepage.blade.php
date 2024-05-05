@@ -9,7 +9,7 @@
     @if ($ext == "webm")
         <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
     @else
-        <img class = "w-full" src="{{ $project->pictures->pageVid }}" alt="">
+        <img id = "imgPage" class = "w-full" src="{{ $project->pictures->pageVid }}" alt="">
     @endif
     <div class = "sticky">
         <div class = "gameBg relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >

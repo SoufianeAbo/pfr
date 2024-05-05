@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use MarcReichel\IGDBLaravel\Models\Artwork;
+use MarcReichel\IGDBLaravel\Models\Game as IGDBGame;
 
 class GamesController extends Controller
 {
@@ -128,52 +130,9 @@ class GamesController extends Controller
 
     public function searchSGDPage(Request $request)
     {
-        $query = $request->input('query');
-    
-        $clientId = 'iz1r27jiys6hh552fok3t9p5dmsl6j';
-        $clientSecret = '9cfhonac6xcckz4dqx2vy18dg5y0b1';
-    
-        $authResponse = Http::withOptions(['verify' => false])->post('https://id.twitch.tv/oauth2/token', [
-            'client_id' => $clientId,
-            'client_secret' => $clientSecret,
-            'grant_type' => 'client_credentials',
-            'scope' => 'user:read:email'
-        ]);
-    
-        $accessToken = $authResponse->json()['access_token'];
-    
-        $searchResponse = Http::withHeaders([
-            'Client-ID' => $clientId,
-            'Authorization' => 'Bearer ' . $accessToken,
-        ])->withOptions(["verify" => false])->post("https://api.igdb.com/v4/games/", [
-            'body' => "search \"$query\";",
-        ]);
+        $findGame = IGDBGame::search($request->input('query'))->with(['artworks' => ['url', 'image_id']])->first();
 
-        dd($searchResponse->json());
-    
-        $results = $searchResponse->json();
-
-        if (!empty($results)) {
-            $firstResult = $results[0];
-    
-            $gameId = $firstResult['id'];
-    
-            $screenshotResponse = Http::withHeaders([
-                'Client-ID' => $clientId,
-                'Authorization' => 'Bearer ' . $accessToken,
-            ])->withOptions(["verify" => false])->get("https://api.igdb.com/v4/games", [
-                'body' => "fields screenshots.*; where id = \"$gameId\"",
-            ]);
-            
-            dd($screenshotResponse->json());
-            $screenshots = $screenshotResponse->json();
-    
-            $gridResults = array_slice($screenshots, 0, 3);
-    
-            return response()->json($gridResults);
-        } else {
-            return response()->json([]);
-        }
+        return $findGame->artworks;
     }    
 
     public function createGame(Request $request)

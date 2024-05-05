@@ -86,7 +86,7 @@
                                     <label for="my_modal2" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
                                 </div>
                             </div>
-                            <label class="daisy-modal-backdrop" for="my_modal">Close</label>
+                            <label class="daisy-modal-backdrop" for="my_modal2">Close</label>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
             const reader = new FileReader();
             reader.onload = function(event) {
                 const imgElement = document.querySelector('.daisy-avatar img');
-                $('#gamePageFrame').contents().find('#img').attr('src', event.target.result);
+                $('#gamePageFrame').contents().find('#imgPage').attr('src', event.target.result);
             };
             reader.readAsDataURL(file);
         }
@@ -169,7 +169,7 @@
 
     function uploadFilePage(url) {
         const imgElement = document.querySelector('.daisy-avatar img');
-        $('#gamePageFrame').contents().find('#img').attr('src', url);
+        $('#gamePageFrame').contents().find('#imgPage').attr('src', url);
 
         const uploadedFile = document.getElementById('file-page');
         uploadedFile.value = null;
@@ -188,7 +188,8 @@
                     success: function(response){
                         $('#searchResults-page').empty();
                         $.each(response, function(index, result){
-                            $('#searchResults-page').append(`<img onClick = "uploadFilePage('${result.url}')" src = ${result.url} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
+                            let newUrl = result.url.replace('t_thumb', 't_original')
+                            $('#searchResults-page').append(`<img onClick = "uploadFilePage('${newUrl}')" src = ${newUrl} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
                         });
                     }
                 });

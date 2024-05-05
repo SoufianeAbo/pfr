@@ -7,10 +7,9 @@ return [
      * These are the credentials you got from https://dev.twitch.tv/console/apps.
      */
     'credentials' => [
-        'client_id' => env('TWITCH_CLIENT_ID', ''),
-        'client_secret' => env('TWITCH_CLIENT_SECRET', ''),
+        'client_id' => env('TWITCH_CLIENT_ID', 'hwiw3avqgkz0h67z0epxu3didtsa8j'),
+        'client_secret' => env('TWITCH_CLIENT_SECRET', 'n3zdjfn1iz259pdbc83ogniud2po7f'),
     ],
-
     /**
      * This package caches queries automatically (for 1 hour per default).
      * Here you can set how long each query should be cached (in seconds).
