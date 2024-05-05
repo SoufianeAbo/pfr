@@ -36,6 +36,10 @@ Route::post('/dashboard/full', [HRController::class, 'full'])->name('hr.full');
 Route::post('/dashboard/available', [HRController::class, 'available'])->name('hr.available');
 
 Route::get('/search', [GamesController::class, 'searchSGD'])->name('searchSGD');
+Route::get('/search/logo', [GamesController::class, 'searchSGDLogo'])->name('searchSGDLogo');
+Route::get('/search/page', [GamesController::class, 'searchSGDPage'])->name('searchSGDPage');
+
+
 Route::post('/dashboard/createGame', [GamesController::class, 'createGame'])->name('create.game');
 Route::post('/dashboard/editGame', [GamesController::class, 'editGame'])->name('edit.game');
 Route::get('/dashboard/gamepage', [GDController::class, 'gamepage'])->name('gd.gamepage');

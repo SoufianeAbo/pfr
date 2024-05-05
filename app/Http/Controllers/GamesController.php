@@ -97,6 +97,85 @@ class GamesController extends Controller
 
     }
 
+    public function searchSGDLogo(Request $request)
+    {
+        $query = $request->input('query');
+
+        $apiKey = 'ec6bebaed409fe293eace9c4490d3af2';
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $apiKey,
+        ])->withOptions(["verify"=>false])->get("https://www.steamgriddb.com/api/v2/search/autocomplete/{$query}");
+    
+        $results = $response->json()['data'];
+
+        if (!empty($results)) {
+            $firstResult = array_shift($results);
+
+            $gameId = $firstResult['id'];
+
+            $gridResponse = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $apiKey,
+            ])->withOptions(["verify" => false])->get("https://www.steamgriddb.com/api/v2/logos/game/{$gameId}");
+
+            $gridResults = array_slice($gridResponse->json()['data'], 0, 3);
+
+            return response()->json($gridResults);
+        } else {
+            return response()->json([]);
+        }
+    }
+
+    public function searchSGDPage(Request $request)
+    {
+        $query = $request->input('query');
+    
+        $clientId = 'iz1r27jiys6hh552fok3t9p5dmsl6j';
+        $clientSecret = '9cfhonac6xcckz4dqx2vy18dg5y0b1';
+    
+        $authResponse = Http::withOptions(['verify' => false])->post('https://id.twitch.tv/oauth2/token', [
+            'client_id' => $clientId,
+            'client_secret' => $clientSecret,
+            'grant_type' => 'client_credentials',
+            'scope' => 'user:read:email'
+        ]);
+    
+        $accessToken = $authResponse->json()['access_token'];
+    
+        $searchResponse = Http::withHeaders([
+            'Client-ID' => $clientId,
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->withOptions(["verify" => false])->post("https://api.igdb.com/v4/games/", [
+            'body' => "search \"$query\";",
+        ]);
+
+        dd($searchResponse->json());
+    
+        $results = $searchResponse->json();
+
+        if (!empty($results)) {
+            $firstResult = $results[0];
+    
+            $gameId = $firstResult['id'];
+    
+            $screenshotResponse = Http::withHeaders([
+                'Client-ID' => $clientId,
+                'Authorization' => 'Bearer ' . $accessToken,
+            ])->withOptions(["verify" => false])->get("https://api.igdb.com/v4/games", [
+                'body' => "fields screenshots.*; where id = \"$gameId\"",
+            ]);
+            
+            dd($screenshotResponse->json());
+            $screenshots = $screenshotResponse->json();
+    
+            $gridResults = array_slice($screenshots, 0, 3);
+    
+            return response()->json($gridResults);
+        } else {
+            return response()->json([]);
+        }
+    }    
+
     public function createGame(Request $request)
     {
         if ($request->file == null && $request->fileAPI == null) {
