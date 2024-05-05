@@ -2,31 +2,29 @@
 <body>
     @include('includes.navbarsticky')
     <div class = "borderBgColor flex flex-row justify-between bg-black text-white px-8 py-4 sticky top-0 z-50 border-t-4" style = "border-color: {{ $project->assets->bgColor }}">
-        <img id = "img" class = "w-1/6" 
+        <img class = "img w-1/6" 
         @if ($project->pictures->smallLogo !== null) src="{{ $project->pictures->smallLogo }}" @endif alt="">
         <button class = "buttonBgColor rounded-lg px-8" style = "background-color: {{ $project->assets->bgColor }}">SHOP NOW</button>
     </div>
     @if ($ext == "webm")
         <video class = "w-full" loop muted autoplay src="{{ $project->pictures->pageVid }}"></video>
     @else
-        <img id = "imgPage" class = "w-full" src="{{ $project->pictures->pageVid }}" alt="">
+        <img class = "imgPage w-full" src="{{ $project->pictures->pageVid }}" alt="">
     @endif
     <div class = "sticky">
-        <div class = "gameBg relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
-            <img class = "w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
+        <div class = "gameBgID relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
+            <img class = "img w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
             <div class = "textBgColor flex flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
-                <p style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white textBgColor">{{ $project->releaseDate }}</span></p>
-                <p style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white textBgColor">{{ $project->genre->name }}</span></p>
-                <p style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white textBgColor">{{ $project->developer }}</span></p>
+                <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
+                <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
+                <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
             </div>
             <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
-                    @if ($project->text->headerBig !== null)
-                        <h1 class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
-                    @endif
+                        <h1 id = "headerTitle" class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
                     <div class = "text-sm flex flex-col gap-4">
-                        <p>{!!  $project->text->headerDesc !!}</p>
+                        <p id = "headerDesc">{!!  $project->text->headerDesc !!}</p>
                         
                         @if ($project->pictures->awards !== null)
                             <img class = "w-2/3 mt-16 self-center" src="{{ $project->pictures->awards }}" alt="">
@@ -46,7 +44,7 @@
                 @if ($extHead == 'webm')
                     <video class = "w-[55%] rounded-lg self-start" loop muted autoplay src="{{ $project->pictures->headerVid }}"></video>
                 @else
-                <img class = "w-[55%] rounded-lg self-start" src="{{ $project->pictures->headerVid }}"></img>
+                <img class = "imgPage w-[55%] rounded-lg self-start" src="{{ $project->pictures->headerVid }}"></img>
                 @endif
             </div>
             @if ($project->pictures->awards2 !== null)
@@ -58,7 +56,7 @@
     @if ($project->pictures->gameBg2 !== null)
     <div class = "gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg2 }})" >
     @else
-    <div class = "gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
+    <div class = "gameBgID gameBg2 text-white w-full flex justify-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
     @endif
         @if (count($project->features) !== 0)
         <div class = "w-2/3">
@@ -87,7 +85,7 @@
         </div>
         @endif
     </div>
-    <div class = "gameBg w-full flex flex-col items-center pb-8" style = "background-image: url({{ $project->pictures->gameBg }})" >
+    <div class = "gameBg gameBgID w-full flex flex-col items-center pb-8" style = "background-image: url({{ $project->pictures->gameBg }})" >
         @if ($project->text->postfBig !== null)
         <div class = "flex flex-col items-center pt-8 w-[55%] text-center text-white">
             <img class = "pb-16" src="{{ $project->pictures->divider }}" alt="">
@@ -144,7 +142,7 @@
         </div>
         @endif
     </div>
-    <div class = "bg-[#e8ebee] px-24 pt-8 pb-8">
+    {{-- <div class = "bg-[#e8ebee] px-24 pt-8 pb-8">
         <p class = "text-4xl boldfour text-[#1e244d]">You may also like</p>
         <div class="flex flex-row mt-4 justify-center gap-20">
             @if ($gamesLike !== null)
@@ -172,6 +170,6 @@
         <div class = "w-full flex justify-center mt-8">
             <a href = "{{ route('games.index') }}" class = "px-6 py-2 rounded-lg text-white" style = "background-color: {{ $project->assets->bgColor }}">SEE ALL GAMES</a>
         </div>
-    </div>
+    </div> --}}
     @include('includes.footer')
 </body>

@@ -38,57 +38,98 @@
             <h1 class="text-3xl font-bold pt-8 pl-4">Your Game Page</h1>
             <div class = "flex flex-row justify-between">
                 <div class = "pl-4 mt-4">
-                    <div class = "w-fit">
-                        <p class = "font-bold">Background Color</p>
-                        <p class = "text-sm">Select a color...</p>
-                        <input id = "bgColor" class = "w-full p" value = "#f90617" type="color">
-                    </div>
-
-                    <div class = "w-fit mt-4">
-                        <p class = "font-bold">Small Game Logo</p>
-                        <input id = "file" type="file">
-                        <input name = "fileAPI" id = "api-file" class = "hidden" type="text">
-                        <p class = "text-center text-xs opacity-50">-- or --</p>
-                        <label class = "px-4 py-2 bg-[#e20613] text-white rounded-lg cursor-pointer" for="my_modal">Select from API</label>
-                        <input type="checkbox" id = "my_modal" class = "daisy-modal-toggle" />
-                        <div class = "text-left daisy-modal" role = "dialog">
-                            <div class = "daisy-modal-box">
-                                <h3 class="text-lg font-bold">Get image with API</h3>
-                                <p class="py-4">Search for the name of any game.</p>
-                                <input value = "{{ $createdGame->title }}" id = "searchInput" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
-                                <div id = "searchResults" class = "grid grid-cols-3 gap-4">
-                                    
-                                </div>
-                                <div class = "daisy-modal-action">
-                                    <label for="my_modal" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
-                                </div>
-                            </div>
-                            <label class="daisy-modal-backdrop" for="my_modal">Close</label>
+                    <form method = "POST" action="{{ route('gd.modifyPage') }}">
+                        @csrf
+                        <div class = "w-fit">
+                            <p class = "font-bold">Background Color</p>
+                            <p class = "text-sm">Select a color...</p>
+                            <input class = "hidden" name = "gameID" value = "{{ $createdGame->id }}" type="text">
+                            <input name = "backgroundColor" id = "bgColor" class = "w-full p" value = "#f90617" type="color">
                         </div>
-                    </div>
 
-                    <div class = "w-fit mt-4">
-                        <p class = "font-bold">Page Picture</p>
-                        <input id = "file-page" type="file">
-                        <input name = "fileAPI-page" id = "api-file" class = "hidden" type="text">
-                        <p class = "text-center text-xs opacity-50">-- or --</p>
-                        <label class = "px-4 py-2 bg-[#e20613] text-white rounded-lg cursor-pointer" for="my_modal2">Select from API</label>
-                        <input type="checkbox" id = "my_modal2" class = "daisy-modal-toggle" />
-                        <div class = "text-left daisy-modal" role = "dialog">
-                            <div class = "daisy-modal-box">
-                                <h3 class="text-lg font-bold">Get image with API</h3>
-                                <p class="py-4">Search for the name of any game.</p>
-                                <input value = "{{ $createdGame->title }}" id = "searchInput-page" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
-                                <div id = "searchResults-page" class = "grid grid-cols-3 gap-4">
-                                    
+                        <div class = "w-fit mt-4">
+                            <p class = "font-bold">Small Game Logo</p>
+                            <input name = "file" id = "file" type="file">
+                            <input name = "fileAPI" id = "api-file" class = "hidden" type="text">
+                            <p class = "text-center text-xs opacity-50">-- or --</p>
+                            <label class = "px-4 py-2 bg-[#e20613] text-white rounded-lg cursor-pointer" for="my_modal">Select from API</label>
+                            <input type="checkbox" id = "my_modal" class = "daisy-modal-toggle" />
+                            <div class = "text-left daisy-modal" role = "dialog">
+                                <div class = "daisy-modal-box">
+                                    <h3 class="text-lg font-bold">Get image with API</h3>
+                                    <p class="py-4">Search for the name of any game.</p>
+                                    <input value = "{{ $createdGame->title }}" id = "searchInput" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
+                                    <div id = "searchResults" class = "grid grid-cols-3 gap-4">
+                                        
+                                    </div>
+                                    <div class = "daisy-modal-action">
+                                        <label for="my_modal" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
+                                    </div>
                                 </div>
-                                <div class = "daisy-modal-action">
-                                    <label for="my_modal2" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
-                                </div>
+                                <label class="daisy-modal-backdrop" for="my_modal">Close</label>
                             </div>
-                            <label class="daisy-modal-backdrop" for="my_modal2">Close</label>
                         </div>
-                    </div>
+
+                        <div class = "w-fit mt-4">
+                            <p class = "font-bold">Page Picture</p>
+                            <input name = "filepage" id = "file-page" type="file">
+                            <input name = "fileAPIpage" id = "api-file-page" class = "hidden" type="text">
+                            <p class = "text-center text-xs opacity-50">-- or --</p>
+                            <label class = "px-4 py-2 bg-[#e20613] text-white rounded-lg cursor-pointer" for="my_modal2">Select from API</label>
+                            <input type="checkbox" id = "my_modal2" class = "daisy-modal-toggle" />
+                            <div class = "text-left daisy-modal" role = "dialog">
+                                <div class = "daisy-modal-box">
+                                    <h3 class="text-lg font-bold">Get image with API</h3>
+                                    <p class="py-4">Search for the name of any game.</p>
+                                    <input value = "{{ $createdGame->title }}" id = "searchInput-page" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
+                                    <div id = "searchResults-page" class = "grid grid-cols-3 gap-4">
+                                        
+                                    </div>
+                                    <div class = "daisy-modal-action">
+                                        <label for="my_modal2" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
+                                    </div>
+                                </div>
+                                <label class="daisy-modal-backdrop" for="my_modal2">Close</label>
+                            </div>
+                        </div>
+
+                        <div class = "w-fit mt-4">
+                            <p class = "font-bold">Game Background</p>
+                            <div class = "flex flex-row my-2">
+                                <input id = "shadowCheckbox" type="checkbox">
+                                <p class = "ml-2">Enable Shadow?</p>
+                            </div>
+                            <input name = "filebackground" id = "file-background" type="file">
+                            <input name = "fileAPIbackground" id = "api-file-background" class = "hidden" type="text">
+                            <p class = "text-center text-xs opacity-50">-- or --</p>
+                            <label class = "px-4 py-2 bg-[#e20613] text-white rounded-lg cursor-pointer" for="my_modal3">Select from API</label>
+                            <input type="checkbox" id = "my_modal3" class = "daisy-modal-toggle" />
+                            <div class = "text-left daisy-modal" role = "dialog">
+                                <div class = "daisy-modal-box">
+                                    <h3 class="text-lg font-bold">Get image with API</h3>
+                                    <p class="py-4">Search for the name of any game.</p>
+                                    <input value = "{{ $createdGame->title }}" id = "searchInput-background" placeholder = "Input title..." type="text" class = "w-full p-2 rounded-lg border-2">
+                                    <div id = "searchResults-background" class = "grid grid-cols-3 gap-4">
+                                        
+                                    </div>
+                                    <div class = "daisy-modal-action">
+                                        <label for="my_modal3" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
+                                    </div>
+                                </div>
+                                <label class="daisy-modal-backdrop" for="my_modal3">Close</label>
+                            </div>
+                        </div>
+                        <div class = "mt-4">
+                            <p class = "font-bold">Header Title</p>
+                            <input value = "{{ $createdGame->text->headerBig }}" id = "inputHeaderTitle" name = "gameTitle" placeholder = "Title..." type="text" class = "p-2 rounded-lg border-2 w-2/3">
+                        </div>
+                        <div class = "mt-4">
+                            <p class = "font-bold">Header Description</p>
+                            <textarea id = "inputHeaderDesc" name = "gameDesc" placeholder = "Description..." type="text" class = "resize-none p-2 rounded-lg border-2 w-2/3">{{ $createdGame->text->headerDesc }}</textarea>
+                        </div>
+
+                        <button type = "submit" class = "bg-[#f90617] px-4 py-2 text-white rounded-lg hover:scale-105 transition-all mt-8">Modify Game Page</button>
+                    </form>
                 </div>
                 <iframe id = "gamePageFrame" class = "w-2/3 rounded-lg" src="/games/{{ $createdGame->id }}" frameborder="0"></iframe>
             </div>
@@ -96,10 +137,35 @@
     </div>
 </body>
 <script>
+    $('#inputHeaderTitle').on('input', function() {
+        let text = document.getElementById('inputHeaderTitle').value;
+        $('#gamePageFrame').contents().find('#headerTitle').text(text);
+        console.log($('#gamePageFrame').contents().find('#headerTitle').text());
+    });
+
+    $('#inputHeaderDesc').on('input', function() {
+        let text = document.getElementById('inputHeaderDesc').value;
+        $('#gamePageFrame').contents().find('#headerDesc').text(text);
+    });
+
+    $('#shadowCheckbox').change(function () {
+        if (this.checked) {
+            var backgroundImage = $('#gamePageFrame').contents().find(".gameBgID").css('background-image');
+            var backgroundImageURL = 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),' + backgroundImage;
+            $('#gamePageFrame').contents().find('.gameBgID').css('background-image', backgroundImageURL);
+        } else {
+            var backgroundImage = $('#gamePageFrame').contents().find(".gameBgID").css('background-image');
+            var backgroundImageURL = backgroundImage.replace(/linear-gradient\(rgba\(0, 0, 0, 0.5\), rgba\(0, 0, 0, 0.5\)\),/, '');
+            console.log(backgroundImage);
+            $('#gamePageFrame').contents().find('.gameBgID').css('background-image', backgroundImageURL);
+        }
+    });
+    
     $('#bgColor').on('input', function() {
         let bgColorValue = document.getElementById('bgColor').value;
         $('#gamePageFrame').contents().find('.buttonBgColor').css('background-color', bgColorValue);
         $('#gamePageFrame').contents().find('.borderBgColor').css('border-color', bgColorValue);
+        $('#gamePageFrame').contents().find('.textBgColor').css('color', bgColorValue);
     });
 
     document.getElementById('file').addEventListener('change', function() {
@@ -108,7 +174,7 @@
             const reader = new FileReader();
             reader.onload = function(event) {
                 const imgElement = document.querySelector('.daisy-avatar img');
-                $('#gamePageFrame').contents().find('#img').attr('src', event.target.result);
+                $('#gamePageFrame').contents().find('.img').attr('src', event.target.result);
             };
             reader.readAsDataURL(file);
         }
@@ -119,7 +185,7 @@
 
     function uploadFile(url) {
         const imgElement = document.querySelector('.daisy-avatar img');
-        $('#gamePageFrame').contents().find('#img').attr('src', url);
+        $('#gamePageFrame').contents().find('.img').attr('src', url);
 
         const uploadedFile = document.getElementById('file');
         uploadedFile.value = null;
@@ -158,7 +224,7 @@
             const reader = new FileReader();
             reader.onload = function(event) {
                 const imgElement = document.querySelector('.daisy-avatar img');
-                $('#gamePageFrame').contents().find('#imgPage').attr('src', event.target.result);
+                $('#gamePageFrame').contents().find('.imgPage').attr('src', event.target.result);
             };
             reader.readAsDataURL(file);
         }
@@ -169,7 +235,7 @@
 
     function uploadFilePage(url) {
         const imgElement = document.querySelector('.daisy-avatar img');
-        $('#gamePageFrame').contents().find('#imgPage').attr('src', url);
+        $('#gamePageFrame').contents().find('.imgPage').attr('src', url);
 
         const uploadedFile = document.getElementById('file-page');
         uploadedFile.value = null;
@@ -198,6 +264,57 @@
         executeAjax($('#searchInput-page').val());
 
         $('#searchInput-page').on('input', function(){
+            var query = $(this).val();
+            executeAjax(query);
+        });
+    });
+
+    document.getElementById('file-background').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imgElement = document.querySelector('.daisy-avatar img');
+                $('#gamePageFrame').contents().find('.gameBgID').attr('src', event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        const fileAPI = document.getElementById('api-file-background');
+        fileAPI.value = null;
+    });
+
+    function uploadFileBackground(url) {
+        const imgElement = document.querySelector('.daisy-avatar img');
+        $('#gamePageFrame').contents().find('.gameBgID').css('background-image', 'url(' + url + ')' );
+
+        const uploadedFile = document.getElementById('file-background');
+        uploadedFile.value = null;
+        
+        const fileAPI = document.getElementById('api-file-background');
+        fileAPI.value = url;
+    }
+
+    $(document).ready(function(){
+        function executeAjax(query) {
+            if (query.length >= 3) {
+                $.ajax({
+                    url: "{{ route('searchSGDScreenshot') }}",
+                    method: 'GET',
+                    data: { query: query },
+                    success: function(response){
+                        $('#searchResults-background').empty();
+                        $.each(response, function(index, result){
+                            let newUrl = result.url.replace('t_thumb', 't_original')
+                            $('#searchResults-background').append(`<img onClick = "uploadFileBackground('${newUrl}')" src = ${newUrl} class = 'rounded-lg border border-black mt-4 hover:scale-105 transition-all'} />`);
+                        });
+                    }
+                });
+            }
+        }
+        executeAjax($('#searchInput-background').val());
+
+        $('#searchInput-background').on('input', function(){
             var query = $(this).val();
             executeAjax(query);
         });

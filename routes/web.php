@@ -38,10 +38,12 @@ Route::post('/dashboard/available', [HRController::class, 'available'])->name('h
 Route::get('/search', [GamesController::class, 'searchSGD'])->name('searchSGD');
 Route::get('/search/logo', [GamesController::class, 'searchSGDLogo'])->name('searchSGDLogo');
 Route::get('/search/page', [GamesController::class, 'searchSGDPage'])->name('searchSGDPage');
+Route::get('/search/screenshot', [GamesController::class, 'searchSGDScreenshot'])->name('searchSGDScreenshot');
 
 
 Route::post('/dashboard/createGame', [GamesController::class, 'createGame'])->name('create.game');
 Route::post('/dashboard/editGame', [GamesController::class, 'editGame'])->name('edit.game');
 Route::get('/dashboard/gamepage', [GDController::class, 'gamepage'])->name('gd.gamepage');
+Route::post('/dashboard/modifyGamePage', [GDController::class, 'modifyGamePage'])->name('gd.modifyPage');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

@@ -135,6 +135,13 @@ class GamesController extends Controller
         return $findGame->artworks;
     }    
 
+    public function searchSGDScreenshot(Request $request)
+    {
+        $findGame = IGDBGame::search($request->input('query'))->with(['screenshots' => ['url', 'image_id']])->first();
+
+        return $findGame->screenshots;
+    }    
+
     public function createGame(Request $request)
     {
         if ($request->file == null && $request->fileAPI == null) {
