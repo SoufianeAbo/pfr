@@ -4,42 +4,31 @@
     <div class = "pt-16">
         <div class = "toptitle flex flex-col careersbg items-center py-24">
             <p class = "text-white text-5xl">Careers</p>
-            <button class = "mt-4 text-white border-2 px-4 py-2 rounded-full transition-all hover:bg-[#e20613] hover:text-black hover:border-[#e20613]">View Job Openings</button>
+            <a href = "#jobOpenings" class = "cursor-pointer mt-4 text-white border-2 px-4 py-2 rounded-full transition-all hover:bg-[#e20613] hover:text-white hover:border-[#e20613]">View Job Openings</a>
         </div>
     </div>
-    <div class = "pl-24 pt-12 flex flex-row items-center gap-8">
+    <div class = "px-8 md:px-0 md:pl-24 pt-12 flex flex-row flex-wrap md:flex-nowrap items-center gap-8">
         <img class = "object-fill" src="https://www.simplon.ma/theme/medias/thumbs/youcode-1_x500.jpg" alt="">
-        <div class = "flex flex-col items-start w-1/2">
+        <div class = "flex flex-col items-start w-full md:text-left text-center md:w-1/2">
             <img class = "object-none" src="branddots.png" alt="">
-            <p class = "text-[2.5rem] boldfour">Who We Are</p>
+            <p class = "text-[2.5rem] boldfour md:m-0 m-auto">Who We Are</p>
             <p>Bandai Namco exists to share dreams, fun and inspiration with people around the world. 
                 Connecting people and societies in the enjoyment of uniquely entertaining products and
                 services, we're working to create a brighter future for everyone.</p>
         </div>
     </div>
-    <p class = "px-24 mt-12"><iframe class = "rounded-lg" width="100%" height="520px" src="https://www.youtube.com/embed/3-hiA18Lrvw" title="" frameBorder="0"   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe></p>
+    <p class = "px-24 mt-12"><iframe class = "rounded-lg hidden md:block" width="100%" height="520px" src="https://www.youtube.com/embed/3-hiA18Lrvw" title="" frameBorder="0"   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe></p>
     <div class = "careersbg2 flex flex-col mt-24 py-24 items-center">
         <p class = "text-white boldfour text-[2.5rem]">Our Core Values</p>
-        <p class = "text-white">As a mission and values driven organization, discover what it means to be part of "Fun for All into the Future."</p>
+        <p class = "text-white px-8 text-center md:text-left md:px-0">As a mission and values driven organization, discover what it means to be part of "Fun for All into the Future."</p>
         <button class = "rounded-full border-0 bg-white p-2 px-6 mt-4 transition-all hover:bg-[#e20613]">Learn More <i class="fa-solid fa-arrow-right ml-2"></i></button>
     </div>
-    <!-- <div class = "flex flex-col items-center mt-14">
-        <img src="branddots.png" alt="">
-        <p class = "boldfour text-[2.5rem] mt">Life at Neoline Studios</p>
-        <p class = "text-md">Take a peek at what it's like to work and play at one of the top publishers in the industry.</p>
-    </div> -->
-    <!-- <div class = "px-24 flex flex-row mt-4 w-full justify-between">
-        <img class = "rounded-lg w-96" src="https://media.graphassets.com/2KhKbFztTTGj5AeZY94d" alt="">
-        <div class = "flex flex-col items-center gap-4">
-            <img class = "rounded-lg" src="https://media.graphassets.com/pr3K1R6RSJqcoC4eTIcG" alt="">
-            <img class = "w-1/2 rounded-lg" src="https://media.graphassets.com/t6io2b4oQQiuSVxs36vP" alt="">
-        </div>
-    </div> -->
+
     <div class = "flex flex-col items-center mt-14">
         <img src="branddots.png" alt="">
         <p class = "boldfour text-[2.5rem] mt">Benefits</p>
         <p class = "text-md">Here are some of the amazing benefits we offer:</p>
-        <div class = "grid grid-cols-4 grid-rows-2 gap-8 mt-8 w-1/2">
+        <div class = "grid md:grid-cols-4 md:grid-rows-2 gap-8 mt-8 w-1/2">
             <div class = "flex flex-col items-center">
                 <img class = "w-1/2" src="https://media.graphassets.com/evOiQehSQDiXO3bkb9tw" alt="">
                 <p class = "boldfour text-[1.1rem] text-center mt-2">Healthcare Benefits</p>
@@ -81,8 +70,8 @@
             </div>
         </div>
 
-        <div class = "mt-24 flex flex-row-reverse px-24 gap-8">
-            <img class = "size-1/2" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/25/36/5f/united-nations-headquarters.jpg?w=1200&h=-1&s=1" alt="">
+        <div class = "mt-24 flex flex-row-reverse md:flex-nowrap flex-wrap px-24 gap-8">
+            <img class = "size-full md:size-1/2" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/25/36/5f/united-nations-headquarters.jpg?w=1200&h=-1&s=1" alt="">
             <div class = "flex flex-col items-start">
                 <img class = "object-none" src="branddots.png" alt="">
                 <p class = "boldfour text-[2.5rem] mb-4">Located In Irvine, California</p>
@@ -101,57 +90,9 @@
         </div>
     </div>
     <div class = "flex flex-col items-center mt-14">
-        <img src="branddots.png" alt="">
+        <img id = "jobOpenings" src="branddots.png" alt="">
         <p class = "boldfour text-[2.5rem] mt">Job Openings</p>
         <p class = "text-md">Find your next role with Neoline Studios</p>
-        {{-- <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Artist</p>
-                <a href = "/careers/artist" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Story Designer</p>
-                <a href = "/careers/storydesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Proofreader</p>
-                <a href = "/careers/proofrader" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Voice Actor</p>
-                <a href = "/careers/voiceactor" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Game Designer</p>
-                <a href = "/careers/gamedesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Project Designer</p>
-                <a href = "/careers/projectdesigner" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div>
-
-        <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
-            <div class = "flex flex-row justify-between items-center">
-                <p class = "text-xl boldfour">Producer</p>
-                <a href = "/careers/producer" class = "text-white bg-black rounded-full px-6 py-2 boldmedium transition-all hover:text-black border-black hover:bg-white border-2">Apply</a>
-            </div>
-        </div> --}}
 
         @foreach ($careers as $career)
             <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
