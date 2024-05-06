@@ -15,14 +15,14 @@
         <div class = "gameBgID relative flex flex-col items-center" style = "background-image: url({{ $project->pictures->gameBg }})" >
             <img class = "img w-1/2 absolute top-[-128px]" src="{{ $project->pictures->bigLogo }}" alt="">
             <p class = "text-white text-[2.5rem] mt-32 boldfour uppercase">{{ $project->title }}</p>
-            <div class = "textBgColor flex flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
+            <div class = "textBgColor flex md:flex-nowrap flex-wrap flex-row text-sm tracking-tight gap-4" style = "color: {{ $project->assets->bgColor }}">
                 <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Release Date: <span class = "text-white">{{ $project->releaseDate }}</span></p>
                 <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Genre: <span class = "text-white">{{ $project->genre->name }}</span></p>
                 <p class = "textBgColor" style = "color: {{ $project->assets->bgColor }}">Developer: <span class = "text-white">{{ $project->developer }}</span></p>
             </div>
-            <div class = "flex flex-row text-white justify-between w-10/12 mt-16 gap-4">
+            <div class = "flex flex-row md:flex-nowrap flex-wrap text-white justify-between w-10/12 mt-16 gap-4">
                 <div>
-                        <h1 id = "headerTitle" class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
+                    <h1 id = "headerTitle" class = "text-3xl mb-8">{{ $project->text->headerBig }}</h1>
                     <div class = "text-sm flex flex-col gap-4">
                         <p id = "headerDesc">{!!  $project->text->headerDesc !!}</p>
                         
@@ -42,13 +42,13 @@
                     </div>
                 </div>
                 @if ($extHead == 'webm')
-                    <video class = "w-[55%] rounded-lg self-start" loop muted autoplay src="{{ $project->pictures->headerVid }}"></video>
+                    <video class = "hidden md:block w-[55%] rounded-lg self-start" loop muted autoplay src="{{ $project->pictures->headerVid }}"></video>
                 @else
-                <img class = "imgPage w-[55%] rounded-lg self-start" src="{{ $project->pictures->headerVid }}"></img>
+                <img class = "imgPage hidden md:block w-[55%] rounded-lg self-start" src="{{ $project->pictures->headerVid }}"></img>
                 @endif
             </div>
             @if ($project->pictures->awards2 !== null)
-                <img class = "w-1/2 mt-8" src="{{ $project->pictures->awards2 }}" alt="">
+                <img class = "hidden md:block w-1/2 mt-8" src="{{ $project->pictures->awards2 }}" alt="">
             @endif
         </div>
     </div>
@@ -63,22 +63,22 @@
             <h2 class = "text-4xl my-16">Key features</h2>
             @foreach ($project->features as $feature)
                 @if ($loop->iteration == 1)
-                    <div class = "flex flex-row mb-24">
-                    <video class = "w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
+                    <div class = "flex flex-row flex-wrap md:flex-nowrap mb-24">
+                    <video class = "w-full md:w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
                     <div class = "flex flex-col text-white mt-8">
-                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 pl-16 bg-[{{ $project->assets->bgColor }}] relative right-10">{{ $feature->header }}</p>
+                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 pl-0 text-center md:text-left md:pl-16 bg-[{{ $project->assets->bgColor }}] relative right-10">{{ $feature->header }}</p>
                 @elseif ($loop->even)
-                    <div class = "flex flex-row-reverse mt-12 mb-24">
-                    <video class = "w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
+                    <div class = "flex flex-row-reverse flex-wrap md:flex-nowrap mt-12 mb-24">
+                    <video class = "w-full md:w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
                     <div class = "flex flex-col text-white mt-8">
-                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 pl-16 bg-[{{ $project->assets->bgColor }}] relative left-10">{{ $feature->header }}</p>
+                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 text-center md:text-left pl-0 md:pl-16 bg-[{{ $project->assets->bgColor }}] relative left-10">{{ $feature->header }}</p>
                 @else
-                    <div class = "flex flex-row mt-12 mb-24">
-                    <video class = "w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
+                    <div class = "flex flex-row flex-wrap md:flex-nowrap mt-12 mb-24">
+                    <video class = "w-full md:w-1/2" loop muted autoplay src="{{ $feature->video }}"></video>
                     <div class = "flex flex-col text-white mt-8">
-                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 pl-16 bg-[{{ $project->assets->bgColor }}] relative right-10">{{ $feature->header }}</p>
+                        <p class = "text-3xl boldmedium tracking-tight py-2 px-4 pl-0 md:pl-16 bg-[{{ $project->assets->bgColor }}] relative right-10">{{ $feature->header }}</p>
                 @endif
-                        <p class = "pl-16 pt-4 text-[0.920rem]">{!! $feature->description !!}</p>
+                        <p class = "pl-0 text-center md:text-left md:pl-16 pt-4 text-[0.920rem]">{!! $feature->description !!}</p>
                     </div>
                 </div>
             @endforeach
@@ -120,7 +120,7 @@
         
         @if ($project->text->minimumReq !== null || $project->text->recomReq !== null)
         <p class = "my-12 self-start text-white text-4xl boldfour pl-24">System requirements :</p>
-        <div class = "flex flex-row w-full pl-24 gap-8">
+        <div class = "flex flex-row flex-wrap md:flex-nowrap w-full pl-0 md:pl-24 gap-8">
             <div class = "flex flex-col">
                 <p class = "text-xl text-white">Minimum</p>
                 <div class = "border border-white px-6 py-4 mt-4">
