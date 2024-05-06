@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Applications;
 use App\Models\Employees;
 use App\Models\Game;
+use App\Models\GamePlatforms;
 use App\Models\Genres;
+use App\Models\Platforms;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,9 +66,11 @@ class UserController extends Controller
         if ($createdGame !== null) {
             $firstExt = substr($createdGame->assets->gridVertical, 0, 4);
             $workers = Employees::where('gameID', $createdGame->id)->get();
+            $gamePlatforms = GamePlatforms::where('gameID', $createdGame->id)->get();
         }
 
         $genres = Genres::all();
+        $platforms = Platforms::all();
 
         switch ($currentUser->role->special) {
             case 'hr':
@@ -76,7 +80,7 @@ class UserController extends Controller
                 if ($createdGame == null) {
                     return view('employee.gd.dashboard', compact('employee', 'genres'));   
                 } else {
-                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame', 'firstExt', 'workers'));
+                    return view('employee.gd.dashboardcreator', compact('employee', 'genres', 'createdGame', 'firstExt', 'workers', 'platforms', 'gamePlatforms'));
                 }
 
             default:

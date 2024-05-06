@@ -67,7 +67,50 @@
         </div>
 
         <div class = "ml-72 mt-12 bg-neutral-100 mb-4 rounded-lg h-fit pb-8">
-            <h1 class="text-3xl font-bold pt-8 pl-4">Modify Game</h1>
+            <h1 class="text-3xl font-bold pt-8 pl-4 mb-4">Modify Game</h1>
+            <label for = "platformsModal" class = "text-white font-bold rounded-lg px-4 py-2 ml-4 bg-[#f90617] cursor-pointer">Platforms</label>
+            <input type="checkbox" id = "platformsModal" class = "daisy-modal-toggle" />
+            <div class = "text-left daisy-modal" role = "dialog">
+                <div class = "daisy-modal-box">
+                    <h3 class="text-lg font-bold">Platform Manager</h3>
+                    <p class="py-4">Add platforms for your game.</p>
+                    @if (count($gamePlatforms) !== 0)
+                        @foreach ($gamePlatforms as $game)
+                        <form class = "flex flex-row items-center gap-4 mb-2" method = "POST" action="{{ route('delete.platform') }}">
+                            @csrf
+                            <input type="text" class = "hidden" name = "gameID" value = "{{ $createdGame->id }}">
+                            <input type="text" class = "hidden" name = "platformID" value = "{{ $game->platformID }}">
+                            <p>{{ $game->platform->name }}</p>
+                            <button class = "bg-[#f90617] p-2 rounded-lg text-white hover:scale-105 transition-all">Remove</button>
+                        </form>
+                        @endforeach
+                    @endif 
+                    <form id = "platformForm" name = "platformForm" class = "flex flex-row gap-4" action="{{ route('gd.addPlatform')}}" method = "POST">
+                        @csrf
+                        <input type="text" class = "hidden" name = "gameID" value = "{{ $createdGame->id }}">
+                        <select name="platformAdder" class = "rounded-lg border border-black p-2">
+                            @foreach ($platforms as $platform)
+                            @php
+                                $disabled = false;
+                                foreach ($gamePlatforms as $game) {
+                                    if ($game->platformID === $platform->id) {
+                                        $disabled = true;
+                                        break;
+                                    }
+                                }
+                            @endphp
+                            <option {{ $disabled ? 'disabled' : '' }} value="{{ $platform->id }}">{{ $platform->name }}</option>
+                        @endforeach
+                        </select>
+                        <input type="text" name = "link" class = "rounded-lg border border-black p-2" placeholder = "Link...">
+                        <button form = "platformForm" class = "bg-green-500 p-2 rounded-lg text-white hover:scale-105 transition-all">Add</button>
+                    </form>
+                    <div class = "daisy-modal-action">
+                        <label for="platformsModal" class="px-4 py-2 bg-[#f90617] rounded-lg text-white cursor-pointer">Close</label>
+                    </div>
+                </div>
+                <label class="daisy-modal-backdrop" for="my_modal">Close</label>
+            </div>
             <div class = "flex flex-row justify-between gap-20">
                 <form enctype="multipart/form-data" action = "{{ route('edit.game') }}" method = "POST" class = "flex flex-row justify-between gap-20 w-full">
                 @csrf
@@ -80,9 +123,9 @@
                         <input value = "{{ $createdGame->title }}" required name = "gameTitle" placeholder = "Title..." type="text" class = "p-2 rounded-lg border-2 w-full">
         
                         <p class = "mt-2 font-bold">Game Subtitle</p>
-                        <textarea required name = "gameSubtitle" placeholder = "Subtitle..." type="text" class = "p-2 rounded-lg border-2 w-full resize-none">{{ $createdGame->subtitle }}</textarea>
+                        <textarea required name = "gameSubtitle" placeholder = "Subtitle..." type="text" class = "mb-4 p-2 rounded-lg border-2 w-full resize-none">{{ $createdGame->subtitle }}</textarea>
 
-                        <p class = "mt-2 font-bold">Release Date</p>
+                        <p class = "font-bold mt-4">Release Date</p>
                         <input value = "{{ $createdGame->releaseDate }}" required name = "releaseDate" type="date" class = "p-2 rounded-lg border-2 w-full">
                         
                         <p class = "mt-2 font-bold">Genre</p>

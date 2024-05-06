@@ -32,9 +32,9 @@
                         <p class = "text-xs">25/02/2022</p>
                         <div class = "flex flex-row gap-4">
                             @foreach ($project->platforms as $console)
-                            <div class = "p-3 rounded border">
+                            <a href = "{{ $console->link }}" class = "p-3 rounded border">
                                 @include($console->platform->icon)
-                            </div>
+                            </a>
                             @endforeach
                         </div>
                         

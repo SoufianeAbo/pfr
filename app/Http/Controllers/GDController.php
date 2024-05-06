@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use App\Models\GameAssets;
 use App\Models\GamePictures;
+use App\Models\GamePlatforms;
 use App\Models\GameText;
+use App\Models\Platforms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -77,5 +79,27 @@ class GDController extends Controller
         $gameText->save();
 
         return redirect()->route('gd.gamepage')->with('success', 'Your game page has been edited successfully!');
+    }
+
+    public function addPlatform(Request $request)
+    {
+        $game = Game::find($request->gameID);
+        $platform = Platforms::find($request->platformAdder);
+        
+        $gamePlatforms = new GamePlatforms;
+        $gamePlatforms->gameID = $game->id;
+        $gamePlatforms->platformID = $platform->id;
+        $gamePlatforms->link = $request->link;
+        $gamePlatforms->save();
+        
+        return redirect()->route('dashboard')->with('success', 'You have successfully added a new platform!');
+    }
+
+    public function deletePlatform(Request $request)
+    {
+        $gamePlatforms = GamePlatforms::where('gameID', $request->gameID)->where('platformID', $request->platformID)->first();
+        $gamePlatforms->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Your game has successfully been deleted!');
     }
 }

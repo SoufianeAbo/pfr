@@ -45,5 +45,7 @@ Route::post('/dashboard/createGame', [GamesController::class, 'createGame'])->na
 Route::post('/dashboard/editGame', [GamesController::class, 'editGame'])->name('edit.game');
 Route::get('/dashboard/gamepage', [GDController::class, 'gamepage'])->name('gd.gamepage');
 Route::post('/dashboard/modifyGamePage', [GDController::class, 'modifyGamePage'])->name('gd.modifyPage');
+Route::post('/dashboard/addPlatform', [GDController::class, 'addPlatform'])->name('gd.addPlatform');
+Route::post('/dashboard/deletePlatform', [GDController::class, 'deletePlatform'])->name('delete.platform');
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
