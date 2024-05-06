@@ -16,10 +16,14 @@ class CareersController extends Controller
         return view('careers', compact('careers'));
     }
 
-    public function jobOffer($career): View
+    public function jobOffer($career)
     {
         $role = Roles::find($career);
         $openPositions = Roles::all()->where('availability', 'available');
+
+        if ($role->availability == 'full') {
+            return redirect('/careers#error')->with('success', 'You cannot access this page as the position is full!');
+        }
 
         return view('careersapply', compact('role', 'openPositions'));
     }

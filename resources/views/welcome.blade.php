@@ -55,7 +55,7 @@
             <div class = "bg-white p-8 rounded-lg text-black text-5xl w-1/2 md:w-1/3 mt-12 ml-4">
                 <p>Explore more games</p>
             </div>
-            <button class = "mr-4 w-fit self-end mb-4 bg-white py-6 px-4 rounded-lg text-[#e20613] text-sm transition-all hover:bg-[#e20613] hover:text-white tracking-wider">FIND MORE</button>
+            <a href = "{{ route('games.index') }}" class = "font-bold mr-4 w-fit self-end mb-4 bg-white py-6 px-4 rounded-lg text-[#e20613] text-sm transition-all hover:bg-[#e20613] hover:text-white tracking-wider">FIND MORE</a>
         </div>
 
         <div class = "flex flex-row">

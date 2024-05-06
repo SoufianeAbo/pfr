@@ -94,6 +94,14 @@
         <p class = "boldfour text-[2.5rem] mt">Job Openings</p>
         <p class = "text-md">Find your next role with Neoline Studios</p>
 
+        @if (session('success'))
+            <div id = "error" class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                <i class="fas fa-circle-exclamation mr-2"></i>
+                <div>
+                    <span class="font-medium">Error!</span> {{ session('success') }}
+                </div>
+            </div>
+        @endif
         @foreach ($careers as $career)
             <div class = "w-3/4 pt-4 pb-2 flex flex-col border-b-2 border-neutral-300">
                 <div class = "flex flex-row justify-between items-center">
