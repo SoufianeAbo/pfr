@@ -29,7 +29,10 @@ class GamesController extends Controller
     {
         $project = Game::find($game);
         if ($project->status == 'Teaser' || $project->status == 'In Development') {
-            return redirect()->route('games.index')->with('success', 'The game is currently in development, you cannot access this page!');
+            $request = Request::createFromGlobals();
+            if ($request->server->get('HTTP_SEC_FETCH_DEST') !== 'iframe') {
+                return redirect()->route('games.index')->with('success', 'The game is currently in development, you cannot access this page!');
+            }
         }
 
         if ($project->pictures->pageVid !== null) {
