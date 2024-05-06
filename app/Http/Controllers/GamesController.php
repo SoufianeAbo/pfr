@@ -166,6 +166,13 @@ class GamesController extends Controller
             'fileAPI' => 'nullable',
         ]);
 
+        if ($validated->fails()) {
+            return redirect()
+                    ->route('dashboard')
+                    ->withErrors($validated)
+                    ->withInput();
+        }
+
         $game = new Game;
         $game->title = $request->gameTitle;
         $game->subtitle = $request->gameSubtitle;
