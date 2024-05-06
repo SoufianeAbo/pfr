@@ -5,6 +5,14 @@
         <div class="flex flex-row items-center gap-4 mb-8">
             <img class="w-12 h-12 drop-shadow-md" src="neolinelogoonly.png" alt="">
             <p class="text-[28px]">Neoline</p>
+            @if (session('success'))
+                <div class="ml-72 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                    <i class="fas fa-circle-exclamation mr-2"></i>
+                    <div>
+                        <span class="font-medium">Error!</span> {{ session('success') }}
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="toptitle pl-8">
             <img src="branddots.png" alt="">
