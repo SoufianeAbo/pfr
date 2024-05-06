@@ -24,15 +24,22 @@ Route::middleware(['authCheck'])->group(function () {
     Route::post('/login', [UserController::class, 'login'])->name('employee.login');
 
     Route::post('/dashboard/accept', [HRController::class, 'accept'])->name('hr.accept');
-    Route::post('/dashboard/reject', [HRController::class, 'reject'])->name('hr.reject');
-    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::get('/dashboard/roles', [HRController::class, 'rolesPage'])->name('hr.roles');
+    Route::post('/dashboard/reject', [HRController::class, 'reject'])->name('hr.reject');;
     Route::post('/dashboard/full', [HRController::class, 'full'])->name('hr.full');
     Route::post('/dashboard/available', [HRController::class, 'available'])->name('hr.available');
+    
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+
+    Route::middleware(['HRCheck'])->group(function () {
+        Route::get('/dashboard/roles', [HRController::class, 'rolesPage'])->name('hr.roles');
+    });
+    
+    Route::middleware(['GDCheck'])->group(function () {
+        Route::get('/dashboard/gamepage', [GDController::class, 'gamepage'])->name('gd.gamepage');
+    });
 
     Route::post('/dashboard/createGame', [GamesController::class, 'createGame'])->name('create.game');
     Route::post('/dashboard/editGame', [GamesController::class, 'editGame'])->name('edit.game');
-    Route::get('/dashboard/gamepage', [GDController::class, 'gamepage'])->name('gd.gamepage');
     Route::post('/dashboard/modifyGamePage', [GDController::class, 'modifyGamePage'])->name('gd.modifyPage');
     Route::post('/dashboard/addPlatform', [GDController::class, 'addPlatform'])->name('gd.addPlatform');
     Route::post('/dashboard/deletePlatform', [GDController::class, 'deletePlatform'])->name('delete.platform');
