@@ -1,7 +1,7 @@
 @include('includes.header')
 <body>
     @include('includes.navbar')
-    <div class="pt-24 pl-8 mb-8">
+    <div class="pt-24 pl-2 md:pl-8 mb-8">
         <div class="flex flex-row items-center gap-4 mb-8">
             <img class="w-12 h-12 drop-shadow-md" src="neolinelogoonly.png" alt="">
             <p class="text-[28px]">Neoline</p>
@@ -14,10 +14,10 @@
                 </div>
             @endif
         </div>
-        <div class="toptitle pl-8">
+        <div class="toptitle pl-0 md:pl-8">
             <img src="branddots.png" alt="">
             <p class="text-[2.5rem]">Featured Games</p>
-            <div class="flex flex-row mt-4 gap-4">
+            <div class="grid grid-cols-2 md:flex flex-wrap justify-center md:justify-start md:w-full flex-row mt-4 gap-4">
                 @foreach($featured as $key=>$game)
                 @php
                     $delay = ($key + 1) * 150;
@@ -42,10 +42,10 @@
                 @endforeach
             </div>
         </div>
-        <div class="toptitle pl-8 mt-24">
+        <div class="toptitle pl-2 md:pl-8 mt-24">
             <img src="branddots.png" alt="">
-            <div class="flex flex-row justify-between">
-                <p class="text-[2.5rem]">All Games</p>
+            <div class="flex flex-row flex-wrap justify-between">
+                <p class="text-[2.0rem] md:text-[2.5rem]">All Games</p>
                 <div class="flex flex-row gap-4 items-center mr-24">
                     <form id="search-and-filter-form" class = "flex flex-row gap-4 items-center mr-24">
                         <div class="focus-within:border-[#e20613] transition-all flex flex-row bg-white border-2 rounded-full border-black h-min p-2">
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div id="games-container" class="flex flex-row flex-wrap mb-8 mt-4 gap-4"></div>
+            <div id="games-container" class="grid grid-cols-2 md:flex md:flex-row flex-wrap mb-8 mt-4 gap-4"></div>
             <div id="pagination-links" class = "mr-12">
                 
                 </div>
@@ -103,7 +103,7 @@
                         console.log(game);
                         var gameElement = `
                             <a href="/games/${game.id}" class="hover:top-4 top-0 mb-8 animate-slide-in-blurred-bottom animation-delay-[${game.delay}ms] relative hover:scale-110 rounded-lg hover:shadow-2xl group ease-out transition-all duration-500">
-                                <img class="rounded-lg w-[267px] h-[400px]" src="${game.assets.gridVertical}" alt="">
+                                <img class="rounded-lg md:w-[267px] md:h-[400px]" src="${game.assets.gridVertical}" alt="">
                                 <div class="rounded-lg absolute top-0 right-0 bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-neutral-900 opacity-70"></div>
                                 <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full flex justify-end gap-4 p-4 flex-col">
                                     <p class="group-hover:opacity-100 opacity-0 text-white text-shadow-xl uppercase">${game.title}</p>
