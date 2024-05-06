@@ -7,9 +7,8 @@
         </div>
 
         <div class = "flex flex-col gap-4">
-            <a href="#">Games</a>
+            <a href="{{ route('games.index') }}">Games</a>
             <a href="{{ route('careers.index') }}">Careers</a>
-            <a href="#">News</a>
             <a href="{{ route('login.index') }}">Login</a>
         </div>
 
