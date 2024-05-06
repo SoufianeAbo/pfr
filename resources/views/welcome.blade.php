@@ -7,7 +7,7 @@
             <p class = "text-[28px]">Neoline</p>
         </div>
         <div class = "toptitle flex flex-col justify-between static md:relative mb-[32rem] md:mb-72">
-            <div class = "md:pt-12 pb-12 md:pb-0 md:pl-8">
+            <div class = "md:pt-12 pb-12 md:pb-0 md:pl-8 text-center md:text-left">
                 <p>We are</p>
                 <p>Neoline Studios</p>
                 <p>Africa</p>
@@ -21,7 +21,7 @@
     </div>
     
     <div id = "game1" style = "background-image: url({{ $featured[0]->assets->widescreenPic }})" >
-        <div class = "flex justify-end">
+        <div class = "flex md:justify-end justify-center">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
                     <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="{{ $featured[0]->assets->smallLogo }}" alt="">
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div id = "game2" style = "background-image: url({{ $featured[1]->assets->widescreenPic }})">
-        <div class = "flex justify-end">
+        <div class = "flex md:justify-end justify-center">
             <div class = "flex flex-col gap-8 text-2xl mr-8">
                 <div class = "bg-white p-8 rounded-lg text-[#e20613] mt-48 w-96 flex flex-row gap-8">
                     <img class = "w-1/4 border-2 rounded hover:scale-150 transition-all border-[#e20613]" src="{{ $featured[1]->assets->smallLogo }}" alt="">
@@ -52,30 +52,18 @@
     </div>
     <div id = "game3" style = "background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 1)), url({{ $featured[2]->assets->widescreenPic }})">
         <div class = "w-full flex flex-col gap-40">
-            <div class = "bg-white p-8 rounded-lg text-black text-5xl w-1/3 mt-12 ml-4">
+            <div class = "bg-white p-8 rounded-lg text-black text-5xl w-1/2 md:w-1/3 mt-12 ml-4">
                 <p>Explore more games</p>
             </div>
             <button class = "mr-4 w-fit self-end mb-4 bg-white py-6 px-4 rounded-lg text-[#e20613] text-sm transition-all hover:bg-[#e20613] hover:text-white tracking-wider">FIND MORE</button>
         </div>
-        {{-- <div class = "flex flex-row justify-around">
-            <div id = "caroGame1" class = "bg-cover hover:bg-auto hover:bg-top rounded-lg transition-all flex justify-between">
-                <img class = "w-1/2 mt-24 ml-4 mb-4" src="https://cdn2.steamgriddb.com/logo_thumb/d06f854e3f106600235dc4ac0e08b537.png" alt="">
-            </div>
-
-            <div id = "caroGame2" class = "bg-cover hover:bg-auto hover:bg-center rounded-lg transition-all flex justify-between">
-                <img class = "w-1/2 mt-24 ml-4 mb-4 object-contain" src="https://cdn2.steamgriddb.com/logo_thumb/fe45e3227f3805b1314414203c4e5206.png" alt="">
-            </div>
-        </div> --}}
-        {{-- <div class = "mb-16">
-            <button class = "w-fit flex m-auto px-8 py-6 mt-8 rounded-lg text-white bg-[#e20613] hover:text-[#e20613] hover:bg-white transition-all border border-[#e20613]">ALL UPCOMING RELEASES</button>
-        </div> --}}
 
         <div class = "flex flex-row">
-            <img src="abovefooter.png" alt="" class = "w-[63%]">
+            <img src="abovefooter.png" alt="" class = "w-[63%] hidden md:block">
             <div class = "flex flex-col items-center w-full p-16 mt-16 text-center">
                 <img class = "mb-8" src="https://en.bandainamcoent.eu/themes/custom/bne_ultimate/themes/bne_front/images/masks/mask-newsletter.svg" alt="">
                 <p class = "text-4xl">For job offers, head to our careers page!</p>
-                <button class = "w-fit flex m-auto px-8 py-6 mt-8 rounded-lg text-white bg-[#e20613] hover:text-[#e20613] hover:bg-white transition-all border border-[#e20613]">JOB CAREERS</button>
+                <a href = "{{ route('careers.index') }}" class = "w-fit flex m-auto px-8 py-6 mt-8 rounded-lg text-white bg-[#e20613] hover:text-[#e20613] hover:bg-white transition-all border border-[#e20613]">JOB CAREERS</a>
             </div>
         </div>
         @include('includes.footer')
