@@ -15,19 +15,12 @@ class RoleDashboardMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check()) {
-            $role = auth()->user()->role->special;
+        if ($request->path() == 'login' && auth()->check()) {
+            return redirect()->route('dashboard');
+        }
 
-            switch ($role) {
-                case 'hr':
-                    return redirect()->route('hr.index');
-
-                case 'gamedesigner':
-                    return redirect()->route('gd.index');
-
-                default:
-                    return redirect()->route('login.index');
-            }
+        if ($request->path() == 'dashboard' && !auth()->check()) {
+            return redirect()->route('login.index');
         }
 
         return $next($request);
