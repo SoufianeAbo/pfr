@@ -1,14 +1,14 @@
 @include('includes.header')
 <body class = "loginpage">
     <div class = "bg-[#E6E6E6] py-2 flex flex-col items-center">
-        <div class = "w-1/2 flex flex-row justify-between">
+        <div class = "w-full px-4 md:px-0 md:w-1/2 flex flex-row flex-wrap justify-center md:justify-between">
             <p class = "flex flex-row items-center">
                 <span class = "text-[#e20613] text-xl mr-4"><i class="fa-solid fa-triangle-exclamation"></i></span>
             This is an employees only area. If you're not an employee, head out to our home page.</p>
             <a href="{{ route('home.index') }}" class = "bg-black text-white px-12 rounded-full py-3">Home</a>
         </div>
     </div>
-    <div class = "flex flex-row w-full">
+    <div class = "flex flex-row flex-wrap md:flex-nowrap w-full">
         <div class = "bg-white px-4 py-2 flex flex-col w-full justify-between">
             <div class = "w-1/12">
                 <img src="{{ asset('neolinelogoblack.png') }}" alt="">
