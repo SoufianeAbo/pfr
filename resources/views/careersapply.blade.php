@@ -138,7 +138,7 @@
                     <div class = "flex flex-row boldmedium gap-1">
                         <p class = "text-gray-500">WHAT IS YOUR SALARY EXPECTATION?</p>
                     </div>
-                    <input name = "salaryExpectation" class = "border p-2 px-4 w-full" type="text">
+                    <input name = "salaryExpectation" class = "border p-2 px-4 w-full" type="number">
 
                     <button type = "submit" class = "self-end bg-orange-500 text-white px-6 py-4 rounded-full hover:bg-orange-300 transition-all">SUBMIT APPLICATION</button>
                 </form>
